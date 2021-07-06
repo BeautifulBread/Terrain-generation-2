@@ -1,6 +1,6 @@
 Assets {
-  Id: 8485270801205398950
-  Name: "Namespace"
+  Id: 6481533058273645766
+  Name: "Import Showcase Script"
   PlatformAssetType: 3
   TextAsset {
   }

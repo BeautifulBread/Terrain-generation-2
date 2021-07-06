@@ -1,12 +1,12 @@
 Assets {
-  Id: 12756557352563137479
-  Name: "Scripts management framework"
+  Id: 6844784027974161578
+  Name: "Noise script"
   PlatformAssetType: 5
   TemplateAsset {
     ObjectBlock {
-      RootId: 1218721143472228266
+      RootId: 12332045510546840527
       Objects {
-        Id: 1218721143472228266
+        Id: 12332045510546840527
         Name: "TemplateBundleDummy"
         Transform {
           Location {
@@ -22,7 +22,7 @@ Assets {
         Folder {
           BundleDummy {
             ReferencedAssets {
-              Id: 841534158063459245
+              Id: 2651619979252803131
             }
           }
         }
@@ -34,7 +34,11 @@ Assets {
     }
   }
   Marketplace {
-    Description: "Baus\' namespace manager refactored with my common core libraries."
+    Id: "1709fc9f06dd4c3b8d72bfd2a287eb3d"
+    OwnerAccountId: "609c6418ffe648c5a85e9dd78e174dbb"
+    OwnerName: "nexovec"
+    Version: "1.0.0"
+    Description: "A basic noise generation script I use for terrain generation."
   }
   SerializationVersion: 91
 }

@@ -1,6 +1,6 @@
 Assets {
-  Id: 15456599419630513875
-  Name: "ClientMain"
+  Id: 2394074719941360336
+  Name: "ScriptFolder"
   PlatformAssetType: 3
   TextAsset {
   }

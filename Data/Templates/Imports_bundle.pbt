@@ -22,7 +22,7 @@ Assets {
         Folder {
           BundleDummy {
             ReferencedAssets {
-              Id: 9921580825534316082
+              Id: 841534158063459245
             }
           }
         }
@@ -34,10 +34,6 @@ Assets {
     }
   }
   Marketplace {
-    Id: "b41af1ce032e40089e6051b902729ec6"
-    OwnerAccountId: "609c6418ffe648c5a85e9dd78e174dbb"
-    OwnerName: "nexovec"
-    Version: "1.0.0"
     Description: "Baus\' namespace manager refactored with my common core libraries."
   }
   SerializationVersion: 91

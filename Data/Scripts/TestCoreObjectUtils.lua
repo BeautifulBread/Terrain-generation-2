@@ -1,6 +1,6 @@
 local Imports = _G.Imports
-local Tests = Imports.Tests
-local CoreObjectUtils = Imports.Utils.CoreObjectUtils
+local Tests = Imports.Tests.require()
+local CoreObjectUtils = Imports.Utils.CoreObjectUtils.require()
 -- assert(CoreObjectUtils ~=nil)
 
 Tests.RunTest(

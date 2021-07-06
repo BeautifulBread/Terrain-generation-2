@@ -1,12 +1,12 @@
 Assets {
-  Id: 12756557352563137479
-  Name: "Scripts management framework"
+  Id: 13110419378488083565
+  Name: "Scripts"
   PlatformAssetType: 5
   TemplateAsset {
     ObjectBlock {
-      RootId: 1218721143472228266
+      RootId: 11646087287419662581
       Objects {
-        Id: 1218721143472228266
+        Id: 11646087287419662581
         Name: "TemplateBundleDummy"
         Transform {
           Location {

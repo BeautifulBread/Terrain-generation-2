@@ -1,7 +1,7 @@
 local Imports = _G['Imports']
-local Tests = Imports.Tests
-local FunctionalUtils = Imports.Utils.FunctionalUtils
-local JSON = Imports.Utils.JSON
+local Tests = Imports.Tests.require()
+local FunctionalUtils = Imports.Utils.FunctionalUtils.require()
+local JSON = Imports.Utils.JSON.require()
 
 Tests.RunTest(
     'FunctionalUtils.Map',

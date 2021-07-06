@@ -1,4 +1,5 @@
-local TestFramework = require(script.parent:GetCustomProperty('self')) or error()
+local Imports = _G.Imports
+local TestFramework = Imports.Tests.require()
 local TableUtils = require(script:GetCustomProperty('TableUtils')) or error()
 
 TestFramework.RunTest(

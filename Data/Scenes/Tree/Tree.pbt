@@ -14,12 +14,15 @@ Objects {
       Z: 1
     }
   }
+  ChildIds: 5514172709682967087
+  ChildIds: 9108556947584013344
+  ChildIds: 4791806519758523738
   ChildIds: 7367735074338159388
   ChildIds: 16813558807825262224
   ChildIds: 14713340454944924967
   ChildIds: 10005074784157121906
   ChildIds: 14982843161775482339
-  ChildIds: 5449082837608207243
+  ChildIds: 5158388036930870618
   UnregisteredParameters {
   }
   Collidable_v2 {
@@ -35,9 +38,13 @@ Objects {
   }
 }
 Objects {
-  Id: 5449082837608207243
-  Name: "Imports"
+  Id: 5158388036930870618
+  Name: "ChunkedTerrain"
   Transform {
+    Location {
+    }
+    Rotation {
+    }
     Scale {
       X: 1
       Y: 1
@@ -45,34 +52,87 @@ Objects {
     }
   }
   ParentId: 4781671109827199097
+  ChildIds: 14883480519108256850
+  ChildIds: 16507599200034608386
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
   Visible_v2 {
     Value: "mc:evisibilitysetting:inheritfromparent"
   }
-  TemplateInstance {
-    ParameterOverrideMap {
-      key: 7080499013303202467
-      value {
-        Overrides {
-          Name: "Name"
-          String: "Scripts"
-        }
-        Overrides {
-          Name: "Position"
-          Vector {
-          }
-        }
-        Overrides {
-          Name: "Rotation"
-          Rotator {
-          }
-        }
-      }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  Folder {
+    IsGroup: true
+  }
+}
+Objects {
+  Id: 16507599200034608386
+  Name: "TerrainClass"
+  Transform {
+    Location {
     }
-    TemplateAsset {
-      Id: 9921580825534316082
+    Rotation {
+    }
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 5158388036930870618
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  Script {
+    ScriptAsset {
+      Id: 3296650807390737022
+    }
+  }
+}
+Objects {
+  Id: 14883480519108256850
+  Name: "Noise"
+  Transform {
+    Location {
+    }
+    Rotation {
+    }
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 5158388036930870618
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  Script {
+    ScriptAsset {
+      Id: 2651619979252803131
     }
   }
 }
@@ -756,6 +816,102 @@ Objects {
           HighDistance: 9000
         }
       }
+    }
+  }
+}
+Objects {
+  Id: 4791806519758523738
+  Name: "Import Showcase Script"
+  Transform {
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 4781671109827199097
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  TemplateInstance {
+    ParameterOverrideMap {
+      key: 8193732956594835665
+      value {
+        Overrides {
+          Name: "Name"
+          String: "Import Showcase Script"
+        }
+      }
+    }
+    TemplateAsset {
+      Id: 9166072680543823688
+    }
+  }
+}
+Objects {
+  Id: 9108556947584013344
+  Name: "ScriptFolder"
+  Transform {
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 4781671109827199097
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  TemplateInstance {
+    ParameterOverrideMap {
+      key: 6127463511379346490
+      value {
+        Overrides {
+          Name: "Name"
+          String: "ScriptFolder"
+        }
+      }
+    }
+    TemplateAsset {
+      Id: 5027466373211250011
+    }
+  }
+}
+Objects {
+  Id: 5514172709682967087
+  Name: "Module manager LEAVE ON TOP!"
+  Transform {
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 4781671109827199097
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  TemplateInstance {
+    ParameterOverrideMap {
+      key: 15843999788333761405
+      value {
+        Overrides {
+          Name: "Name"
+          String: "Module manager LEAVE ON TOP!"
+        }
+      }
+    }
+    TemplateAsset {
+      Id: 7638048984163506959
     }
   }
 }

@@ -93,7 +93,7 @@ Objects {
     }
   }
   ParentId: 4781671109827199097
-  ChildIds: 9099725788783552948
+  ChildIds: 8901174412380743941
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
@@ -111,8 +111,8 @@ Objects {
   }
 }
 Objects {
-  Id: 9099725788783552948
-  Name: "FlatPlane"
+  Id: 8901174412380743941
+  Name: "TemporaryTerrainGenerator"
   Transform {
     Location {
     }
@@ -139,7 +139,7 @@ Objects {
   }
   Script {
     ScriptAsset {
-      Id: 15360525266301948319
+      Id: 4829217015423507923
     }
   }
 }

@@ -1,29 +1,24 @@
 Assets {
-  Id: 15360525266301948319
-  Name: "FlatPlane"
+  Id: 11374823075921796682
+  Name: "BasicTerrainBuilderDevice"
   PlatformAssetType: 3
   TextAsset {
     CustomParameters {
       Overrides {
         Name: "cs:self"
         AssetReference {
-          Id: 15360525266301948319
+          Id: 11374823075921796682
         }
       }
       Overrides {
-        Name: "cs:TerrainCube"
+        Name: "cs:cube"
         AssetReference {
           Id: 9905284988165168215
-        }
-      }
-      Overrides {
-        Name: "cs:TerrainGeom"
-        ObjectReference {
-          SelfId: 1120764995307223240
         }
       }
     }
   }
   SerializationVersion: 91
   VirtualFolderPath: "Procedural"
+  VirtualFolderPath: "Devices"
 }

@@ -53,7 +53,7 @@ Objects {
     }
   }
   ParentId: 1087872740236255380
-  ChildIds: 10855832413725474672
+  ChildIds: 17600839716866789060
   Collidable_v2 {
     Value: "mc:ecollisionsetting:forceoff"
   }
@@ -70,9 +70,13 @@ Objects {
   }
 }
 Objects {
-  Id: 10855832413725474672
+  Id: 17600839716866789060
   Name: "Library"
   Transform {
+    Location {
+    }
+    Rotation {
+    }
     Scale {
       X: 1
       Y: 1
@@ -80,9 +84,10 @@ Objects {
     }
   }
   ParentId: 17821573574919133552
-  ChildIds: 6396325212954937827
-  ChildIds: 18369275802439582672
-  ChildIds: 17577072448189524930
+  ChildIds: 9309163439691122198
+  ChildIds: 2856590229498910549
+  ChildIds: 58241789740262966
+  ChildIds: 16049657558497630889
   UnregisteredParameters {
     Overrides {
       Name: "cs:self"
@@ -108,16 +113,41 @@ Objects {
       Id: 2394074719941360336
     }
   }
-  InstanceHistory {
-    SelfId: 10855832413725474672
-    SubobjectId: 2967057677105394680
-    InstanceId: 18352534106724282668
-    TemplateId: 10168914667765695053
-    WasRoot: true
+}
+Objects {
+  Id: 16049657558497630889
+  Name: "Procedural"
+  Transform {
+    Location {
+    }
+    Rotation {
+    }
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 17600839716866789060
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  Folder {
+    IsFilePartition: true
+    FilePartitionName: "Procedural"
   }
 }
 Objects {
-  Id: 17577072448189524930
+  Id: 58241789740262966
   Name: "Tests"
   Transform {
     Location {
@@ -130,7 +160,7 @@ Objects {
       Z: 1
     }
   }
-  ParentId: 10855832413725474672
+  ParentId: 17600839716866789060
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
@@ -148,15 +178,9 @@ Objects {
       Id: 13897313495961290138
     }
   }
-  InstanceHistory {
-    SelfId: 17577072448189524930
-    SubobjectId: 5504805498221045578
-    InstanceId: 18352534106724282668
-    TemplateId: 10168914667765695053
-  }
 }
 Objects {
-  Id: 18369275802439582672
+  Id: 2856590229498910549
   Name: "Math"
   Transform {
     Location {
@@ -169,7 +193,7 @@ Objects {
       Z: 1
     }
   }
-  ParentId: 10855832413725474672
+  ParentId: 17600839716866789060
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
@@ -184,17 +208,11 @@ Objects {
   }
   Folder {
     IsFilePartition: true
-    FilePartitionName: "Math"
-  }
-  InstanceHistory {
-    SelfId: 18369275802439582672
-    SubobjectId: 4712583976259571544
-    InstanceId: 18352534106724282668
-    TemplateId: 10168914667765695053
+    FilePartitionName: "Math_1"
   }
 }
 Objects {
-  Id: 6396325212954937827
+  Id: 9309163439691122198
   Name: "Utils"
   Transform {
     Location {
@@ -207,7 +225,7 @@ Objects {
       Z: 1
     }
   }
-  ParentId: 10855832413725474672
+  ParentId: 17600839716866789060
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
@@ -222,13 +240,7 @@ Objects {
   }
   Folder {
     IsFilePartition: true
-    FilePartitionName: "Utils"
-  }
-  InstanceHistory {
-    SelfId: 6396325212954937827
-    SubobjectId: 16667539408655517035
-    InstanceId: 18352534106724282668
-    TemplateId: 10168914667765695053
+    FilePartitionName: "Utils_1"
   }
 }
 Objects {
@@ -305,7 +317,7 @@ Objects {
   }
   Folder {
     IsFilePartition: true
-    FilePartitionName: "Procedural"
+    FilePartitionName: "Procedural_1"
   }
 }
 Objects {
@@ -370,7 +382,7 @@ Objects {
   }
   Folder {
     IsFilePartition: true
-    FilePartitionName: "Math_1"
+    FilePartitionName: "Math"
   }
 }
 Objects {
@@ -402,6 +414,6 @@ Objects {
   }
   Folder {
     IsFilePartition: true
-    FilePartitionName: "Utils_1"
+    FilePartitionName: "Utils"
   }
 }

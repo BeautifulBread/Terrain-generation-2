@@ -5,5 +5,5 @@ Assets {
   TextAsset {
   }
   SerializationVersion: 91
-  VirtualFolderPath: "Terrain Gen"
+  VirtualFolderPath: "Procedural"
 }

@@ -1,17 +1,18 @@
 Assets {
-  Id: 11090181159666109438
-  Name: "TerrainBuilderPipelineClass2D"
+  Id: 6941183492192852755
+  Name: "FlatSurface2DDevice"
   PlatformAssetType: 3
   TextAsset {
     CustomParameters {
       Overrides {
         Name: "cs:self"
         AssetReference {
-          Id: 11090181159666109438
+          Id: 6941183492192852755
         }
       }
     }
   }
   SerializationVersion: 91
   VirtualFolderPath: "Procedural"
+  VirtualFolderPath: "Devices"
 }

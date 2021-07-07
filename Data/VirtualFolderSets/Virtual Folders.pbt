@@ -14,7 +14,20 @@ Assets {
       PlatformAssetType: 3
     }
     Folders {
-      VirtualFolderPath: "Terrain Gen"
+      VirtualFolderPath: "Procedural"
+      PlatformAssetType: 3
+    }
+    Folders {
+      VirtualFolderPath: "instanced"
+      PlatformAssetType: 3
+    }
+    Folders {
+      VirtualFolderPath: "Procedural"
+      VirtualFolderPath: "Devices"
+      PlatformAssetType: 3
+    }
+    Folders {
+      VirtualFolderPath: "temp"
       PlatformAssetType: 3
     }
   }

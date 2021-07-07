@@ -14,15 +14,15 @@ Objects {
       Z: 1
     }
   }
-  ChildIds: 5514172709682967087
-  ChildIds: 9108556947584013344
+  ChildIds: 17090953824140117408
+  ChildIds: 9808923247151357042
   ChildIds: 4791806519758523738
   ChildIds: 7367735074338159388
   ChildIds: 16813558807825262224
   ChildIds: 14713340454944924967
   ChildIds: 10005074784157121906
-  ChildIds: 14982843161775482339
-  ChildIds: 5158388036930870618
+  ChildIds: 1120764995307223240
+  ChildIds: 8055588525088461715
   UnregisteredParameters {
   }
   Collidable_v2 {
@@ -38,13 +38,9 @@ Objects {
   }
 }
 Objects {
-  Id: 5158388036930870618
-  Name: "ChunkedTerrain"
+  Id: 8055588525088461715
+  Name: "TerrainCube"
   Transform {
-    Location {
-    }
-    Rotation {
-    }
     Scale {
       X: 1
       Y: 1
@@ -52,130 +48,98 @@ Objects {
     }
   }
   ParentId: 4781671109827199097
-  ChildIds: 14883480519108256850
-  ChildIds: 16507599200034608386
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
   Visible_v2 {
     Value: "mc:evisibilitysetting:inheritfromparent"
   }
-  CameraCollidable {
-    Value: "mc:ecollisionsetting:inheritfromparent"
-  }
-  EditorIndicatorVisibility {
-    Value: "mc:eindicatorvisibility:visiblewhenselected"
-  }
-  Folder {
-    IsGroup: true
-  }
-}
-Objects {
-  Id: 16507599200034608386
-  Name: "TerrainClass"
-  Transform {
-    Location {
-    }
-    Rotation {
-    }
-    Scale {
-      X: 1
-      Y: 1
-      Z: 1
-    }
-  }
-  ParentId: 5158388036930870618
-  Collidable_v2 {
-    Value: "mc:ecollisionsetting:inheritfromparent"
-  }
-  Visible_v2 {
-    Value: "mc:evisibilitysetting:inheritfromparent"
-  }
-  CameraCollidable {
-    Value: "mc:ecollisionsetting:inheritfromparent"
-  }
-  EditorIndicatorVisibility {
-    Value: "mc:eindicatorvisibility:visiblewhenselected"
-  }
-  Script {
-    ScriptAsset {
-      Id: 3296650807390737022
-    }
-  }
-}
-Objects {
-  Id: 14883480519108256850
-  Name: "Noise"
-  Transform {
-    Location {
-    }
-    Rotation {
-    }
-    Scale {
-      X: 1
-      Y: 1
-      Z: 1
-    }
-  }
-  ParentId: 5158388036930870618
-  Collidable_v2 {
-    Value: "mc:ecollisionsetting:inheritfromparent"
-  }
-  Visible_v2 {
-    Value: "mc:evisibilitysetting:inheritfromparent"
-  }
-  CameraCollidable {
-    Value: "mc:ecollisionsetting:inheritfromparent"
-  }
-  EditorIndicatorVisibility {
-    Value: "mc:eindicatorvisibility:visiblewhenselected"
-  }
-  Script {
-    ScriptAsset {
-      Id: 2651619979252803131
-    }
-  }
-}
-Objects {
-  Id: 14982843161775482339
-  Name: "Default Floor"
-  Transform {
-    Location {
-      Z: -50
-    }
-    Rotation {
-    }
-    Scale {
-      X: 50
-      Y: 50
-      Z: 1
-    }
-  }
-  ParentId: 4781671109827199097
-  UnregisteredParameters {
-  }
-  Collidable_v2 {
-    Value: "mc:ecollisionsetting:inheritfromparent"
-  }
-  Visible_v2 {
-    Value: "mc:evisibilitysetting:inheritfromparent"
-  }
-  CameraCollidable {
-    Value: "mc:ecollisionsetting:forceon"
-  }
-  CoreMesh {
-    MeshAsset {
-      Id: 12095835209017042614
-    }
-    Teams {
-      IsTeamCollisionEnabled: true
-      IsEnemyCollisionEnabled: true
-    }
-    InteractWithTriggers: true
-    StaticMesh {
-      Physics {
+  TemplateInstance {
+    ParameterOverrideMap {
+      key: 7435234197926908234
+      value {
+        Overrides {
+          Name: "Name"
+          String: "TerrainCube"
+        }
+        Overrides {
+          Name: "Position"
+          Vector {
+            Z: -55
+          }
+        }
       }
-      BoundsScale: 1
+    }
+    TemplateAsset {
+      Id: 9905284988165168215
+    }
+  }
+}
+Objects {
+  Id: 1120764995307223240
+  Name: "TerrainGeom"
+  Transform {
+    Location {
+      X: -455
+      Y: -230
+      Z: -1365
+    }
+    Rotation {
+    }
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 4781671109827199097
+  ChildIds: 9099725788783552948
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  NetworkContext {
+    Type: RuntimeStatic
+  }
+}
+Objects {
+  Id: 9099725788783552948
+  Name: "FlatPlane"
+  Transform {
+    Location {
+    }
+    Rotation {
+    }
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 1120764995307223240
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  Script {
+    ScriptAsset {
+      Id: 15360525266301948319
     }
   }
 }
@@ -852,9 +816,13 @@ Objects {
   }
 }
 Objects {
-  Id: 9108556947584013344
+  Id: 9808923247151357042
   Name: "ScriptFolder"
   Transform {
+    Location {
+    }
+    Rotation {
+    }
     Scale {
       X: 1
       Y: 1
@@ -862,31 +830,87 @@ Objects {
     }
   }
   ParentId: 4781671109827199097
+  ChildIds: 18052919856155557354
+  UnregisteredParameters {
+    Overrides {
+      Name: "cs:self"
+      AssetReference {
+        Id: 2394074719941360336
+      }
+    }
+  }
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
   Visible_v2 {
     Value: "mc:evisibilitysetting:inheritfromparent"
   }
-  TemplateInstance {
-    ParameterOverrideMap {
-      key: 6127463511379346490
-      value {
-        Overrides {
-          Name: "Name"
-          String: "ScriptFolder"
-        }
-      }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  Script {
+    ScriptAsset {
+      Id: 2394074719941360336
     }
-    TemplateAsset {
-      Id: 5027466373211250011
-    }
+  }
+  InstanceHistory {
+    SelfId: 9808923247151357042
+    SubobjectId: 6127463511379346490
+    InstanceId: 9108556947584013344
+    TemplateId: 5027466373211250011
+    WasRoot: true
   }
 }
 Objects {
-  Id: 5514172709682967087
+  Id: 18052919856155557354
+  Name: "NewScript2"
+  Transform {
+    Location {
+    }
+    Rotation {
+    }
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 9808923247151357042
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  Script {
+    ScriptAsset {
+      Id: 16904250612611961310
+    }
+  }
+  InstanceHistory {
+    SelfId: 18052919856155557354
+    SubobjectId: 2855720686605264290
+    InstanceId: 9108556947584013344
+    TemplateId: 5027466373211250011
+  }
+}
+Objects {
+  Id: 17090953824140117408
   Name: "Module manager LEAVE ON TOP!"
   Transform {
+    Location {
+    }
+    Rotation {
+    }
     Scale {
       X: 1
       Y: 1
@@ -900,18 +924,21 @@ Objects {
   Visible_v2 {
     Value: "mc:evisibilitysetting:inheritfromparent"
   }
-  TemplateInstance {
-    ParameterOverrideMap {
-      key: 15843999788333761405
-      value {
-        Overrides {
-          Name: "Name"
-          String: "Module manager LEAVE ON TOP!"
-        }
-      }
-    }
-    TemplateAsset {
-      Id: 7638048984163506959
-    }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  Folder {
+    IsFilePartition: true
+    FilePartitionName: "Module manager LEAVE ON TOP!"
+  }
+  InstanceHistory {
+    SelfId: 17090953824140117408
+    SubobjectId: 15843999788333761405
+    InstanceId: 5514172709682967087
+    TemplateId: 7638048984163506959
+    WasRoot: true
   }
 }

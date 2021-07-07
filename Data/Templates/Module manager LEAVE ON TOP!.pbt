@@ -19,7 +19,6 @@ Assets {
         ChildIds: 18443153964109940849
         ChildIds: 10630627334119222682
         ChildIds: 7544596369200731252
-        ChildIds: 8339359008019502668
         ChildIds: 14899999691178409647
         ChildIds: 2848186685523280316
         Collidable_v2 {
@@ -120,6 +119,7 @@ Assets {
           }
         }
         ParentId: 15843999788333761405
+        ChildIds: 9435291018768795153
         UnregisteredParameters {
           Overrides {
             Name: "cs:managerCoreObject"
@@ -147,7 +147,7 @@ Assets {
         }
       }
       Objects {
-        Id: 8339359008019502668
+        Id: 9435291018768795153
         Name: "ClientContext"
         Transform {
           Location {
@@ -160,8 +160,8 @@ Assets {
             Z: 1
           }
         }
-        ParentId: 15843999788333761405
-        ChildIds: 15694691131410910419
+        ParentId: 7544596369200731252
+        ChildIds: 4233176209643493649
         Collidable_v2 {
           Value: "mc:ecollisionsetting:forceoff"
         }
@@ -178,7 +178,7 @@ Assets {
         }
       }
       Objects {
-        Id: 15694691131410910419
+        Id: 4233176209643493649
         Name: "ModuleManagerInitializerScript"
         Transform {
           Location {
@@ -191,7 +191,15 @@ Assets {
             Z: 1
           }
         }
-        ParentId: 8339359008019502668
+        ParentId: 9435291018768795153
+        UnregisteredParameters {
+          Overrides {
+            Name: "cs:managerCoreObject"
+            ObjectReference {
+              SubObjectId: 10630627334119222682
+            }
+          }
+        }
         Collidable_v2 {
           Value: "mc:ecollisionsetting:inheritfromparent"
         }
@@ -214,6 +222,10 @@ Assets {
         Id: 14899999691178409647
         Name: "Library"
         Transform {
+          Location {
+          }
+          Rotation {
+          }
           Scale {
             X: 1
             Y: 1
@@ -221,7 +233,9 @@ Assets {
           }
         }
         ParentId: 15843999788333761405
-        ChildIds: 9260474540646839825
+        ChildIds: 16091322462448037767
+        ChildIds: 15153172067142659286
+        ChildIds: 5497476009195584209
         ChildIds: 15177156334417070705
         UnregisteredParameters {
           Overrides {
@@ -250,7 +264,415 @@ Assets {
         }
       }
       Objects {
-        Id: 9260474540646839825
+        Id: 16091322462448037767
+        Name: "ClientContext"
+        Transform {
+          Location {
+          }
+          Rotation {
+          }
+          Scale {
+            X: 1
+            Y: 1
+            Z: 1
+          }
+        }
+        ParentId: 14899999691178409647
+        ChildIds: 1207548581393099297
+        Collidable_v2 {
+          Value: "mc:ecollisionsetting:forceoff"
+        }
+        Visible_v2 {
+          Value: "mc:evisibilitysetting:inheritfromparent"
+        }
+        CameraCollidable {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        EditorIndicatorVisibility {
+          Value: "mc:eindicatorvisibility:visiblewhenselected"
+        }
+        NetworkContext {
+        }
+      }
+      Objects {
+        Id: 1207548581393099297
+        Name: "Library"
+        Transform {
+          Location {
+          }
+          Rotation {
+          }
+          Scale {
+            X: 1
+            Y: 1
+            Z: 1
+          }
+        }
+        ParentId: 16091322462448037767
+        ChildIds: 2753732595738225099
+        ChildIds: 10736619412780766843
+        ChildIds: 11066884267523286652
+        UnregisteredParameters {
+          Overrides {
+            Name: "cs:self"
+            AssetReference {
+              Id: 2394074719941360336
+            }
+          }
+        }
+        Collidable_v2 {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        Visible_v2 {
+          Value: "mc:evisibilitysetting:inheritfromparent"
+        }
+        CameraCollidable {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        EditorIndicatorVisibility {
+          Value: "mc:eindicatorvisibility:visiblewhenselected"
+        }
+        Script {
+          ScriptAsset {
+            Id: 2394074719941360336
+          }
+        }
+      }
+      Objects {
+        Id: 2753732595738225099
+        Name: "Utils"
+        Transform {
+          Location {
+          }
+          Rotation {
+          }
+          Scale {
+            X: 1
+            Y: 1
+            Z: 1
+          }
+        }
+        ParentId: 1207548581393099297
+        ChildIds: 7564201911393947025
+        ChildIds: 3775420851624870039
+        ChildIds: 13040903188737178814
+        ChildIds: 1887068375822118540
+        ChildIds: 16989718227915273584
+        Collidable_v2 {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        Visible_v2 {
+          Value: "mc:evisibilitysetting:inheritfromparent"
+        }
+        CameraCollidable {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        EditorIndicatorVisibility {
+          Value: "mc:eindicatorvisibility:visiblewhenselected"
+        }
+        Folder {
+          IsFilePartition: true
+        }
+      }
+      Objects {
+        Id: 7564201911393947025
+        Name: "CoreObjectUtils"
+        Transform {
+          Location {
+          }
+          Rotation {
+          }
+          Scale {
+            X: 1
+            Y: 1
+            Z: 1
+          }
+        }
+        ParentId: 2753732595738225099
+        Collidable_v2 {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        Visible_v2 {
+          Value: "mc:evisibilitysetting:inheritfromparent"
+        }
+        CameraCollidable {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        EditorIndicatorVisibility {
+          Value: "mc:eindicatorvisibility:visiblewhenselected"
+        }
+        Script {
+          ScriptAsset {
+            Id: 1157754754195071624
+          }
+        }
+      }
+      Objects {
+        Id: 3775420851624870039
+        Name: "FunctionalUtils"
+        Transform {
+          Location {
+          }
+          Rotation {
+          }
+          Scale {
+            X: 1
+            Y: 1
+            Z: 1
+          }
+        }
+        ParentId: 2753732595738225099
+        Collidable_v2 {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        Visible_v2 {
+          Value: "mc:evisibilitysetting:inheritfromparent"
+        }
+        CameraCollidable {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        EditorIndicatorVisibility {
+          Value: "mc:eindicatorvisibility:visiblewhenselected"
+        }
+        Script {
+          ScriptAsset {
+            Id: 2894573475697960457
+          }
+        }
+      }
+      Objects {
+        Id: 13040903188737178814
+        Name: "TableUtils"
+        Transform {
+          Location {
+          }
+          Rotation {
+          }
+          Scale {
+            X: 1
+            Y: 1
+            Z: 1
+          }
+        }
+        ParentId: 2753732595738225099
+        Collidable_v2 {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        Visible_v2 {
+          Value: "mc:evisibilitysetting:inheritfromparent"
+        }
+        CameraCollidable {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        EditorIndicatorVisibility {
+          Value: "mc:eindicatorvisibility:visiblewhenselected"
+        }
+        Script {
+          ScriptAsset {
+            Id: 1518469903413645625
+          }
+        }
+      }
+      Objects {
+        Id: 1887068375822118540
+        Name: "JSON"
+        Transform {
+          Location {
+          }
+          Rotation {
+          }
+          Scale {
+            X: 1
+            Y: 1
+            Z: 1
+          }
+        }
+        ParentId: 2753732595738225099
+        Collidable_v2 {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        Visible_v2 {
+          Value: "mc:evisibilitysetting:inheritfromparent"
+        }
+        CameraCollidable {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        EditorIndicatorVisibility {
+          Value: "mc:eindicatorvisibility:visiblewhenselected"
+        }
+        Script {
+          ScriptAsset {
+            Id: 9963136647964533062
+          }
+        }
+      }
+      Objects {
+        Id: 16989718227915273584
+        Name: "KeyCodes"
+        Transform {
+          Location {
+          }
+          Rotation {
+          }
+          Scale {
+            X: 1
+            Y: 1
+            Z: 1
+          }
+        }
+        ParentId: 2753732595738225099
+        Collidable_v2 {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        Visible_v2 {
+          Value: "mc:evisibilitysetting:inheritfromparent"
+        }
+        CameraCollidable {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        EditorIndicatorVisibility {
+          Value: "mc:eindicatorvisibility:visiblewhenselected"
+        }
+        Script {
+          ScriptAsset {
+            Id: 5153807603410020566
+          }
+        }
+      }
+      Objects {
+        Id: 10736619412780766843
+        Name: "Math"
+        Transform {
+          Location {
+          }
+          Rotation {
+          }
+          Scale {
+            X: 1
+            Y: 1
+            Z: 1
+          }
+        }
+        ParentId: 1207548581393099297
+        ChildIds: 7025104473305238099
+        ChildIds: 14224465637443035536
+        Collidable_v2 {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        Visible_v2 {
+          Value: "mc:evisibilitysetting:inheritfromparent"
+        }
+        CameraCollidable {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        EditorIndicatorVisibility {
+          Value: "mc:eindicatorvisibility:visiblewhenselected"
+        }
+        Folder {
+          IsFilePartition: true
+        }
+      }
+      Objects {
+        Id: 7025104473305238099
+        Name: "TerrainClass"
+        Transform {
+          Location {
+          }
+          Rotation {
+          }
+          Scale {
+            X: 1
+            Y: 1
+            Z: 1
+          }
+        }
+        ParentId: 10736619412780766843
+        Collidable_v2 {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        Visible_v2 {
+          Value: "mc:evisibilitysetting:inheritfromparent"
+        }
+        CameraCollidable {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        EditorIndicatorVisibility {
+          Value: "mc:eindicatorvisibility:visiblewhenselected"
+        }
+        Script {
+          ScriptAsset {
+            Id: 3296650807390737022
+          }
+        }
+      }
+      Objects {
+        Id: 14224465637443035536
+        Name: "Noise"
+        Transform {
+          Location {
+          }
+          Rotation {
+          }
+          Scale {
+            X: 1
+            Y: 1
+            Z: 1
+          }
+        }
+        ParentId: 10736619412780766843
+        Collidable_v2 {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        Visible_v2 {
+          Value: "mc:evisibilitysetting:inheritfromparent"
+        }
+        CameraCollidable {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        EditorIndicatorVisibility {
+          Value: "mc:eindicatorvisibility:visiblewhenselected"
+        }
+        Script {
+          ScriptAsset {
+            Id: 2651619979252803131
+          }
+        }
+      }
+      Objects {
+        Id: 11066884267523286652
+        Name: "Tests"
+        Transform {
+          Location {
+          }
+          Rotation {
+          }
+          Scale {
+            X: 1
+            Y: 1
+            Z: 1
+          }
+        }
+        ParentId: 1207548581393099297
+        Collidable_v2 {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        Visible_v2 {
+          Value: "mc:evisibilitysetting:inheritfromparent"
+        }
+        CameraCollidable {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        EditorIndicatorVisibility {
+          Value: "mc:eindicatorvisibility:visiblewhenselected"
+        }
+        Script {
+          ScriptAsset {
+            Id: 13897313495961290138
+          }
+        }
+      }
+      Objects {
+        Id: 15153172067142659286
         Name: "Utils"
         Transform {
           Location {
@@ -282,7 +704,7 @@ Assets {
           Value: "mc:eindicatorvisibility:visiblewhenselected"
         }
         Folder {
-          IsGroup: true
+          IsFilePartition: true
         }
       }
       Objects {
@@ -299,7 +721,7 @@ Assets {
             Z: 1
           }
         }
-        ParentId: 9260474540646839825
+        ParentId: 15153172067142659286
         Collidable_v2 {
           Value: "mc:ecollisionsetting:inheritfromparent"
         }
@@ -332,7 +754,7 @@ Assets {
             Z: 1
           }
         }
-        ParentId: 9260474540646839825
+        ParentId: 15153172067142659286
         Collidable_v2 {
           Value: "mc:ecollisionsetting:inheritfromparent"
         }
@@ -365,7 +787,7 @@ Assets {
             Z: 1
           }
         }
-        ParentId: 9260474540646839825
+        ParentId: 15153172067142659286
         Collidable_v2 {
           Value: "mc:ecollisionsetting:inheritfromparent"
         }
@@ -398,7 +820,7 @@ Assets {
             Z: 1
           }
         }
-        ParentId: 9260474540646839825
+        ParentId: 15153172067142659286
         Collidable_v2 {
           Value: "mc:ecollisionsetting:inheritfromparent"
         }
@@ -431,7 +853,7 @@ Assets {
             Z: 1
           }
         }
-        ParentId: 9260474540646839825
+        ParentId: 15153172067142659286
         Collidable_v2 {
           Value: "mc:ecollisionsetting:inheritfromparent"
         }
@@ -447,6 +869,105 @@ Assets {
         Script {
           ScriptAsset {
             Id: 5153807603410020566
+          }
+        }
+      }
+      Objects {
+        Id: 5497476009195584209
+        Name: "Math"
+        Transform {
+          Location {
+          }
+          Rotation {
+          }
+          Scale {
+            X: 1
+            Y: 1
+            Z: 1
+          }
+        }
+        ParentId: 14899999691178409647
+        ChildIds: 15265149045024461791
+        ChildIds: 17889085530170368655
+        Collidable_v2 {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        Visible_v2 {
+          Value: "mc:evisibilitysetting:inheritfromparent"
+        }
+        CameraCollidable {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        EditorIndicatorVisibility {
+          Value: "mc:eindicatorvisibility:visiblewhenselected"
+        }
+        Folder {
+          IsFilePartition: true
+        }
+      }
+      Objects {
+        Id: 15265149045024461791
+        Name: "TerrainClass"
+        Transform {
+          Location {
+          }
+          Rotation {
+          }
+          Scale {
+            X: 1
+            Y: 1
+            Z: 1
+          }
+        }
+        ParentId: 5497476009195584209
+        Collidable_v2 {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        Visible_v2 {
+          Value: "mc:evisibilitysetting:inheritfromparent"
+        }
+        CameraCollidable {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        EditorIndicatorVisibility {
+          Value: "mc:eindicatorvisibility:visiblewhenselected"
+        }
+        Script {
+          ScriptAsset {
+            Id: 3296650807390737022
+          }
+        }
+      }
+      Objects {
+        Id: 17889085530170368655
+        Name: "Noise"
+        Transform {
+          Location {
+          }
+          Rotation {
+          }
+          Scale {
+            X: 1
+            Y: 1
+            Z: 1
+          }
+        }
+        ParentId: 5497476009195584209
+        Collidable_v2 {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        Visible_v2 {
+          Value: "mc:evisibilitysetting:inheritfromparent"
+        }
+        CameraCollidable {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        EditorIndicatorVisibility {
+          Value: "mc:eindicatorvisibility:visiblewhenselected"
+        }
+        Script {
+          ScriptAsset {
+            Id: 2651619979252803131
           }
         }
       }

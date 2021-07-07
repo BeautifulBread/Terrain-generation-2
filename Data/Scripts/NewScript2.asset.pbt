@@ -13,4 +13,6 @@ Assets {
     }
   }
   SerializationVersion: 91
+  VirtualFolderPath: "Manager"
+  VirtualFolderPath: "Library"
 }

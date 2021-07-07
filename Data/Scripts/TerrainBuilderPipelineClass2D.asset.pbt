@@ -1,9 +1,8 @@
 Assets {
-  Id: 2199742542750292755
-  Name: "README"
+  Id: 11090181159666109438
+  Name: "TerrainBuilderPipelineClass2D"
   PlatformAssetType: 3
   TextAsset {
   }
   SerializationVersion: 91
-  VirtualFolderPath: "Manager"
 }

@@ -19,8 +19,11 @@ function TerrainHeightmapBuilderPipelineClass2D()
         print('-----------')
         for i = 1, #self.devices do
             local index = self.devices[i].type
-            local report = tostring(CoreMath.Round(self.perfReports[index].totalTime,6)*1000)
-            local text = index..string.rep(" ",math.max(50-#index,1))..report..string.rep(" ",math.max(10-#report,1)).."ms"
+            local report = tostring(CoreMath.Round(self.perfReports[index].totalTime, 6) * 1000)
+            local text =
+                index ..
+                string.rep(' ', math.max(50 - #index, 1)) ..
+                    report .. string.rep(' ', math.max(10 - #report, 1)) .. 'ms'
             print(text)
         end
         print('-----------')

@@ -34,6 +34,39 @@ Objects {
   }
 }
 Objects {
+  Id: 11156906990324642506
+  Name: "FlatSurfaceSmoothingFilterDevice"
+  Transform {
+    Location {
+    }
+    Rotation {
+    }
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 12851376183116944261
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  Script {
+    ScriptAsset {
+      Id: 6224569963153153531
+    }
+  }
+}
+Objects {
   Id: 17051594831428967985
   Name: "PerlinNoiseDevice"
   Transform {

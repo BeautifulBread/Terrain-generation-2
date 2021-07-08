@@ -15,9 +15,6 @@ function PerlinNoiseDevice(seed, amplitude, stretch)
             heighMap: table]]
         )
         assert(options.heightMap, 'There was no heightMap supplied to BasicTerrainBuilderDevice')
-        if #options.heightMap == 0 then
-            return {heightMap = {}}
-        end
         assert(type(options.heightMap) == 'table', "You've passed invalid heightMap to BasicTerrainBuilderDevice")
         options.position = options.position or Vector3.ZERO
 

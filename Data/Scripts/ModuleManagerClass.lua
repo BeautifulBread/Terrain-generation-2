@@ -40,17 +40,19 @@ function ModuleManagerClass(...)
         )
         self.path[fileName.coreObject.name] = fileName
     end
-    function self:__call(...)
-        for _, parent in ipairs({...}) do
-            assert(Object.IsValid(parent) == true)
-            self.parents[parent.name] = parent
-        end
+    function self:__tostring()
         if Environment.IsServer() then
             print('Parent folders:')
             for k, v in pairs(self.parents) do
                 print(k)
             end
             print('-------')
+        end
+    end
+    function self:__call(...)
+        for _, parent in ipairs({...}) do
+            assert(Object.IsValid(parent) == true)
+            self.parents[parent.name] = parent
         end
         for name, parent in pairs(self.parents) do
             if self.parentRootFileObjects[name] == nil then

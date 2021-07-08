@@ -18,15 +18,12 @@ function TerrainHeightmapBuilderPipelineClass2D()
         self.ListDevices()
         for i = 1, #self.devices do
             assert(self.devices[i])
-            print(self.devices[i].type)
-            -- DEBUG:
-            if self.devices[i].type == 'BasicTerrainBuilderDevice' then
-                print('Basic Builder Horraaaaaay!!')
-            end
             options = self.devices[i](options)
         end
         return options
     end
     return setmetatable(self, self)
 end
+-- TODO: custom Events
+-- TODO: custom CoroutinesPlus
 return TerrainHeightmapBuilderPipelineClass2D

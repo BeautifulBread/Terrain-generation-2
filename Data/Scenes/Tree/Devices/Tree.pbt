@@ -1,7 +1,7 @@
 Name: "Devices"
-RootId: 6793211979756443669
+RootId: 12851376183116944261
 Objects {
-  Id: 10763102416000731982
+  Id: 13395352788746087690
   Name: "BasicTerrainBuilderDevice"
   Transform {
     Location {
@@ -14,7 +14,7 @@ Objects {
       Z: 1
     }
   }
-  ParentId: 6793211979756443669
+  ParentId: 12851376183116944261
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
@@ -34,7 +34,40 @@ Objects {
   }
 }
 Objects {
-  Id: 17948799881513835744
+  Id: 17051594831428967985
+  Name: "PerlinNoiseDevice"
+  Transform {
+    Location {
+    }
+    Rotation {
+    }
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 12851376183116944261
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  Script {
+    ScriptAsset {
+      Id: 9694963515334186802
+    }
+  }
+}
+Objects {
+  Id: 14756950260956636134
   Name: "FlatSurface2DDevice"
   Transform {
     Location {
@@ -47,7 +80,7 @@ Objects {
       Z: 1
     }
   }
-  ParentId: 6793211979756443669
+  ParentId: 12851376183116944261
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }

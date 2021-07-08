@@ -15,3 +15,4 @@ pipeline.AddDevice(BasicTerrainBuilderDevice(terrainParent))
 
 print('Building terrain')
 pipeline.Execute()
+pipeline.ListPerformance()

@@ -2,6 +2,7 @@ local Imports = _G.Imports
 local Noise = Imports.Math.Noise.require()
 function PerlinNoiseDevice(seed, amplitude, stretch)
     local self = {
+        type = 'PerlinNoiseDevice',
         seed = seed,
         amplitude = amplitude or error('You have to supply an amplitude'),
         stretch = stretch or error('You have to supply a stretch')

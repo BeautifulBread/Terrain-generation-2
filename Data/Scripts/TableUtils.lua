@@ -1,4 +1,7 @@
 --[[ TableUtils.lua
+    ## TableUtils.PrintTable(table)
+        Prints a table in an elegant format.
+    return: nil
     ## TableUtils.Keys(table)
         Returns a table of keys of the argument.
         table: table
@@ -24,6 +27,14 @@
     return: table
 ]]
 TableUtils = {}
+function TableUtils.PrintTable(table)
+    print('contents of a table:')
+    print('-----------')
+    for k,v in pairs(table) do
+        print(tostring(k)..string.rep(" ",math.max(50-#k,0))..":\t"..tostring(v))
+    end
+    print('-----------')
+end
 function TableUtils.Keys(table)
     assert(type(table) == 'table')
     local res = {}

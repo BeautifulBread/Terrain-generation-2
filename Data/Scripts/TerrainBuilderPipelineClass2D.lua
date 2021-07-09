@@ -1,6 +1,9 @@
+local Imports = _G.Imports
+local TableUtils = Imports.Utils.TableUtils.require()
 function TerrainHeightmapBuilderPipelineClass2D()
     local self = {
         devices = {},
+        remaps = {},
         perfReports = {}
     }
     function self.AddDevice(device)
@@ -11,6 +14,15 @@ function TerrainHeightmapBuilderPipelineClass2D()
         print('-----------')
         for i = 1, #self.devices do
             print(self.devices[i])
+        end
+        print('-----------')
+    end
+    function self.ListRemaps()
+        print('remaps:')
+        print('-----------')
+        for k,v in pairs(self.remaps) do
+            print(tostring(k))
+            TableUtils.PrintTable(v)
         end
         print('-----------')
     end
@@ -28,15 +40,31 @@ function TerrainHeightmapBuilderPipelineClass2D()
         end
         print('-----------')
     end
+    function self.Remap(table)
+        -- TableUtils.PrintTable(table)
+        self.remaps[#self.devices] = table
+    end
     function self.Execute(options)
-        options = options
-        self.ListDevices()
+        options = options or {}
+        -- self.ListDevices()
+        -- self.ListRemaps()
         for i = 1, #self.devices do
             assert(self.devices[i])
             assert(self.devices[i].type)
             local perfReport = {}
             perfReport.startTime = time()
             options = self.devices[i](options)
+            if self.remaps[i] then
+                -- TableUtils.PrintTable(self.remaps[i])
+                -- TableUtils.PrintTable(options)
+                for k, v in pairs(self.remaps[i]) do
+                    assert(options[v] == options[k] or not options[v], "You can't remap to an occupied key")
+                    -- print("remapping: "..tostring(i))
+                    options[v] = options[k]
+                    options[k] = nil
+                end
+            end
+
             perfReport.finishTime = time()
             perfReport.totalTime = perfReport.finishTime - perfReport.startTime
             self.perfReports[self.devices[i].type] = perfReport
@@ -45,6 +73,4 @@ function TerrainHeightmapBuilderPipelineClass2D()
     end
     return setmetatable(self, self)
 end
--- TODO: custom Events
--- TODO: custom CoroutinesPlus
 return TerrainHeightmapBuilderPipelineClass2D

@@ -1,7 +1,40 @@
 Name: "Devices"
-RootId: 12851376183116944261
+RootId: 8508348588854045534
 Objects {
-  Id: 13395352788746087690
+  Id: 10115918381159830363
+  Name: "CombinerDevice"
+  Transform {
+    Location {
+    }
+    Rotation {
+    }
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 8508348588854045534
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  Script {
+    ScriptAsset {
+      Id: 16998235696422759417
+    }
+  }
+}
+Objects {
+  Id: 7984299266809357417
   Name: "BasicTerrainBuilderDevice"
   Transform {
     Location {
@@ -14,7 +47,7 @@ Objects {
       Z: 1
     }
   }
-  ParentId: 12851376183116944261
+  ParentId: 8508348588854045534
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
@@ -34,7 +67,7 @@ Objects {
   }
 }
 Objects {
-  Id: 11156906990324642506
+  Id: 14116267930255396498
   Name: "FlatSurfaceSmoothingFilterDevice"
   Transform {
     Location {
@@ -47,7 +80,7 @@ Objects {
       Z: 1
     }
   }
-  ParentId: 12851376183116944261
+  ParentId: 8508348588854045534
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
@@ -67,7 +100,7 @@ Objects {
   }
 }
 Objects {
-  Id: 17051594831428967985
+  Id: 2049515164313169085
   Name: "PerlinNoiseDevice"
   Transform {
     Location {
@@ -80,7 +113,7 @@ Objects {
       Z: 1
     }
   }
-  ParentId: 12851376183116944261
+  ParentId: 8508348588854045534
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
@@ -100,7 +133,7 @@ Objects {
   }
 }
 Objects {
-  Id: 14756950260956636134
+  Id: 4886455105301944329
   Name: "FlatSurface2DDevice"
   Transform {
     Location {
@@ -113,7 +146,7 @@ Objects {
       Z: 1
     }
   }
-  ParentId: 12851376183116944261
+  ParentId: 8508348588854045534
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }

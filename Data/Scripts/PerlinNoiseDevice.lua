@@ -7,6 +7,9 @@ function PerlinNoiseDevice(seed, amplitude, stretch)
         amplitude = amplitude or error('You have to supply an amplitude'),
         stretch = stretch or error('You have to supply a stretch')
     }
+    function self.__tostring()
+        return self.type
+    end
     function self.__call(_, options)
         -- input validation
         assert(
@@ -39,9 +42,10 @@ function PerlinNoiseDevice(seed, amplitude, stretch)
                     options.heightMap[i][ii] + (Noise.make(i * self.stretch.x, ii * self.stretch.y) + 1) / 2 * amplitude
             end
         end
-        options = {table.unpack(options)}
-        options.heightMap = noiseMap
-        return options
+        -- local ret = {table.unpack(options)}
+        local ret = options
+        ret.heightMap = noiseMap
+        return ret
     end
     return setmetatable(self, self)
 end

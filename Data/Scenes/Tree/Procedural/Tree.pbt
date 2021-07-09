@@ -1,7 +1,7 @@
 Name: "Procedural"
-RootId: 16347876068612460330
+RootId: 9191457064558993546
 Objects {
-  Id: 12851376183116944261
+  Id: 8508348588854045534
   Name: "Devices"
   Transform {
     Location {
@@ -14,7 +14,7 @@ Objects {
       Z: 1
     }
   }
-  ParentId: 16347876068612460330
+  ParentId: 9191457064558993546
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
@@ -33,7 +33,7 @@ Objects {
   }
 }
 Objects {
-  Id: 16334164435763801348
+  Id: 15369880632466583342
   Name: "TerrainBuilderPipelineClass2D"
   Transform {
     Location {
@@ -46,7 +46,7 @@ Objects {
       Z: 1
     }
   }
-  ParentId: 16347876068612460330
+  ParentId: 9191457064558993546
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }

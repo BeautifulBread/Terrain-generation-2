@@ -1,7 +1,7 @@
 Name: "Math"
-RootId: 264027533431084401
+RootId: 12755183323941101841
 Objects {
-  Id: 13903262312624487636
+  Id: 4363887845630456660
   Name: "Noise"
   Transform {
     Location {
@@ -14,7 +14,7 @@ Objects {
       Z: 1
     }
   }
-  ParentId: 264027533431084401
+  ParentId: 12755183323941101841
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
@@ -34,7 +34,7 @@ Objects {
   }
 }
 Objects {
-  Id: 1590572248745963720
+  Id: 2352883148482422332
   Name: "TerrainClass"
   Transform {
     Location {
@@ -47,7 +47,7 @@ Objects {
       Z: 1
     }
   }
-  ParentId: 264027533431084401
+  ParentId: 12755183323941101841
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }

@@ -15,7 +15,7 @@ Objects {
     }
   }
   ParentId: 1087872740236255380
-  ChildIds: 6015098054052227755
+  ChildIds: 11633914380128107944
   Collidable_v2 {
     Value: "mc:ecollisionsetting:forceoff"
   }
@@ -32,7 +32,7 @@ Objects {
   }
 }
 Objects {
-  Id: 6015098054052227755
+  Id: 11633914380128107944
   Name: "Library"
   Transform {
     Location {
@@ -46,10 +46,10 @@ Objects {
     }
   }
   ParentId: 7020985291002195027
-  ChildIds: 16459760190454788927
-  ChildIds: 5775977038370555537
-  ChildIds: 18402153978921243913
-  ChildIds: 9191457064558993546
+  ChildIds: 7543494973835918283
+  ChildIds: 13763404946733417526
+  ChildIds: 14843688237888546438
+  ChildIds: 10577658499440125633
   UnregisteredParameters {
     Overrides {
       Name: "cs:self"
@@ -77,7 +77,7 @@ Objects {
   }
 }
 Objects {
-  Id: 9191457064558993546
+  Id: 10577658499440125633
   Name: "Procedural"
   Transform {
     Location {
@@ -90,7 +90,7 @@ Objects {
       Z: 1
     }
   }
-  ParentId: 6015098054052227755
+  ParentId: 11633914380128107944
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
@@ -109,7 +109,7 @@ Objects {
   }
 }
 Objects {
-  Id: 18402153978921243913
+  Id: 14843688237888546438
   Name: "Tests"
   Transform {
     Location {
@@ -122,7 +122,7 @@ Objects {
       Z: 1
     }
   }
-  ParentId: 6015098054052227755
+  ParentId: 11633914380128107944
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
@@ -142,7 +142,7 @@ Objects {
   }
 }
 Objects {
-  Id: 5775977038370555537
+  Id: 13763404946733417526
   Name: "Math"
   Transform {
     Location {
@@ -155,7 +155,7 @@ Objects {
       Z: 1
     }
   }
-  ParentId: 6015098054052227755
+  ParentId: 11633914380128107944
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
@@ -174,7 +174,7 @@ Objects {
   }
 }
 Objects {
-  Id: 16459760190454788927
+  Id: 7543494973835918283
   Name: "Utils"
   Transform {
     Location {
@@ -187,7 +187,7 @@ Objects {
       Z: 1
     }
   }
-  ParentId: 6015098054052227755
+  ParentId: 11633914380128107944
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }

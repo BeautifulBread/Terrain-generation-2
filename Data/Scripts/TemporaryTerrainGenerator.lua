@@ -11,12 +11,12 @@ local pipeline = TerrainHeightmapBuilderPipelineClass2D()
 
 pipeline.AddDevice(PerlinNoiseDevice(Vector2.New(100,100),5034, 1000, Vector2.New(0.05, 0.05)))
 pipeline.AddDevice(UniformZDevice(100, 100, 150))
-pipeline.Remap({heightMap = 'combinerInput1'})
+pipeline.Remap({heightMap = 'input1'})
 
 -- pipeline.AddDevice(FlatSurface2DDevice(100, 100, 0))
 pipeline.AddDevice(PerlinNoiseDevice(Vector2.New(100,100),5000, 1000, Vector2.New(0.05, 0.05)))
 pipeline.AddDevice(PerlinNoiseDevice(Vector2.New(100,100),5987, 300, Vector2.New(0.01, 0.01)))
-pipeline.Remap({heightMap = 'combinerInput2'})
+pipeline.Remap({heightMap = 'input2'})
 
 pipeline.AddDevice(CombinerDevice())
 -- pipeline.AddDevice(FlatSurfaceSmoothingFilterDevice(20))

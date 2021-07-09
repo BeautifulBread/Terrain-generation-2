@@ -1,7 +1,7 @@
 Name: "Devices"
-RootId: 8508348588854045534
+RootId: 5511752676316840474
 Objects {
-  Id: 10115918381159830363
+  Id: 11458814614379844013
   Name: "CombinerDevice"
   Transform {
     Location {
@@ -14,7 +14,7 @@ Objects {
       Z: 1
     }
   }
-  ParentId: 8508348588854045534
+  ParentId: 5511752676316840474
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
@@ -34,7 +34,7 @@ Objects {
   }
 }
 Objects {
-  Id: 7984299266809357417
+  Id: 289336067971902532
   Name: "BasicTerrainBuilderDevice"
   Transform {
     Location {
@@ -47,7 +47,7 @@ Objects {
       Z: 1
     }
   }
-  ParentId: 8508348588854045534
+  ParentId: 5511752676316840474
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
@@ -67,7 +67,7 @@ Objects {
   }
 }
 Objects {
-  Id: 14116267930255396498
+  Id: 879049218316154310
   Name: "FlatSurfaceSmoothingFilterDevice"
   Transform {
     Location {
@@ -80,7 +80,7 @@ Objects {
       Z: 1
     }
   }
-  ParentId: 8508348588854045534
+  ParentId: 5511752676316840474
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
@@ -100,7 +100,7 @@ Objects {
   }
 }
 Objects {
-  Id: 2049515164313169085
+  Id: 13738327714381279577
   Name: "PerlinNoiseDevice"
   Transform {
     Location {
@@ -113,7 +113,7 @@ Objects {
       Z: 1
     }
   }
-  ParentId: 8508348588854045534
+  ParentId: 5511752676316840474
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
@@ -133,8 +133,8 @@ Objects {
   }
 }
 Objects {
-  Id: 4886455105301944329
-  Name: "FlatSurface2DDevice"
+  Id: 10878481760421886572
+  Name: "UniformZDevice"
   Transform {
     Location {
     }
@@ -146,7 +146,7 @@ Objects {
       Z: 1
     }
   }
-  ParentId: 8508348588854045534
+  ParentId: 5511752676316840474
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }

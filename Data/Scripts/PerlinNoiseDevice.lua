@@ -1,8 +1,9 @@
 local Imports = _G.Imports
 local Noise = Imports.Math.Noise.require()
-function PerlinNoiseDevice(seed, amplitude, stretch)
+function PerlinNoiseDevice(mapSize, seed, amplitude, stretch)
     local self = {
         type = 'PerlinNoiseDevice',
+        mapSize = mapSize,
         seed = seed,
         amplitude = amplitude or error('You have to supply an amplitude'),
         stretch = stretch or error('You have to supply a stretch')
@@ -17,8 +18,11 @@ function PerlinNoiseDevice(seed, amplitude, stretch)
             [[You've failed to pass options to BasicTerrainBuilderDevice! Mandatory options:
             heighMap: table]]
         )
-        assert(options.heightMap, 'There was no heightMap supplied to BasicTerrainBuilderDevice')
-        assert(type(options.heightMap) == 'table', "You've passed invalid heightMap to BasicTerrainBuilderDevice")
+        if options.heightMap then
+            local msg = "Dimension mismatch"
+            assert(self.mapSize.x == #options.heightMap[1], msg)
+            assert(self.mapSize.y == #options.heightMap, msg)
+        end
         options.position = options.position or Vector3.ZERO
 
         -- terrain generation
@@ -27,8 +31,8 @@ function PerlinNoiseDevice(seed, amplitude, stretch)
         -- FIXME: error handliong on omitting seed
         Noise.seed(self.seed)
 
-        local width = #options.heightMap[1]
-        local height = #options.heightMap
+        local width = self.mapSize.x
+        local height = self.mapSize.y
         local noiseMap = {}
         local iters = 0
         for i = 1, height do
@@ -38,8 +42,10 @@ function PerlinNoiseDevice(seed, amplitude, stretch)
                 if iters % MAX_ITERATIONS_PER_TICK == 0 then
                     Task.Wait()
                 end
-                noiseMap[i][ii] =
-                    options.heightMap[i][ii] + (Noise.make(i * self.stretch.x, ii * self.stretch.y) + 1) / 2 * amplitude
+                noiseMap[i][ii] = (Noise.make(i * self.stretch.x, ii * self.stretch.y) + 1) / 2 * amplitude
+                if options.heightMap then
+                    noiseMap[i][ii] = noiseMap[i][ii] + options.heightMap[i][ii]
+                end
             end
         end
         local ret = options

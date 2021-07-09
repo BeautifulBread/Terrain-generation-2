@@ -134,7 +134,7 @@ Objects {
 }
 Objects {
   Id: 14756950260956636134
-  Name: "FlatSurface2DDevice"
+  Name: "UniformZDevice"
   Transform {
     Location {
     }

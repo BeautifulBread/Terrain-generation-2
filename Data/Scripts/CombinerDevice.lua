@@ -1,5 +1,3 @@
-local Imports = _G.Imports
-local TableUtils = Imports.Utils.TableUtils.require()
 function CombinerDevice()
     local self = {
         type = 'CombinerDevice',

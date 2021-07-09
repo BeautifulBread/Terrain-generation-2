@@ -1,6 +1,6 @@
 Assets {
   Id: 6941183492192852755
-  Name: "FlatSurface2DDevice"
+  Name: "UniformZDevice"
   PlatformAssetType: 3
   TextAsset {
     CustomParameters {

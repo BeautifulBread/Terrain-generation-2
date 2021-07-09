@@ -5,7 +5,7 @@ function CombinerDevice()
         type = 'CombinerDevice',
         mode = 'Add'
     }
-    function self.__call(_,options)
+    function self.__call(_, options)
         -- TableUtils.PrintTable(options)
         assert(options)
         assert(options.combinerInput1)
@@ -22,7 +22,6 @@ function CombinerDevice()
                 end
             end
         end
-        -- local ret = {table.unpack(options)}
         local ret = options
         ret.heightMap = heightMap
         return ret

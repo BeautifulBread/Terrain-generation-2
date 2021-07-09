@@ -41,13 +41,10 @@ function TerrainHeightmapBuilderPipelineClass2D()
         print('-----------')
     end
     function self.Remap(table)
-        -- TableUtils.PrintTable(table)
         self.remaps[#self.devices] = table
     end
     function self.Execute(options)
         options = options or {}
-        -- self.ListDevices()
-        -- self.ListRemaps()
         for i = 1, #self.devices do
             assert(self.devices[i])
             assert(self.devices[i].type)
@@ -55,11 +52,8 @@ function TerrainHeightmapBuilderPipelineClass2D()
             perfReport.startTime = time()
             options = self.devices[i](options)
             if self.remaps[i] then
-                -- TableUtils.PrintTable(self.remaps[i])
-                -- TableUtils.PrintTable(options)
                 for k, v in pairs(self.remaps[i]) do
                     assert(options[v] == options[k] or not options[v], "You can't remap to an occupied key")
-                    -- print("remapping: "..tostring(i))
                     options[v] = options[k]
                     options[k] = nil
                 end

@@ -1,6 +1,6 @@
 local CUBE = script:GetCustomProperty('cube')
 function BasicTerrainBuilderDevice(spawnedObjectsParent, scale)
-    assert(not scale or type(scale)=='number')
+    assert(not scale or type(scale) == 'number')
     local self = {
         type = 'BasicTerrainBuilderDevice',
         spawnedObjectsParent = spawnedObjectsParent,
@@ -25,7 +25,7 @@ function BasicTerrainBuilderDevice(spawnedObjectsParent, scale)
         )
 
         -- actual building
-        local SPACING = self.scale*100
+        local SPACING = self.scale * 100
         local MAX_ITERATIONS_PER_TICK = 100
 
         local width = #options.heightMap[1]
@@ -46,7 +46,7 @@ function BasicTerrainBuilderDevice(spawnedObjectsParent, scale)
                     {
                         parent = self.spawnedObjectsParent,
                         position = position + options.position,
-                        scale = Vector3.ONE*self.scale
+                        scale = Vector3.ONE * self.scale
                     }
                 )
             end

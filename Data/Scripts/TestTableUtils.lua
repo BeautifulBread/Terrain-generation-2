@@ -10,7 +10,6 @@ TestFramework.RunTest(
         assert(res)
         for k, v in pairs(res) do
             assert(v)
-            -- print(v)
         end
         return true
     end
@@ -23,7 +22,6 @@ TestFramework.RunTest(
         for k, v in pairs(res) do
             assert(k ~= nil)
             assert(v ~= nil)
-            -- print(k)
         end
         return true
     end

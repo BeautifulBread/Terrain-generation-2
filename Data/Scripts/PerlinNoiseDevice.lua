@@ -42,7 +42,6 @@ function PerlinNoiseDevice(seed, amplitude, stretch)
                     options.heightMap[i][ii] + (Noise.make(i * self.stretch.x, ii * self.stretch.y) + 1) / 2 * amplitude
             end
         end
-        -- local ret = {table.unpack(options)}
         local ret = options
         ret.heightMap = noiseMap
         return ret

@@ -26,10 +26,8 @@ function FlatSurfaceSmoothingFilterDevice(hDelta)
                     local diff = newMap[i][ii] - newMap[i][ii + 1]
                     if diff <= self.hDelta and diff >= -self.hDelta then
                         ret = false
-                        -- print(tostring(diff).."\t"..tostring(i).."|"..tostring(ii))
                         newMap[i][ii + 1] = newMap[i][ii]
                     end
-                    -- newMap[i][ii] = options.heightMap[i][ii]
                 end
             end
             return ret
@@ -48,7 +46,6 @@ function FlatSurfaceSmoothingFilterDevice(hDelta)
                         print(tostring(diff) .. '\t' .. tostring(i) .. '|' .. tostring(ii))
                         newMap[i + 1][ii] = newMap[i][ii]
                     end
-                    -- newMap[i][ii] = options.heightMap[i][ii]
                 end
             end
             return ret
@@ -65,16 +62,6 @@ function FlatSurfaceSmoothingFilterDevice(hDelta)
         -- filter heightMap
         FlattenHorizontalPass(newMap)
         FlattenVerticalPass(newMap)
-        --
-        -- local i = 0
-        -- repeat
-        --     i = i+1
-        --     print(i)
-        -- until FlattenHorizontalPass(newMap)
-        --
-        -- for i=1,20 do
-        --     FlattenHorizontalPass(newMap)
-        -- end
         options = {table.unpack(options)}
         options.heightMap = newMap
         return options

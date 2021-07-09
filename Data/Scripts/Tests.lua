@@ -32,7 +32,8 @@ function Tests.RunAllTests()
             print(dumpText .. '\tSUCCESSFUL')
         end
     end
+    print()
 end
--- Task.Wait()
--- Task.Spawn(RunAllTests)
+Task.Wait()
+Task.Spawn(Tests.RunAllTests)
 return Tests

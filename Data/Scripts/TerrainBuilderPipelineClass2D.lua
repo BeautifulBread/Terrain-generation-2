@@ -2,6 +2,7 @@ local Imports = _G.Imports
 local TableUtils = Imports.Utils.TableUtils.require()
 function TerrainHeightmapBuilderPipelineClass2D()
     local self = {
+        type = 'TerrainHeightmapBuilderPipelineClass2D',
         devices = {},
         remaps = {},
         perfReports = {}
@@ -20,7 +21,7 @@ function TerrainHeightmapBuilderPipelineClass2D()
     function self.ListRemaps()
         print('remaps:')
         print('-----------')
-        for k,v in pairs(self.remaps) do
+        for k, v in pairs(self.remaps) do
             print(tostring(k))
             TableUtils.PrintTable(v)
         end
@@ -38,6 +39,11 @@ function TerrainHeightmapBuilderPipelineClass2D()
                     report .. string.rep(' ', math.max(10 - #report, 1)) .. 'ms'
             print(text)
         end
+        print()
+        print(
+            'Terrain generation took ' ..
+                tostring(CoreMath.Round(self.perfReports[self.type].totalTime, 6) * 1000) .. ' ms'
+        )
         print('-----------')
     end
     function self.Remap(table)
@@ -45,6 +51,8 @@ function TerrainHeightmapBuilderPipelineClass2D()
     end
     function self.Execute(options)
         options = options or {}
+        local totalPerfReport = {}
+        totalPerfReport.startTime = time()
         for i = 1, #self.devices do
             assert(self.devices[i])
             assert(self.devices[i].type)
@@ -61,8 +69,12 @@ function TerrainHeightmapBuilderPipelineClass2D()
 
             perfReport.finishTime = time()
             perfReport.totalTime = perfReport.finishTime - perfReport.startTime
+            -- assert(not self.perfReports[self.devices[i].type]) -- FIXME:
             self.perfReports[self.devices[i].type] = perfReport
         end
+        totalPerfReport.finishTime = time()
+        totalPerfReport.totalTime = totalPerfReport.finishTime - totalPerfReport.startTime
+        self.perfReports[self.type] = totalPerfReport
         return options
     end
     return setmetatable(self, self)

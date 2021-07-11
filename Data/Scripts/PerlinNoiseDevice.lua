@@ -19,7 +19,7 @@ function PerlinNoiseDevice(mapSize, seed, amplitude, stretch)
             heighMap: table]]
         )
         if options.heightMap then
-            local msg = "Dimension mismatch"
+            local msg = 'Dimension mismatch'
             assert(self.mapSize.x == #options.heightMap[1], msg)
             assert(self.mapSize.y == #options.heightMap, msg)
         end

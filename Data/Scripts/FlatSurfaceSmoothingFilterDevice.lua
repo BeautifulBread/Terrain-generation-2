@@ -62,7 +62,7 @@ function FlatSurfaceSmoothingFilterDevice(hDelta)
         -- filter heightMap
         FlattenHorizontalPass(newMap)
         FlattenVerticalPass(newMap)
-        options = {table.unpack(options)}
+        -- options = {table.unpack(options)}
         options.heightMap = newMap
         return options
     end

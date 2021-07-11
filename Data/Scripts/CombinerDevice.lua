@@ -2,7 +2,7 @@ function CombinerDevice()
     local self = {
         type = 'CombinerDevice',
         mode = 'Add',
-        inputKeys = {'input1','input2'}
+        inputKeys = {'input1', 'input2'}
     }
     local function ValidateInputs(options)
         assert(options)
@@ -12,7 +12,7 @@ function CombinerDevice()
         assert(#options.input1[1] == #options.input2[1])
     end
     local function ClearInputKeys(table)
-        for i=1,#table do
+        for i = 1, #table do
             table[self.inputKeys[i]] = nil
         end
     end

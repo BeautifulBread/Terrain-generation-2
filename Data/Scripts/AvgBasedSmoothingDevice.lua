@@ -24,16 +24,16 @@ function AvgBasedSmoothingDevice(neighbourCount)
         assert(type(options.heightMap) == 'table', "You've passed invalid heightMap to BasicTerrainBuilderDevice")
         local MAX_ITERATIONS_PER_TICK = 20000
         local iters = 0
-
-        local width = #options.heightMap[1]
-        local height = #options.heightMap
+        local oldMap = options.heightMap
+        local width = #oldMap[1]
+        local height = #oldMap
         local newMap = {}
         local numOfAvgd = 0
         local avgDiff = 0
         for i = 1, height do
             newMap[i] = {}
             for ii = 1, width do
-                newMap[i][ii] = options.heightMap[i][ii]
+                newMap[i][ii] = oldMap[i][ii]
                 if
                     ii <= width - self.neighbourCount and ii > self.neighbourCount and i <= height - self.neighbourCount and
                         i > self.neighbourCount
@@ -46,7 +46,7 @@ function AvgBasedSmoothingDevice(neighbourCount)
                             if iters % MAX_ITERATIONS_PER_TICK == 0 then
                                 Task.Wait()
                             end
-                            avg = avg + options.heightMap[yy][xx]
+                            avg = avg + oldMap[yy][xx]
                         end
                     end
                     avgDiff = (avgDiff * (numOfAvgd - 1) + math.abs(newMap[i][ii] - (avg / 9))) / numOfAvgd

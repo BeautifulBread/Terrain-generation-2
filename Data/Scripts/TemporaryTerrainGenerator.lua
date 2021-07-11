@@ -2,7 +2,7 @@ local Imports = _G.Imports
 local TerrainHeightmapBuilderPipelineClass2D = Imports.Procedural.TerrainBuilderPipelineClass2D.require()
 local UniformZDevice = Imports.Procedural.Devices.UniformZDevice.require()
 local PerlinNoiseDevice = Imports.Procedural.Devices.PerlinNoiseDevice.require()
-local FlatSurfaceSmoothingFilterDevice = Imports.Procedural.Devices.FlatSurfaceSmoothingFilterDevice.require()
+-- local FlatSurfaceSmoothingFilterDevice = Imports.Procedural.Devices.FlatSurfaceSmoothingFilterDevice.require()
 local BasicTerrainBuilderDevice = Imports.Procedural.Devices.BasicTerrainBuilderDevice.require()
 local AvgBasedSmoothingDevice = Imports.Procedural.Devices.AvgBasedSmoothingDevice.require()
 local CombinerDevice = Imports.Procedural.Devices.CombinerDevice.require()
@@ -20,11 +20,9 @@ pipeline.AddDevice(PerlinNoiseDevice(Vector2.New(100, 100), 5987, 300, Vector2.N
 pipeline.Remap({heightMap = 'input2'})
 
 pipeline.AddDevice(CombinerDevice())
-
 pipeline.AddDevice(AvgBasedSmoothingDevice(1))
 -- pipeline.AddDevice(FlatSurfaceSmoothingFilterDevice(20))
 pipeline.AddDevice(BasicTerrainBuilderDevice(terrainParent))
 
-print('Building terrain')
 pipeline.Execute()
 pipeline.ListPerformance()

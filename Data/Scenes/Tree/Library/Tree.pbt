@@ -262,6 +262,7 @@ Objects {
   ChildIds: 12755183323941101841
   ChildIds: 13547121111770958083
   ChildIds: 16347876068612460330
+  ChildIds: 18260193740077739465
   UnregisteredParameters {
     Overrides {
       Name: "cs:self"
@@ -286,6 +287,38 @@ Objects {
     ScriptAsset {
       Id: 2394074719941360336
     }
+  }
+}
+Objects {
+  Id: 18260193740077739465
+  Name: "Coroutines"
+  Transform {
+    Location {
+    }
+    Rotation {
+    }
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 15657026561359404465
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  Folder {
+    IsFilePartition: true
+    FilePartitionName: "Coroutines"
   }
 }
 Objects {

@@ -1,6 +1,6 @@
 Assets {
   Id: 6224569963153153531
-  Name: "FlatSurfaceSmoothingFilterDevice"
+  Name: "GlaciarizerDevice"
   PlatformAssetType: 3
   TextAsset {
     CustomParameters {

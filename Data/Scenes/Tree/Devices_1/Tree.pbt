@@ -101,7 +101,7 @@ Objects {
 }
 Objects {
   Id: 11156906990324642506
-  Name: "FlatSurfaceSmoothingFilterDevice"
+  Name: "GlaciarizerDevice"
   Transform {
     Location {
     }

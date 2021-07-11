@@ -1,9 +1,10 @@
-function AvgBasedSmoothingDevice(tolerance)
+function AvgBasedSmoothingDevice(neighbourCount)
     local self = {
         type = 'AvgBasedSmoothingDevice',
-        tolerance = tolerance
+        neighbourCount = neighbourCount
     }
     -- return: table; {height, weight, {x, y}, {x, y}, ...}
+    -- DEBUG:
     local function RecurseSmooth(table, startX, startY, returnCache)
         for x = startX - 1, startX + 1 do
             for y = startY - 1, startY + 1 do
@@ -32,13 +33,15 @@ function AvgBasedSmoothingDevice(tolerance)
         for i = 1, height do
             newMap[i] = {}
             for ii = 1, width do
-                -- DEBUG: set everything to an average of their neighbours
                 newMap[i][ii] = options.heightMap[i][ii]
-                if ii < width and ii > 1 and i < height and i > 1 then
+                if
+                    ii <= width - self.neighbourCount and ii > self.neighbourCount and i <= height - self.neighbourCount and
+                        i > self.neighbourCount
+                 then
                     numOfAvgd = numOfAvgd + 1
                     local avg = 0
-                    for yy = i - 1, i + 1 do
-                        for xx = ii - 1, ii + 1 do
+                    for yy = i - self.neighbourCount, i + self.neighbourCount do
+                        for xx = ii - self.neighbourCount, ii + self.neighbourCount do
                             iters = iters + 1
                             if iters % MAX_ITERATIONS_PER_TICK == 0 then
                                 Task.Wait()
@@ -47,7 +50,7 @@ function AvgBasedSmoothingDevice(tolerance)
                         end
                     end
                     avgDiff = (avgDiff * (numOfAvgd - 1) + math.abs(newMap[i][ii] - (avg / 9))) / numOfAvgd
-                    newMap[i][ii] = avg / 9
+                    newMap[i][ii] = avg / (self.neighbourCount * 2 + 1) ^ 2
                 end
             end
         end

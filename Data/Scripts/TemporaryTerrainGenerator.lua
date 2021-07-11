@@ -21,8 +21,7 @@ pipeline.Remap({heightMap = 'input2'})
 
 pipeline.AddDevice(CombinerDevice())
 
-pipeline.AddDevice(AvgBasedSmoothingDevice(5))
-pipeline.AddDevice(AvgBasedSmoothingDevice(5))
+pipeline.AddDevice(AvgBasedSmoothingDevice(1))
 -- pipeline.AddDevice(FlatSurfaceSmoothingFilterDevice(20))
 pipeline.AddDevice(BasicTerrainBuilderDevice(terrainParent))
 

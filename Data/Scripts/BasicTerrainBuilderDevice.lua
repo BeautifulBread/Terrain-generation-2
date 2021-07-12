@@ -50,6 +50,37 @@ function BasicTerrainBuilderDevice(spawnedObjectsParent, scale)
                 }
             end
         end
+        MAX_ITERATIONS_PER_TICK = 1000
+        local correctedSpawnParams = {}
+        correctedSpawnParams[1] = {}
+        correctedSpawnParams[height] = {}
+        for i = 2, height-1 do
+            correctedSpawnParams[i] = {}
+            for ii = 2, width-1 do
+                iters = iters + 1
+                if iters % MAX_ITERATIONS_PER_TICK == 0 then
+                    Task.Wait()
+                end
+                local thisParams = spawnParams[i][ii]
+                local thisBottomZOffset = thisParams.position.z-SPACING/2
+                local thisTopZOffset = thisParams.position.z+SPACING/2
+                function GetTopZOffset(params)
+                    return thisBottomZOffset-(params.position.z+SPACING/2)
+                end
+                local u = GetTopZOffset(spawnParams[i][ii+1])
+                local b = GetTopZOffset(spawnParams[i][ii-1])
+                local r = GetTopZOffset(spawnParams[i+1][ii])
+                local l = GetTopZOffset(spawnParams[i-1][ii])
+                local maxDiff = math.max(u,b,r,l)
+                if maxDiff>0 then
+                    -- thisParams.scale = thisParams.scale or Vector3.ONE*SPACING/100
+                    -- thisParams.scale.z = thisParams.scale.z*(thisTopZoffset+)
+                    correctedSpawnParams[i][ii] = {position = Vector3.New(thisParams.position)}
+                    -- correctedSpawnParams[i][ii].position.z = CoreMath.Lerp(thisBottomZOffset-maxDiff,thisTopZOffset,0.5)
+                    correctedSpawnParams[i][ii].position.z = thisBottomZOffset-maxDiff/2
+                end
+            end
+        end
         -- spawning
         MAX_ITERATIONS_PER_TICK = 100
         for i = 1, height do
@@ -58,7 +89,8 @@ function BasicTerrainBuilderDevice(spawnedObjectsParent, scale)
                 if iters % MAX_ITERATIONS_PER_TICK == 0 then
                     Task.Wait()
                 end
-                World.SpawnAsset(CUBE, spawnParams[i][ii])
+                local thisParams = correctedSpawnParams[i][ii] or spawnParams[i][ii]
+                World.SpawnAsset(CUBE, thisParams)
             end
         end
         return

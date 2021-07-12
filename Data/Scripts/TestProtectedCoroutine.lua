@@ -5,9 +5,8 @@ local ProtectedCoroutine = Imports.Coroutines.ProtectedCoroutine.require()
 
 local i = 0
 function TestedFunc(...)
-    -- FIXME: varargs with coroutines is weird, dance.
     local params = {...}
-    local ret2 = params[1][1]
+    local ret2 = params[1]
     if i == 0 then
         ret2 = ProtectedCoroutine.yield(6)
     end

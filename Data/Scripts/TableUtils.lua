@@ -28,10 +28,16 @@
 ]]
 TableUtils = {}
 function TableUtils.PrintTable(table)
+    if not table then
+        return error('Table is nil!', 2)
+    end
+    if type(table) ~= 'table' then
+        error('This is not a table', 2)
+    end
     print('contents of a table:')
     print('-----------')
-    for k,v in pairs(table) do
-        print(tostring(k)..string.rep(" ",math.max(50-#k,0))..":\t"..tostring(v))
+    for k, v in pairs(table) do
+        print(tostring(k) .. string.rep(' ', math.max(50 - #k, 0)) .. ':\t' .. tostring(v))
     end
     print('-----------')
 end

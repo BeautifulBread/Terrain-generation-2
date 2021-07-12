@@ -17,6 +17,7 @@ function TerrainHeightmapBuilderPipelineClass2D()
             print(self.devices[i])
         end
         print('-----------')
+        print()
     end
     function self.ListRemaps()
         print('remaps:')
@@ -26,6 +27,7 @@ function TerrainHeightmapBuilderPipelineClass2D()
             TableUtils.PrintTable(v)
         end
         print('-----------')
+        print()
     end
     function self.ListPerformance()
         print('terrain generation timings:')
@@ -45,6 +47,7 @@ function TerrainHeightmapBuilderPipelineClass2D()
                 tostring(CoreMath.Round(self.perfReports[self.type].totalTime, 6) * 1000) .. ' ms'
         )
         print('-----------')
+        print()
     end
     function self.Remap(table)
         self.remaps[#self.devices] = table

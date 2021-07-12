@@ -1,6 +1,39 @@
 Name: "TestCases"
 RootId: 1245448279003137889
 Objects {
+  Id: 2229933715988484018
+  Name: "TestRunner"
+  Transform {
+    Location {
+    }
+    Rotation {
+    }
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 1245448279003137889
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  Script {
+    ScriptAsset {
+      Id: 9005593744338386053
+    }
+  }
+}
+Objects {
   Id: 10346577321757616227
   Name: "TestProtectedCoroutine"
   Transform {

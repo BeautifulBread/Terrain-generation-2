@@ -26,14 +26,16 @@ function BasicTerrainBuilderDevice(spawnedObjectsParent, scale)
 
         -- actual building
         local SPACING = self.scale * 100
-        local MAX_ITERATIONS_PER_TICK = 100
+        local MAX_ITERATIONS_PER_TICK = 10000
 
         local width = #options.heightMap[1]
         local height = #options.heightMap
 
         local heightMap = options.heightMap -- is an optimization
         local iters = 0 -- to avoid instruction limit errors
+        local spawnParams = {}
         for i = 1, height do
+            spawnParams[i] = {}
             for ii = 1, width do
                 iters = iters + 1
                 if iters % MAX_ITERATIONS_PER_TICK == 0 then
@@ -41,14 +43,22 @@ function BasicTerrainBuilderDevice(spawnedObjectsParent, scale)
                 end
                 local zOffset = heightMap[i][ii]
                 local position = Vector3.New(ii * SPACING, i * SPACING, zOffset)
-                World.SpawnAsset(
-                    CUBE,
-                    {
-                        parent = self.spawnedObjectsParent,
-                        position = position + options.position,
-                        scale = Vector3.ONE * self.scale
-                    }
-                )
+                spawnParams[i][ii] = {
+                    parent = self.spawnedObjectsParent,
+                    position = position + options.position,
+                    scale = Vector3.ONE * self.scale
+                }
+            end
+        end
+        -- spawning
+        MAX_ITERATIONS_PER_TICK = 100
+        for i = 1, height do
+            for ii = 1, width do
+                iters = iters + 1
+                if iters % MAX_ITERATIONS_PER_TICK == 0 then
+                    Task.Wait()
+                end
+                World.SpawnAsset(CUBE, spawnParams[i][ii])
             end
         end
         return

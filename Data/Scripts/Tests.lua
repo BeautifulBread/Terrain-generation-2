@@ -1,3 +1,5 @@
+local Imports = _G.Imports
+local ProtectedCoroutine = Imports.Coroutines.ProtectedCoroutine.require()
 Tests = {}
 function Tests.RunTest(testName, func)
     assert(type(testName) == 'string', 'testName must be a string')
@@ -19,8 +21,8 @@ function Tests.RunAllTests()
         for i = 1, #Tests.scheduledTests do
             -- TODO: better formatting
             local currentTest = Tests.scheduledTests[i]
-            local cr = coroutine.create(currentTest.func)
-            local res, msg = coroutine.resume(cr)
+            local cr = ProtectedCoroutine.create(currentTest.func)
+            local res, msg = ProtectedCoroutine.resume(cr)
             -- checks validity of the test name
             local stringNameRepr = tostring(currentTest.testName) or ''
             assert(

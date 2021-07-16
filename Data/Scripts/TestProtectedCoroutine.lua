@@ -27,7 +27,7 @@ Tests.RunTest(
             ret2 == 6 and ret1 == true,
             'ret1 is ' .. tostring(ret1) .. ', true expected;\tret2 is ' .. tostring(ret2) .. ', 12 expected'
         )
-        ProtectedCoroutine.resume(pc, ret2)
+        ProtectedCoroutine.resumeLooped(pc, ret2)
         ProtectedCoroutine.resume(pc, ret2)
         ProtectedCoroutine.resume(pc, ret2)
         local newRet1, newRet2 = ProtectedCoroutine.resume(pc, ret2)

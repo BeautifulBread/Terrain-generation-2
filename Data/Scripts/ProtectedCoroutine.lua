@@ -34,14 +34,13 @@ function ProtectedCoroutine.resume(cr, ...)
     end
     return success, i
 end
-function ProtectedCoroutine.resumeForced(cr, ...)
-    -- TODO: test
+function ProtectedCoroutine.resumeLooped(cr, ...)
     assert(cr)
     assert(cr.type == 'ProtectedCoroutineClass')
     local success, ret
     repeat
         success, ret = ProtectedCoroutine.resume(cr, ...)
-    until success == true
+    until success == false or ProtectedCoroutine.status(cr) == 'dead'
     return success, ret
 end
 function ProtectedCoroutine.yield(ret)

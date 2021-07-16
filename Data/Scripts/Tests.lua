@@ -19,7 +19,8 @@ function Tests.RunAllTests()
         for i = 1, #Tests.scheduledTests do
             -- TODO: better formatting
             local currentTest = Tests.scheduledTests[i]
-            local res, msg = pcall(currentTest.func)
+            local cr = coroutine.create(currentTest.func)
+            local res, msg = coroutine.resume(cr)
             -- checks validity of the test name
             local stringNameRepr = tostring(currentTest.testName) or ''
             assert(

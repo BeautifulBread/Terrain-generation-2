@@ -23,17 +23,20 @@ local cr = coroutine.create(DoFunStuff)
 local prevI
 local timer = time()
 local switch = false
+local counter = 0
 repeat
+    counter = counter+1
     success, i = coroutine.resume(cr, prevI)
     if success == true then
         prevI = i
     else
-        -- print(tostring(success).."|"..tostring(time() - timer).."|"..tostring(prevI))
+        print(tostring(success).."|"..tostring(time() - timer).."|"..tostring(i))
+        -- print(counter)
         cr = coroutine.create(DoFunStuff)
         Task.Wait()
     end
-    if prevI >= 100000000 then
-        switch = true
-    end
+    -- if prevI >= 100000000 then
+    --     switch = true
+    -- end
 until switch
 print(time() - timer)

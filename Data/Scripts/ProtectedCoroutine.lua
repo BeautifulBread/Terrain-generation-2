@@ -19,21 +19,22 @@ function ProtectedCoroutine.resume(cr, ...)
         cr.type == 'ProtectedCoroutineClass',
         'Type ' .. tostring(type) .. ' is not a valid ProtectedCoroutineClass instance'
     )
+    cr.lastParams = cr.lastParams or params
     local success, i = coroutine.resume(cr.coroutine, params)
-    -- FIXME: plain lua coroutine calls can mess you up
     if success == true then
         -- TODO: consider removing .lastParams
         cr.lastParams = i
-    else
-        if not cr.lastParams then
-            cr.lastParams = params
-        end
+    elseif i == 'Instruction limit exceeded. Your code may be in an infinite loop.' then
         cr.coroutine = coroutine.create(cr.func)
         Task.Wait()
+        return ProtectedCoroutine.resume(cr)
+    else
+        cr.coroutine = coroutine.create(cr.func)
+        return success, i
     end
     return success, i
 end
-function ProtectedCoroutine.resumeProtected(cr, ...)
+function ProtectedCoroutine.resumeForced(cr, ...)
     -- TODO: test
     assert(cr)
     assert(cr.type == 'ProtectedCoroutineClass')

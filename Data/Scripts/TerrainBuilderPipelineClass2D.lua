@@ -74,6 +74,7 @@ function TerrainHeightmapBuilderPipelineClass2D()
             perfReport.totalTime = perfReport.finishTime - perfReport.startTime
             -- assert(not self.perfReports[self.devices[i].type]) -- FIXME:
             self.perfReports[self.devices[i].type] = perfReport
+            Task.Wait()
         end
         totalPerfReport.finishTime = time()
         totalPerfReport.totalTime = totalPerfReport.finishTime - totalPerfReport.startTime

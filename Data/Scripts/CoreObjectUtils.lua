@@ -19,7 +19,7 @@ end
 function CoreObjectUtils.FlattenDescendantTree(tree, prev)
     local objects = prev or {}
     for _, v in ipairs(tree) do
-        objects[#objects + 1] = wv.object
+        objects[#objects + 1] = v.object
         if #v.children ~= 0 then
             CoreObjectUtils.FlattenDescendantTree(v.children, objects)
         end

@@ -36,5 +36,5 @@ Assets {
   Marketplace {
     Description: "Baus\' namespace manager refactored with my common core libraries."
   }
-  SerializationVersion: 91
+  SerializationVersion: 92
 }

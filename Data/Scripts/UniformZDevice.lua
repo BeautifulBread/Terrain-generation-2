@@ -1,10 +1,10 @@
-function UniformZDevice(width, height, zOffset)
-    assert(width and height)
+function UniformZDevice(mapSize, zOffset)
+    assert(mapSize)
     zOffset = zOffset or 0
     local self = {
         type = 'UniformZDevice',
-        width = width,
-        height = height,
+        width = mapSize.x,
+        height = mapSize.y,
         zOffset = zOffset
     }
     function self.__call(_, options)
@@ -15,9 +15,15 @@ function UniformZDevice(width, height, zOffset)
             assert(self.height == #options.heightMap, msg)
         end
         local flatSurface = {}
+        local MAX_ITERS_PER_TICK = 20000
+        local iters = 0
         for i = 1, self.width do
             flatSurface[i] = {}
             for ii = 1, self.height do
+                iters = iters + 1
+                if iters % MAX_ITERS_PER_TICK == 0 then
+                    Task.Wait()
+                end
                 flatSurface[i][ii] = self.zOffset
                 if options.heightMap then
                     flatSurface[i][ii] = flatSurface[i][ii] + options.heightMap[i][ii]

@@ -1,7 +1,7 @@
 Name: "Devices_1"
-RootId: 12851376183116944261
+RootId: 10044578987986982217
 Objects {
-  Id: 15768918505884108110
+  Id: 6427201832249548621
   Name: "AvgBasedSmoothingDevice"
   Transform {
     Location {
@@ -14,7 +14,7 @@ Objects {
       Z: 1
     }
   }
-  ParentId: 12851376183116944261
+  ParentId: 10044578987986982217
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
@@ -34,7 +34,7 @@ Objects {
   }
 }
 Objects {
-  Id: 11948010190684234992
+  Id: 10332269316138828879
   Name: "CombinerDevice"
   Transform {
     Location {
@@ -47,7 +47,7 @@ Objects {
       Z: 1
     }
   }
-  ParentId: 12851376183116944261
+  ParentId: 10044578987986982217
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
@@ -67,7 +67,7 @@ Objects {
   }
 }
 Objects {
-  Id: 13395352788746087690
+  Id: 6869750502674146362
   Name: "BasicTerrainBuilderDevice"
   Transform {
     Location {
@@ -80,7 +80,7 @@ Objects {
       Z: 1
     }
   }
-  ParentId: 12851376183116944261
+  ParentId: 10044578987986982217
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
@@ -100,7 +100,7 @@ Objects {
   }
 }
 Objects {
-  Id: 11156906990324642506
+  Id: 1468614816065741284
   Name: "GlaciarizerDevice"
   Transform {
     Location {
@@ -113,7 +113,7 @@ Objects {
       Z: 1
     }
   }
-  ParentId: 12851376183116944261
+  ParentId: 10044578987986982217
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
@@ -133,7 +133,7 @@ Objects {
   }
 }
 Objects {
-  Id: 17051594831428967985
+  Id: 8686896078793123625
   Name: "PerlinNoiseDevice"
   Transform {
     Location {
@@ -146,7 +146,7 @@ Objects {
       Z: 1
     }
   }
-  ParentId: 12851376183116944261
+  ParentId: 10044578987986982217
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
@@ -166,7 +166,7 @@ Objects {
   }
 }
 Objects {
-  Id: 14756950260956636134
+  Id: 12046273208980489321
   Name: "UniformZDevice"
   Transform {
     Location {
@@ -179,7 +179,7 @@ Objects {
       Z: 1
     }
   }
-  ParentId: 12851376183116944261
+  ParentId: 10044578987986982217
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }

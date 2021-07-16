@@ -1,8 +1,8 @@
-Name: "Math"
-RootId: 9999474522087343850
+Name: "Procedural"
+RootId: 16347876068612460330
 Objects {
-  Id: 8373473501108979831
-  Name: "Noise"
+  Id: 12851376183116944261
+  Name: "Devices"
   Transform {
     Location {
     }
@@ -14,7 +14,7 @@ Objects {
       Z: 1
     }
   }
-  ParentId: 9999474522087343850
+  ParentId: 16347876068612460330
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
@@ -27,15 +27,14 @@ Objects {
   EditorIndicatorVisibility {
     Value: "mc:eindicatorvisibility:visiblewhenselected"
   }
-  Script {
-    ScriptAsset {
-      Id: 2651619979252803131
-    }
+  Folder {
+    IsFilePartition: true
+    FilePartitionName: "Devices"
   }
 }
 Objects {
-  Id: 9857099995848164214
-  Name: "TerrainClass"
+  Id: 16334164435763801348
+  Name: "TerrainBuilderPipelineClass2D"
   Transform {
     Location {
     }
@@ -47,7 +46,7 @@ Objects {
       Z: 1
     }
   }
-  ParentId: 9999474522087343850
+  ParentId: 16347876068612460330
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
@@ -62,7 +61,7 @@ Objects {
   }
   Script {
     ScriptAsset {
-      Id: 3296650807390737022
+      Id: 11090181159666109438
     }
   }
 }

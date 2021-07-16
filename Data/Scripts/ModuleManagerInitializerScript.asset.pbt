@@ -17,6 +17,6 @@ Assets {
       }
     }
   }
-  SerializationVersion: 91
+  SerializationVersion: 92
   VirtualFolderPath: "Manager"
 }

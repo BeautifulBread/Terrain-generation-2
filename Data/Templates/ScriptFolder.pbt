@@ -119,6 +119,6 @@ Assets {
   Marketplace {
     Description: "This is a module manager inspired by Bau\'s namespace manager. Allows you to import modules without using properties every time.\r\n-----------------\r\nChangelog:\r\nv1.0 plain module manager\r\nv1.1 added utility classes"
   }
-  SerializationVersion: 91
+  SerializationVersion: 92
   DirectlyPublished: true
 }

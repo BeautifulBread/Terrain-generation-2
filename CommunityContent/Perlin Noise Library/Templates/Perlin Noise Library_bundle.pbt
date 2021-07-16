@@ -43,5 +43,5 @@ Assets {
     Version: "1.0.0"
     Description: "A simple 3D perlin noise function/library that I copied from online and modified a little bit to add a scale paramater and also make it work better."
   }
-  SerializationVersion: 91
+  SerializationVersion: 92
 }

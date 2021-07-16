@@ -15,6 +15,6 @@ Assets {
   Marketplace {
     Description: "Usage is JSON.Strigify(someObject) and JSON.Parse(someString). Supports basic CORE userdata types. Doesn\'t throw instruction limit errors."
   }
-  SerializationVersion: 91
+  SerializationVersion: 92
   VirtualFolderPath: "Utility"
 }

@@ -26,7 +26,7 @@ function PerlinNoiseDevice(mapSize, seed, amplitude, stretch)
         options.position = options.position or Vector3.ZERO
 
         -- terrain generation
-        local MAX_ITERATIONS_PER_TICK = 4500
+        local MAX_ITERATIONS_PER_TICK = 5000
 
         -- FIXME: error handliong on omitting seed
         Noise.seed(self.seed)

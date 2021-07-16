@@ -15,6 +15,6 @@ Assets {
   Marketplace {
     Description: "require this script to get a humanly readable table of keybindings. use .reverse() to swap keys with values."
   }
-  SerializationVersion: 91
+  SerializationVersion: 92
   VirtualFolderPath: "Utility"
 }

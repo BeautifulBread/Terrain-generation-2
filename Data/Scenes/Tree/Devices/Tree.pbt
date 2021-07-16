@@ -1,8 +1,8 @@
-Name: "Utils"
-RootId: 5613612319659030007
+Name: "Devices"
+RootId: 12851376183116944261
 Objects {
-  Id: 5944069456870906520
-  Name: "KeyCodes"
+  Id: 15768918505884108110
+  Name: "AvgBasedSmoothingDevice"
   Transform {
     Location {
     }
@@ -14,7 +14,7 @@ Objects {
       Z: 1
     }
   }
-  ParentId: 5613612319659030007
+  ParentId: 12851376183116944261
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
@@ -29,13 +29,13 @@ Objects {
   }
   Script {
     ScriptAsset {
-      Id: 5153807603410020566
+      Id: 11987746568227697410
     }
   }
 }
 Objects {
-  Id: 1877169069674750087
-  Name: "JSON"
+  Id: 11948010190684234992
+  Name: "CombinerDevice"
   Transform {
     Location {
     }
@@ -47,7 +47,7 @@ Objects {
       Z: 1
     }
   }
-  ParentId: 5613612319659030007
+  ParentId: 12851376183116944261
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
@@ -62,13 +62,13 @@ Objects {
   }
   Script {
     ScriptAsset {
-      Id: 9963136647964533062
+      Id: 16998235696422759417
     }
   }
 }
 Objects {
-  Id: 615663706667883651
-  Name: "TableUtils"
+  Id: 13395352788746087690
+  Name: "BasicTerrainBuilderDevice"
   Transform {
     Location {
     }
@@ -80,7 +80,7 @@ Objects {
       Z: 1
     }
   }
-  ParentId: 5613612319659030007
+  ParentId: 12851376183116944261
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
@@ -95,13 +95,13 @@ Objects {
   }
   Script {
     ScriptAsset {
-      Id: 1518469903413645625
+      Id: 11374823075921796682
     }
   }
 }
 Objects {
-  Id: 11158862009664179025
-  Name: "FunctionalUtils"
+  Id: 11156906990324642506
+  Name: "GlaciarizerDevice"
   Transform {
     Location {
     }
@@ -113,7 +113,7 @@ Objects {
       Z: 1
     }
   }
-  ParentId: 5613612319659030007
+  ParentId: 12851376183116944261
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
@@ -128,13 +128,13 @@ Objects {
   }
   Script {
     ScriptAsset {
-      Id: 2894573475697960457
+      Id: 6224569963153153531
     }
   }
 }
 Objects {
-  Id: 17428484834640595047
-  Name: "CoreObjectUtils"
+  Id: 17051594831428967985
+  Name: "PerlinNoiseDevice"
   Transform {
     Location {
     }
@@ -146,7 +146,7 @@ Objects {
       Z: 1
     }
   }
-  ParentId: 5613612319659030007
+  ParentId: 12851376183116944261
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
@@ -161,7 +161,40 @@ Objects {
   }
   Script {
     ScriptAsset {
-      Id: 1157754754195071624
+      Id: 9694963515334186802
+    }
+  }
+}
+Objects {
+  Id: 14756950260956636134
+  Name: "UniformZDevice"
+  Transform {
+    Location {
+    }
+    Rotation {
+    }
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 12851376183116944261
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  Script {
+    ScriptAsset {
+      Id: 6941183492192852755
     }
   }
 }

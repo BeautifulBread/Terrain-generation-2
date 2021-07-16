@@ -1,7 +1,7 @@
-Name: "Coroutines"
-RootId: 2783756651905846280
+Name: "Coroutines_1"
+RootId: 18260193740077739465
 Objects {
-  Id: 17108192738182057652
+  Id: 18426393209804090982
   Name: "ProtectedCoroutine"
   Transform {
     Location {
@@ -14,7 +14,7 @@ Objects {
       Z: 1
     }
   }
-  ParentId: 2783756651905846280
+  ParentId: 18260193740077739465
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }

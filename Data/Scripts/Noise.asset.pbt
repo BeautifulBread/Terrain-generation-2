@@ -15,7 +15,7 @@ Assets {
   Marketplace {
     Description: "A basic noise generation script I use for terrain generation."
   }
-  SerializationVersion: 91
+  SerializationVersion: 92
   DirectlyPublished: true
   VirtualFolderPath: "Manager"
   VirtualFolderPath: "Library"

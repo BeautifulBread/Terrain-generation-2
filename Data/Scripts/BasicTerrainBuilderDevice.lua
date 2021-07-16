@@ -26,19 +26,18 @@ function BasicTerrainBuilderDevice(spawnedObjectsParent, scale)
 
         -- actual building
         local SPACING = self.scale * 100
-        local MAX_ITERATIONS_PER_TICK = 10000
-
         local width = #options.heightMap[1]
         local height = #options.heightMap
 
         local heightMap = options.heightMap -- is an optimization
         local iters = 0 -- to avoid instruction limit errors
+        local MAX_ITERS_PER_TICK = 10000
         local spawnParams = {}
         for i = 1, height do
             spawnParams[i] = {}
             for ii = 1, width do
                 iters = iters + 1
-                if iters % MAX_ITERATIONS_PER_TICK == 0 then
+                if iters % MAX_ITERS_PER_TICK == 0 then
                     Task.Wait()
                 end
                 local zOffset = heightMap[i][ii]
@@ -53,12 +52,13 @@ function BasicTerrainBuilderDevice(spawnedObjectsParent, scale)
         local correctedSpawnParams = {}
         correctedSpawnParams[1] = {}
         correctedSpawnParams[height] = {}
-        MAX_ITERATIONS_PER_TICK = 100
+        iters = iters % MAX_ITERS_PER_TICK
+        MAX_ITERS_PER_TICK = 8000
         for i = 2, height - 1 do
             correctedSpawnParams[i] = {}
             for ii = 2, width - 1 do
                 iters = iters + 1
-                if iters % MAX_ITERATIONS_PER_TICK == 0 then
+                if iters % MAX_ITERS_PER_TICK == 0 then
                     Task.Wait()
                 end
                 local offsets = {
@@ -75,7 +75,7 @@ function BasicTerrainBuilderDevice(spawnedObjectsParent, scale)
                     end
                 end
                 assert(maxOffset and type(maxOffset) == 'number', type(maxOffset))
-                if maxOffset > SPACING / 2 then
+                if maxOffset > SPACING then
                     correctedSpawnParams[i][ii] = {
                         position = spawnParams[i][ii].position,
                         scale = spawnParams[i][ii].scale,
@@ -88,11 +88,16 @@ function BasicTerrainBuilderDevice(spawnedObjectsParent, scale)
                 end
             end
         end
-        MAX_ITERATIONS_PER_TICK = 100
+        iters = iters % MAX_ITERS_PER_TICK
+        MAX_ITERS_PER_TICK = 100
         for i = 1, height do
             for ii = 1, width do
                 iters = iters + 1
-                if iters % MAX_ITERATIONS_PER_TICK == 0 then
+                if iters % MAX_ITERS_PER_TICK == 0 then
+                    -- DEBUG:
+                    if iters > 10000 then
+                        MAX_ITERS_PER_TICK = 40
+                    end
                     Task.Wait()
                 end
                 local thisParams = correctedSpawnParams[i][ii] or spawnParams[i][ii]

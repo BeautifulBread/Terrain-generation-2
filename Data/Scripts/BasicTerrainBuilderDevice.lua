@@ -54,19 +54,32 @@ function BasicTerrainBuilderDevice(spawnedObjectsParent, scale)
         correctedSpawnParams[height] = {}
         iters = iters % MAX_ITERS_PER_TICK
         MAX_ITERS_PER_TICK = 8000
-        for i = 2, height - 1 do
+        for i = 1, height do
             correctedSpawnParams[i] = {}
-            for ii = 2, width - 1 do
+            for ii = 1, width do
                 iters = iters + 1
                 if iters % MAX_ITERS_PER_TICK == 0 then
                     Task.Wait()
                 end
-                local offsets = {
-                    u = spawnParams[i][ii].position.z - spawnParams[i][ii + 1].position.z,
-                    d = spawnParams[i][ii].position.z - spawnParams[i][ii - 1].position.z,
-                    r = spawnParams[i][ii].position.z - spawnParams[i + 1][ii].position.z,
-                    l = spawnParams[i][ii].position.z - spawnParams[i - 1][ii].position.z
-                }
+                local neighbours = {}
+                neighbours.u = spawnParams[i][ii + 1]
+                neighbours.d = spawnParams[i][ii - 1]
+                if spawnParams[i + 1] then
+                    neighbours.r = spawnParams[i + 1][ii]
+                end
+                if spawnParams[i - 1] then
+                    neighbours.l = spawnParams[i - 1][ii]
+                end
+                local offsets = {}
+                for k, v in pairs(neighbours) do
+                    offsets[k] = spawnParams[i][ii].position.z - v.position.z
+                end
+                -- local offsets = {
+                --     u = spawnParams[i][ii].position.z - spawnParams[i][ii + 1].position.z,
+                --     d = spawnParams[i][ii].position.z - spawnParams[i][ii - 1].position.z,
+                --     r = spawnParams[i][ii].position.z - spawnParams[i + 1][ii].position.z,
+                --     l = spawnParams[i][ii].position.z - spawnParams[i - 1][ii].position.z
+                -- }
                 local maxOffset = 0
                 for _, v in pairs(offsets) do
                     assert(v)

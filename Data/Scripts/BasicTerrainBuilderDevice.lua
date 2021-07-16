@@ -50,38 +50,44 @@ function BasicTerrainBuilderDevice(spawnedObjectsParent, scale)
                 }
             end
         end
-        MAX_ITERATIONS_PER_TICK = 1000
         local correctedSpawnParams = {}
         correctedSpawnParams[1] = {}
         correctedSpawnParams[height] = {}
-        for i = 2, height-1 do
+        MAX_ITERATIONS_PER_TICK = 100
+        for i = 2, height - 1 do
             correctedSpawnParams[i] = {}
-            for ii = 2, width-1 do
+            for ii = 2, width - 1 do
                 iters = iters + 1
                 if iters % MAX_ITERATIONS_PER_TICK == 0 then
                     Task.Wait()
                 end
-                local thisParams = spawnParams[i][ii]
-                local thisBottomZOffset = thisParams.position.z-SPACING/2
-                local thisTopZOffset = thisParams.position.z+SPACING/2
-                function GetTopZOffset(params)
-                    return thisBottomZOffset-(params.position.z+SPACING/2)
+                local offsets = {
+                    u = spawnParams[i][ii].position.z - spawnParams[i][ii + 1].position.z,
+                    d = spawnParams[i][ii].position.z - spawnParams[i][ii - 1].position.z,
+                    r = spawnParams[i][ii].position.z - spawnParams[i + 1][ii].position.z,
+                    l = spawnParams[i][ii].position.z - spawnParams[i - 1][ii].position.z
+                }
+                local maxOffset = 0
+                for _, v in pairs(offsets) do
+                    assert(v)
+                    if v > maxOffset then
+                        maxOffset = v
+                    end
                 end
-                local u = GetTopZOffset(spawnParams[i][ii+1])
-                local b = GetTopZOffset(spawnParams[i][ii-1])
-                local r = GetTopZOffset(spawnParams[i+1][ii])
-                local l = GetTopZOffset(spawnParams[i-1][ii])
-                local maxDiff = math.max(u,b,r,l)
-                if maxDiff>0 then
-                    -- thisParams.scale = thisParams.scale or Vector3.ONE*SPACING/100
-                    -- thisParams.scale.z = thisParams.scale.z*(thisTopZoffset+)
-                    correctedSpawnParams[i][ii] = {position = Vector3.New(thisParams.position)}
-                    -- correctedSpawnParams[i][ii].position.z = CoreMath.Lerp(thisBottomZOffset-maxDiff,thisTopZOffset,0.5)
-                    correctedSpawnParams[i][ii].position.z = thisBottomZOffset-maxDiff/2
+                assert(maxOffset and type(maxOffset) == 'number', type(maxOffset))
+                if maxOffset > SPACING / 2 then
+                    correctedSpawnParams[i][ii] = {
+                        position = spawnParams[i][ii].position,
+                        scale = spawnParams[i][ii].scale,
+                        parent = spawnParams[i][ii].parent
+                    }
+                    correctedSpawnParams[i][ii].position.z =
+                        correctedSpawnParams[i][ii].position.z - (maxOffset - SPACING) / 2
+                    correctedSpawnParams[i][ii].scale.z =
+                        correctedSpawnParams[i][ii].scale.z + math.max(0, (maxOffset - SPACING) / SPACING)
                 end
             end
         end
-        -- spawning
         MAX_ITERATIONS_PER_TICK = 100
         for i = 1, height do
             for ii = 1, width do

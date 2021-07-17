@@ -1,6 +1,6 @@
 Assets {
   Id: 3296650807390737022
-  Name: "TerrainClass"
+  Name: "SimplexNoise"
   PlatformAssetType: 3
   TextAsset {
   }

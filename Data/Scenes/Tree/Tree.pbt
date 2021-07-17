@@ -144,6 +144,15 @@ Objects {
         }
       }
     }
+    ParameterOverrideMap {
+      key: 17546773369391715811
+      value {
+        Overrides {
+          Name: "Name"
+          String: "SimplexNoise"
+        }
+      }
+    }
     TemplateAsset {
       Id: 3084018047747701294
     }

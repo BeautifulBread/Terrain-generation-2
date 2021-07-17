@@ -15,7 +15,7 @@ function PerlinNoiseDevice(mapSize, seed, amplitude, stretch)
         -- input validation
         assert(
             options,
-            [[You've failed to pass options to BasicTerrainBuilderDevice! Mandatory options:
+            [[You've failed to pass options to ]] .. self.type .. [[! Elective options:
             heighMap: table]]
         )
         if options.heightMap then
@@ -26,9 +26,9 @@ function PerlinNoiseDevice(mapSize, seed, amplitude, stretch)
         options.position = options.position or Vector3.ZERO
 
         -- terrain generation
-        local MAX_ITERATIONS_PER_TICK = 5000
+        local MAX_ITERATIONS_PER_TICK = 4500
 
-        -- FIXME: error handliong on omitting seed
+        -- FIXME: error handling on omitting seed
         Noise.seed(self.seed)
 
         local width = self.mapSize.x
@@ -41,6 +41,7 @@ function PerlinNoiseDevice(mapSize, seed, amplitude, stretch)
                 iters = iters + 1
                 if iters % MAX_ITERATIONS_PER_TICK == 0 then
                     Task.Wait()
+                -- coroutine.yield("HI people")
                 end
                 noiseMap[i][ii] = (Noise.make(i * self.stretch.x, ii * self.stretch.y) + 1) / 2 * amplitude
                 if options.heightMap then
@@ -50,6 +51,7 @@ function PerlinNoiseDevice(mapSize, seed, amplitude, stretch)
         end
         local ret = options
         ret.heightMap = noiseMap
+        -- print("Hello")
         return ret
     end
     return setmetatable(self, self)

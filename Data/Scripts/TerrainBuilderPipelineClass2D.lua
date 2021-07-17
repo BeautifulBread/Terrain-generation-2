@@ -61,6 +61,29 @@ function TerrainHeightmapBuilderPipelineClass2D()
             assert(self.devices[i].type)
             local perfReport = {}
             perfReport.startTime = time()
+
+            -- local cr =
+            --     coroutine.create(
+            --     function(...)
+            --         return self.devices[i](...)
+            --     end
+            -- )
+            -- local newOptions = "bruh"
+            -- repeat
+            --     -- Task.Wait()
+            --     success,newOptions = coroutine.resume(cr,options)
+            --     print("UWU")
+            --     print(newOptions)
+            --     assert(success)
+            --     Task.Wait()
+            --     -- if type(newOptions) == 'string' then print(newOptions) end
+            -- until coroutine.status(cr) == 'dead' and type(newOptions)=='table'
+            -- success,options = coroutine.resume(cr,options)
+            -- print(options)
+            --
+            -- local cr = coroutine.wrap(function(...) return self.devices[i](...) end)
+            -- options = cr(options)
+
             options = self.devices[i](options)
             if self.remaps[i] then
                 for k, v in pairs(self.remaps[i]) do

@@ -13,7 +13,7 @@ Assets {
       Overrides {
         Name: "cs:TerrainCube"
         AssetReference {
-          Id: 9905284988165168215
+          Id: 841534158063459245
         }
       }
       Overrides {

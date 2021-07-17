@@ -1,12 +1,12 @@
 Assets {
-  Id: 9905284988165168215
+  Id: 5521646414114951371
   Name: "TerrainCube"
   PlatformAssetType: 5
   TemplateAsset {
     ObjectBlock {
-      RootId: 7435234197926908234
+      RootId: 10750433205403374661
       Objects {
-        Id: 7435234197926908234
+        Id: 10750433205403374661
         Name: "TerrainCube"
         Transform {
           Scale {
@@ -15,7 +15,7 @@ Assets {
             Z: 1
           }
         }
-        ParentId: 4781671109827199097
+        ParentId: 3229880396597548339
         UnregisteredParameters {
           Overrides {
             Name: "ma:Shared_BaseMaterial:id"

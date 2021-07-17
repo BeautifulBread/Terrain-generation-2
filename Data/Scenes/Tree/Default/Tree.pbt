@@ -1,57 +1,6 @@
 Name: "Default"
 RootId: 1417443500982511754
 Objects {
-  Id: 8055588525088461715
-  Name: "TerrainCube"
-  Transform {
-    Scale {
-      X: 1
-      Y: 1
-      Z: 1
-    }
-  }
-  ParentId: 1417443500982511754
-  Collidable_v2 {
-    Value: "mc:ecollisionsetting:inheritfromparent"
-  }
-  Visible_v2 {
-    Value: "mc:evisibilitysetting:inheritfromparent"
-  }
-  TemplateInstance {
-    ParameterOverrideMap {
-      key: 7435234197926908234
-      value {
-        Overrides {
-          Name: "Name"
-          String: "TerrainCube"
-        }
-        Overrides {
-          Name: "Position"
-          Vector {
-            Z: -55
-          }
-        }
-        Overrides {
-          Name: "Rotation"
-          Rotator {
-          }
-        }
-        Overrides {
-          Name: "Scale"
-          Vector {
-            X: 1
-            Y: 1
-            Z: 1
-          }
-        }
-      }
-    }
-    TemplateAsset {
-      Id: 9905284988165168215
-    }
-  }
-}
-Objects {
   Id: 10005074784157121906
   Name: "Default Sky"
   Transform {

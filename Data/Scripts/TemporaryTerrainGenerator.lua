@@ -10,7 +10,7 @@ local terrainParent = script.parent:FindChildByName('Geom')
 
 local pipeline = TerrainHeightmapBuilderPipelineClass2D()
 
-local mapSize = Vector2.New(200, 200)
+local mapSize = Vector2.New(100, 100)
 pipeline.AddDevice(PerlinNoiseDevice(mapSize, 5034, 1000, Vector2.New(0.05, 0.05)))
 pipeline.AddDevice(UniformZDevice(mapSize, 150))
 pipeline.Remap({heightMap = 'input1'})

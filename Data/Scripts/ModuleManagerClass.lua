@@ -16,6 +16,7 @@ local function ImportFileClass(coreObject)
         if self.coreObject.type ~= 'Script' then
             error("You can't require non-scripts")
         end
+        -- FIXME: readable error if self reference doesn't exist
         self.required = self.required or require(self.coreObject:GetCustomProperty('self'))
         return self.required
     end

@@ -13,7 +13,7 @@ Assets {
       Overrides {
         Name: "cs:cube"
         AssetReference {
-          Id: 9905284988165168215
+          Id: 5521646414114951371
         }
       }
     }

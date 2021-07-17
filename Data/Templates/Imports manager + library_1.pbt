@@ -1,12 +1,12 @@
 Assets {
-  Id: 11373684692292112945
-  Name: "nexovec\'s module manager"
+  Id: 8773553641872164077
+  Name: "Imports manager + library"
   PlatformAssetType: 5
   TemplateAsset {
     ObjectBlock {
-      RootId: 17407447351066536308
+      RootId: 4103380563365118000
       Objects {
-        Id: 17407447351066536308
+        Id: 4103380563365118000
         Name: "TemplateBundleDummy"
         Transform {
           Location {
@@ -22,7 +22,7 @@ Assets {
         Folder {
           BundleDummy {
             ReferencedAssets {
-              Id: 841534158063459245
+              Id: 3084018047747701294
             }
             ReferencedAssets {
               Id: 7638048984163506959
@@ -40,7 +40,10 @@ Assets {
     }
   }
   Marketplace {
-    Description: "This is a module manager inspired by Bau\'s namespace manager. Allows you to import modules without using properties every time.\r\n-----------------\r\nChangelog:\r\nv1.0 plain module manager\r\nv1.1 added utility classes"
+    Id: "4ecfa2f9fd1040ebabcaf47ec8eb64fe"
+    OwnerAccountId: "609c6418ffe648c5a85e9dd78e174dbb"
+    OwnerName: "nexovec"
+    Description: "This is a module manager inspired by Bau\'s namespace manager. Allows you to import modules without using properties every time.\r\n-----------------\r\nChangelog:\r\nv1.0 plain module manager\r\nv1.1 added utility classes\r\nv1.2 added procedural generation\r\nv1.3 added asynchronous programming module"
   }
   SerializationVersion: 92
 }

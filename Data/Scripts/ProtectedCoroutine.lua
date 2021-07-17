@@ -1,3 +1,5 @@
+-- SUPER DUPER IMPORTANT: !!!!!
+-- FIXME: I have encountered issues combining this with the AsyncOS. I recommend AsyncOS only instead.
 function ProtectedCoroutineClass(func)
     local self = {
         type = 'ProtectedCoroutineClass',

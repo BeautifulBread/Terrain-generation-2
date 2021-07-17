@@ -5,7 +5,9 @@ function UniformZDevice(mapSize, zOffset)
         type = 'UniformZDevice',
         width = mapSize.x,
         height = mapSize.y,
-        zOffset = zOffset
+        zOffset = zOffset,
+        inputKeys = {},
+        outputKeys = {'heightMap'}
     }
     function self.__call(_, options)
         options = options or {}
@@ -17,9 +19,9 @@ function UniformZDevice(mapSize, zOffset)
         local flatSurface = {}
         local MAX_ITERS_PER_TICK = 20000
         local iters = 0
-        for i = 1, self.width do
+        for i = 1, self.height do
             flatSurface[i] = {}
-            for ii = 1, self.height do
+            for ii = 1, self.width do
                 iters = iters + 1
                 if iters % MAX_ITERS_PER_TICK == 0 then
                     Task.Wait()

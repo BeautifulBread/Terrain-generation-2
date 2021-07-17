@@ -1,7 +1,9 @@
 function FlatSurfaceSmoothingFilterDevice(hDelta)
     local self = {
         type = 'FlatSurfaceSmoothingFilterDevice',
-        hDelta = hDelta
+        hDelta = hDelta,
+        inputKeys = {'heightMap'},
+        outputKeys = {'heightMap'}
     }
     function self.__call(_, options)
         assert(

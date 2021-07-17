@@ -2,7 +2,8 @@ function CombinerDevice()
     local self = {
         type = 'CombinerDevice',
         mode = 'Add',
-        inputKeys = {'input1', 'input2'}
+        inputKeys = {'input1', 'input2'},
+        outputKeys = {'heightMap'}
     }
     local function ValidateInputs(options)
         assert(options)

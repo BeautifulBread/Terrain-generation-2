@@ -1,5 +1,9 @@
 local Imports = _G.Imports
+
+local CUBE = script:GetCustomProperty('cube')
 local TableUtils = Imports.Utils.TableUtils.require()
+local AsyncOS = Imports.Coroutines.AsyncOS.require()
+local async, await = AsyncOS.async, AsyncOS.await
 function TerrainHeightmapBuilderPipelineClass2D()
     local self = {
         type = 'TerrainHeightmapBuilderPipelineClass2D',
@@ -8,7 +12,7 @@ function TerrainHeightmapBuilderPipelineClass2D()
         perfReports = {}
     }
     function self.AddDevice(device)
-        self.devices[#self.devices + 1] = device
+        self.devices[#self.devices + 1] = {device = device, associatedTask = nil}
     end
     function self.ListDevices()
         print('devices:')
@@ -33,7 +37,8 @@ function TerrainHeightmapBuilderPipelineClass2D()
         print('terrain generation timings:')
         print('-----------')
         for i = 1, #self.devices do
-            local index = self.devices[i].type
+            local index = self.devices[i].device.type
+            -- FIXME: useself.devices[i].perfReport instead
             local report = tostring(CoreMath.Round(self.perfReports[index].totalTime, 6) * 1000)
             local text =
                 index ..
@@ -57,34 +62,17 @@ function TerrainHeightmapBuilderPipelineClass2D()
         local totalPerfReport = {}
         totalPerfReport.startTime = time()
         for i = 1, #self.devices do
-            assert(self.devices[i])
-            assert(self.devices[i].type)
+            assert(self.devices[i].device)
+            assert(self.devices[i].device.type)
             local perfReport = {}
             perfReport.startTime = time()
-
-            -- local cr =
-            --     coroutine.create(
-            --     function(...)
-            --         return self.devices[i](...)
-            --     end
-            -- )
-            -- local newOptions = "bruh"
-            -- repeat
-            --     -- Task.Wait()
-            --     success,newOptions = coroutine.resume(cr,options)
-            --     print("UWU")
-            --     print(newOptions)
-            --     assert(success)
-            --     Task.Wait()
-            --     -- if type(newOptions) == 'string' then print(newOptions) end
-            -- until coroutine.status(cr) == 'dead' and type(newOptions)=='table'
-            -- success,options = coroutine.resume(cr,options)
-            -- print(options)
-            --
-            -- local cr = coroutine.wrap(function(...) return self.devices[i](...) end)
-            -- options = cr(options)
-
-            options = self.devices[i](options)
+            self.devices[i].associatedTask =
+                async(
+                function()
+                    return self.devices[i].device(options)
+                end
+            )
+            options = await(self.devices[i].associatedTask)
             if self.remaps[i] then
                 for k, v in pairs(self.remaps[i]) do
                     assert(options[v] == options[k] or not options[v], "You can't remap to an occupied key")
@@ -96,8 +84,26 @@ function TerrainHeightmapBuilderPipelineClass2D()
             perfReport.finishTime = time()
             perfReport.totalTime = perfReport.finishTime - perfReport.startTime
             -- assert(not self.perfReports[self.devices[i].type]) -- FIXME:
-            self.perfReports[self.devices[i].type] = perfReport
+            self.perfReports[self.devices[i].device.type] = perfReport
             Task.Wait()
+        end
+
+        -- FIXME: spawning here? OOFFF
+        local spawnParams = options.spawnParams
+        local iters = 0
+        local MAX_ITERS_PER_TICK = 100
+        for i = 1, options.height do
+            for ii = 1, options.width do
+                iters = iters + 1
+                if iters % MAX_ITERS_PER_TICK == 0 then
+                    if iters > 10000 then
+                        MAX_ITERS_PER_TICK = 40
+                    end
+                    Task.Wait()
+                end
+                local thisParams = spawnParams[i][ii]
+                World.SpawnAsset(CUBE, thisParams)
+            end
         end
         totalPerfReport.finishTime = time()
         totalPerfReport.totalTime = totalPerfReport.finishTime - totalPerfReport.startTime

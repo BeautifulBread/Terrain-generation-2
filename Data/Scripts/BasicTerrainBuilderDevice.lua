@@ -1,10 +1,11 @@
-local CUBE = script:GetCustomProperty('cube')
 function BasicTerrainBuilderDevice(spawnedObjectsParent, scale)
     assert(not scale or type(scale) == 'number')
     local self = {
         type = 'BasicTerrainBuilderDevice',
         spawnedObjectsParent = spawnedObjectsParent,
-        scale = scale or 1
+        scale = scale or 1,
+        inputKeys = {'heightMap'},
+        outputKeys = {'spawnParams', 'width', 'height'}
     }
     function self.__call(_, options)
         -- input validation
@@ -74,12 +75,6 @@ function BasicTerrainBuilderDevice(spawnedObjectsParent, scale)
                 for k, v in pairs(neighbours) do
                     offsets[k] = spawnParams[i][ii].position.z - v.position.z
                 end
-                -- local offsets = {
-                --     u = spawnParams[i][ii].position.z - spawnParams[i][ii + 1].position.z,
-                --     d = spawnParams[i][ii].position.z - spawnParams[i][ii - 1].position.z,
-                --     r = spawnParams[i][ii].position.z - spawnParams[i + 1][ii].position.z,
-                --     l = spawnParams[i][ii].position.z - spawnParams[i - 1][ii].position.z
-                -- }
                 local maxOffset = 0
                 for _, v in pairs(offsets) do
                     assert(v)
@@ -101,23 +96,23 @@ function BasicTerrainBuilderDevice(spawnedObjectsParent, scale)
                 end
             end
         end
-        iters = iters % MAX_ITERS_PER_TICK
-        MAX_ITERS_PER_TICK = 100
+        -- for i=1,height do
+        --     for k,v in ipairs(correctedSpawnParams[i]) do
+        --         spawnParams[i][k] = v
+        --     end
+        -- end
         for i = 1, height do
             for ii = 1, width do
-                iters = iters + 1
-                if iters % MAX_ITERS_PER_TICK == 0 then
-                    -- DEBUG:
-                    if iters > 10000 then
-                        MAX_ITERS_PER_TICK = 40
-                    end
-                    Task.Wait()
+                -- spawnParams[i][ii] = correctedSpawnParams[i][ii] or spawnParams[i][ii]
+                if correctedSpawnParams[i][ii] then
+                    spawnParams[i][ii] = correctedSpawnParams[i][ii]
                 end
-                local thisParams = correctedSpawnParams[i][ii] or spawnParams[i][ii]
-                World.SpawnAsset(CUBE, thisParams)
             end
         end
-        return
+        options.width = width
+        options.height = height
+        options.spawnParams = spawnParams
+        return options
     end
     function self.__tostring()
         return self.type

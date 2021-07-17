@@ -1,7 +1,9 @@
 function AvgBasedSmoothingDevice(neighbourCount)
     local self = {
         type = 'AvgBasedSmoothingDevice',
-        neighbourCount = neighbourCount
+        neighbourCount = neighbourCount,
+        inputKeys = {'heightMap'},
+        outputKeys = {'heightMap'}
     }
     -- return: table; {height, weight, {x, y}, {x, y}, ...}
     -- DEBUG:

@@ -6,7 +6,9 @@ function PerlinNoiseDevice(mapSize, seed, amplitude, stretch)
         mapSize = mapSize,
         seed = seed,
         amplitude = amplitude or error('You have to supply an amplitude'),
-        stretch = stretch or error('You have to supply a stretch')
+        stretch = stretch or error('You have to supply a stretch'),
+        inputKeys = {'heightMap'},
+        outputKeys = {'heightMap'}
     }
     function self.__tostring()
         return self.type

@@ -15,7 +15,7 @@ Assets {
             Z: 1
           }
         }
-        ParentId: 3229880396597548339
+        ParentId: 4781671109827199097
         UnregisteredParameters {
           Overrides {
             Name: "ma:Shared_BaseMaterial:id"

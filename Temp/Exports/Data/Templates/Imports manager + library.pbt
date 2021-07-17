@@ -54,6 +54,7 @@ Assets {
             ParentId: 4781671109827199097
             ChildIds: 10673794878616746981
             ChildIds: 9284123401573773708
+            ChildIds: 14727346271638909587
             UnregisteredParameters {
               Overrides {
                 Name: "cs:self"
@@ -100,7 +101,6 @@ Assets {
             ParentId: 6127463511379346490
             ChildIds: 1936163289547068984
             ChildIds: 5149795236477952669
-            ChildIds: 11291433408293447122
             Collidable_v2 {
               Value: "mc:ecollisionsetting:inheritfromparent"
             }
@@ -183,13 +183,10 @@ Assets {
             }
           }
           Objects {
-            Id: 11291433408293447122
-            Name: "TerrainCube"
+            Id: 9284123401573773708
+            Name: "async Sample"
             Transform {
               Location {
-                X: 455
-                Y: 230
-                Z: 1660
               }
               Rotation {
               }
@@ -199,7 +196,107 @@ Assets {
                 Z: 1
               }
             }
-            ParentId: 10673794878616746981
+            ParentId: 6127463511379346490
+            Collidable_v2 {
+              Value: "mc:ecollisionsetting:inheritfromparent"
+            }
+            Visible_v2 {
+              Value: "mc:evisibilitysetting:inheritfromparent"
+            }
+            CameraCollidable {
+              Value: "mc:ecollisionsetting:inheritfromparent"
+            }
+            EditorIndicatorVisibility {
+              Value: "mc:eindicatorvisibility:visiblewhenselected"
+            }
+            Script {
+              ScriptAsset {
+                Id: 3928677769441614418
+              }
+            }
+          }
+          Objects {
+            Id: 14727346271638909587
+            Name: "temp"
+            Transform {
+              Location {
+              }
+              Rotation {
+              }
+              Scale {
+                X: 1
+                Y: 1
+                Z: 1
+              }
+            }
+            ParentId: 6127463511379346490
+            ChildIds: 9696057097905577360
+            ChildIds: 11291433408293447122
+            Collidable_v2 {
+              Value: "mc:ecollisionsetting:inheritfromparent"
+            }
+            Visible_v2 {
+              Value: "mc:evisibilitysetting:inheritfromparent"
+            }
+            CameraCollidable {
+              Value: "mc:ecollisionsetting:inheritfromparent"
+            }
+            EditorIndicatorVisibility {
+              Value: "mc:eindicatorvisibility:visiblewhenselected"
+            }
+            Folder {
+              IsFilePartition: true
+            }
+          }
+          Objects {
+            Id: 9696057097905577360
+            Name: "PlayerSpawner"
+            Transform {
+              Location {
+              }
+              Rotation {
+              }
+              Scale {
+                X: 1
+                Y: 1
+                Z: 1
+              }
+            }
+            ParentId: 14727346271638909587
+            Collidable_v2 {
+              Value: "mc:ecollisionsetting:inheritfromparent"
+            }
+            Visible_v2 {
+              Value: "mc:evisibilitysetting:inheritfromparent"
+            }
+            CameraCollidable {
+              Value: "mc:ecollisionsetting:inheritfromparent"
+            }
+            EditorIndicatorVisibility {
+              Value: "mc:eindicatorvisibility:visiblewhenselected"
+            }
+            Script {
+              ScriptAsset {
+                Id: 12934289304379300646
+              }
+            }
+          }
+          Objects {
+            Id: 11291433408293447122
+            Name: "TerrainCube"
+            Transform {
+              Location {
+                Z: 295
+              }
+              Rotation {
+              }
+              Scale {
+                X: 1
+                Y: 1
+                Z: 1
+              }
+            }
+            ParentId: 14727346271638909587
             UnregisteredParameters {
               Overrides {
                 Name: "ma:Shared_BaseMaterial:id"
@@ -241,39 +338,6 @@ Assets {
               }
             }
           }
-          Objects {
-            Id: 9284123401573773708
-            Name: "async Sample"
-            Transform {
-              Location {
-              }
-              Rotation {
-              }
-              Scale {
-                X: 1
-                Y: 1
-                Z: 1
-              }
-            }
-            ParentId: 6127463511379346490
-            Collidable_v2 {
-              Value: "mc:ecollisionsetting:inheritfromparent"
-            }
-            Visible_v2 {
-              Value: "mc:evisibilitysetting:inheritfromparent"
-            }
-            CameraCollidable {
-              Value: "mc:ecollisionsetting:inheritfromparent"
-            }
-            EditorIndicatorVisibility {
-              Value: "mc:eindicatorvisibility:visiblewhenselected"
-            }
-            Script {
-              ScriptAsset {
-                Id: 3928677769441614418
-              }
-            }
-          }
         }
         PrimaryAssetId {
           AssetType: "None"
@@ -284,14 +348,6 @@ Assets {
         Description: "This is a module manager inspired by Bau\'s namespace manager. Allows you to import modules without using properties every time.\r\n-----------------\r\nChangelog:\r\nv1.0 plain module manager\r\nv1.1 added utility classes\r\nv1.2 added procedural generation\r\nv1.3 added asynchronous programming module"
       }
       DirectlyPublished: true
-    }
-    Assets {
-      Id: 3928677769441614418
-      Name: "async Sample"
-      PlatformAssetType: 3
-      TextAsset {
-        Text: "local Imports = _G.Imports\r\nlocal AsyncOS = Imports.Coroutines.AsyncOS.require()\r\nlocal async = AsyncOS.async\r\nlocal await = AsyncOS.await\r\nfunction CountTo200K()\r\n    local count = 0\r\n    for _ = 1, 200000 do\r\n        count = count + 1\r\n    end\r\n    return count\r\nend\r\n\r\ndo\r\n    -- asynchronous action usage:\r\n    local task = async(CountTo200K)\r\n    local result = await(task)\r\n    assert(result == 200000)\r\nend\r\n-- showcase multiple asynchronous tasks running\r\nlocal timeTest = time()\r\nlocal tasks = {}\r\nfor i = 1, 1000 do -- creates tasks\r\n    local task = async(CountTo200K)\r\n    tasks[i] = task\r\nend\r\nfor i = 1, 500 do -- collects the results\r\n    local result = await(tasks[i])\r\n    assert(result == 200000)\r\nend\r\nlocal asyncTest = time() - timeTest\r\n\r\n-- vanilla for loop reference(shows you the performance boost of this thing)\r\nfor _ = 1, 500 do\r\n    local result = CountTo200K()\r\n    Task.Wait() -- because of the instruction limit errors. If that error could be disabled, both variants would be much faster\r\n    assert(result == 200000)\r\nend\r\nprint(\'Asynchronous module performance benchmark:\')\r\nprint(\'Async variant finished in \' .. tostring(asyncTest) .. \' seconds\')\r\nprint(\'Vanilla variant finished in \' .. tostring(time() - timeTest) .. \' seconds\')\r\n"
-      }
     }
     Assets {
       Id: 12104061898319540445
@@ -309,6 +365,22 @@ Assets {
       PrimaryAsset {
         AssetType: "StaticMeshAssetRef"
         AssetId: "sm_cube_002"
+      }
+    }
+    Assets {
+      Id: 12934289304379300646
+      Name: "PlayerSpawner"
+      PlatformAssetType: 3
+      TextAsset {
+        Text: "Game.playerJoinedEvent:Connect(\r\n    function(player)\r\n        player:Despawn()\r\n        Task.Wait()\r\n        player:Spawn({position = script.parent:FindChildByName(\'TerrainCube\'):GetWorldPosition() + Vector3.UP * 100})\r\n    end\r\n)\r\n"
+      }
+    }
+    Assets {
+      Id: 3928677769441614418
+      Name: "async Sample"
+      PlatformAssetType: 3
+      TextAsset {
+        Text: "local Imports = _G.Imports\r\nlocal AsyncOS = Imports.Coroutines.AsyncOS.require()\r\nlocal async = AsyncOS.async\r\nlocal await = AsyncOS.await\r\nfunction CountTo200K()\r\n    local count = 0\r\n    for _ = 1, 200000 do\r\n        count = count + 1\r\n    end\r\n    return count\r\nend\r\n\r\ndo\r\n    -- asynchronous action usage:\r\n    local task = async(CountTo200K)\r\n    local result = await(task)\r\n    assert(result == 200000)\r\nend\r\n-- showcase multiple asynchronous tasks running\r\nlocal timeTest = time()\r\nlocal tasks = {}\r\nfor i = 1, 1000 do -- creates tasks\r\n    local task = async(CountTo200K)\r\n    tasks[i] = task\r\nend\r\nfor i = 1, 500 do -- collects the results\r\n    local result = await(tasks[i])\r\n    assert(result == 200000)\r\nend\r\nlocal asyncTest = time() - timeTest\r\n\r\n-- vanilla for loop reference(shows you the performance boost of this thing)\r\nfor _ = 1, 500 do\r\n    local result = CountTo200K()\r\n    Task.Wait() -- because of the instruction limit errors. If that error could be disabled, both variants would be much faster\r\n    assert(result == 200000)\r\nend\r\nprint(\'Asynchronous module performance benchmark:\')\r\nprint(\'Async variant finished in \' .. tostring(asyncTest) .. \' seconds\')\r\nprint(\'Vanilla variant finished in \' .. tostring(time() - timeTest) .. \' seconds\')\r\n"
       }
     }
     Assets {

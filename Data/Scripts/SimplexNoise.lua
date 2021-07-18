@@ -1,3 +1,5 @@
+-- this is a rewrite of https://github.com/SebLague/Procedural-Planets/blob/6b551429541d988e00ca9e509450e51e1f2f6f12/Procedural%20Planet%20E03/Assets/Noise.cs#L321
+-- FIXME: DON'T USE THIS, it's not working correctly for whatever reason
 local Source = {
     151,
     160,
@@ -291,12 +293,21 @@ local function SimplexNoise()
         self.Randomize(seed)
     end
     local function Dot(g, x, y, z, t)
-        local ret = g[1] * x + g[2] * y
+        if not g then
+            error("G doesn't exist", 2)
+        end
+        if not g.x then
+            error("G[1] doesn't exist", 2)
+        end
+        if not g.y then
+            error("G[2] doesn't exist", 2)
+        end
+        local ret = g.x * x + g.y * y
         if z then
-            ret = ret * g[3] * z
+            ret = ret * g.z * z
         end
         if t then
-            ret = ret * g[4] * t
+            ret = ret * g.w * t
         end
         return ret
     end
@@ -313,11 +324,12 @@ local function SimplexNoise()
 
     function self.Evaluate(point)
         local x, y, z = point.x, point.y, point.z
+        local n0, n1, n2, n3 = 0, 0, 0, 0
         local s = x + y + z
 
-        local i = math.floor(x + s)
-        local j = math.floor(y + s)
-        local k = math.floor(z + s)
+        local i = FastFloor(x + s)
+        local j = FastFloor(y + s)
+        local k = FastFloor(z + s)
 
         local t = (i + j + k) * G3
 
@@ -374,6 +386,7 @@ local function SimplexNoise()
                 k2 = 0
             end
         end
+        -- CHECKPOINT
         local x1 = x0 - i1 + G3
         local y1 = y0 - j1 + G3
         local z1 = z0 - k1 + G3
@@ -386,33 +399,34 @@ local function SimplexNoise()
         local y3 = y0 - 0.5
         local z3 = z0 - 0.5
 
-        local ii = math.min(i, 255)
-        local jj = math.min(i, 255)
-        local kk = math.min(i, 255)
+        local ii = i & 0xff
+        local jj = j & 0xff
+        local kk = k & 0xff
 
         local t0 = 0.6 - x0 * x0 - y0 * y0 - z0 * z0
-        local n0, n1, n2, n3
         if t0 > 0 then
             t0 = t0 * t0
-            local gi0 = _random[ii + _random[jj + _random[kk + 1] + 1] + 1] % 12
+            local gi0 = (_random[ii + _random[jj + _random[kk + 1] + 1] + 1]) % 12 + 1
             n0 = t0 * t0 * Dot(Grad3[gi0], x0, y0, z0)
+            assert(n0)
         end
         local t1 = 0.6 - x1 * x1 - y1 * y1 - z1 * z1
         if t1 > 0 then
             t1 = t1 * t1
-            local gi1 = _random[ii + i1 + _random[jj + j1 + _random[kk + k1]]] % 12
+            local gi1 = (_random[ii + i1 + _random[jj + j1 + _random[kk + k1 + 1] + 1] + 1]) % 12 + 1
             n1 = t1 * t1 * Dot(Grad3[gi1], x1, y1, z1)
+            assert(n1 ~= nil)
         end
         local t2 = 0.6 - x2 * x2 - y2 * y2 - z2 * z2
         if t2 > 0 then
             t2 = t2 * t2
-            local gi2 = _random[ii + i2 + _random[jj + j2 + _random[kk + k2]]] % 12
+            local gi2 = (_random[ii + i2 + _random[jj + j2 + _random[kk + k2 + 1] + 1] + 1]) % 12 + 1
             n2 = t2 * t2 * Dot(Grad3[gi2], x2, y2, z2)
         end
         local t3 = 0.6 - x3 * x3 - y3 * y3 - z3 * z3
         if t3 > 0 then
             t3 = t3 * t3
-            local gi3 = _random[ii + 1 + _random[jj + 1 + _random[kk + 1]]] % 12
+            local gi3 = (_random[ii + 1 + _random[jj + 1 + _random[kk + 1 + 1] + 1] + 1]) % 12 + 1
             n3 = t3 * t3 * Dot(Grad3[gi3], x3, y3, z3)
         end
         return (n0 + n1 + n2 + n3) * 32
@@ -423,12 +437,12 @@ local function SimplexNoise()
             local F = {nil, nil, nil, nil}
             UnpackLittleUint32(seed, F)
             for i = 1, #Source do
-                _random[i] = Source[i] ^ F[0]
-                _random[i] = _random[i] ^ F[1]
+                _random[i] = Source[i] ^ F[1]
                 _random[i] = _random[i] ^ F[2]
                 _random[i] = _random[i] ^ F[3]
-
-                _random[i + RandomSize] = _random[i]
+                _random[i] = _random[i] ^ F[4]
+                -- print((i + RandomSize) % RandomSize)
+                _random[(i + RandomSize) % RandomSize + 1] = _random[i]
             end
         else
             for i = 1, RandomSize do
@@ -437,5 +451,6 @@ local function SimplexNoise()
             end
         end
     end
+    return self
 end
 return SimplexNoise

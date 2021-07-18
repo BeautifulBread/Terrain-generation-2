@@ -1,5 +1,6 @@
 local Imports = _G.Imports
 local Noise = Imports.Math.Noise.require()
+-- local SimplexNoise = Imports.Math.SimplexNoise.require()
 function PerlinNoiseDevice(mapSize, seed, amplitude, stretch)
     local self = {
         type = 'PerlinNoiseDevice',
@@ -28,10 +29,12 @@ function PerlinNoiseDevice(mapSize, seed, amplitude, stretch)
         options.position = options.position or Vector3.ZERO
 
         -- terrain generation
-        local MAX_ITERATIONS_PER_TICK = 4500
+        local MAX_ITERATIONS_PER_TICK = 2000
 
         -- FIXME: error handling on omitting seed
         Noise.seed(self.seed)
+        -- local noise = SimplexNoise()
+        -- noise.Noise(self.seed)
 
         local width = self.mapSize.x
         local height = self.mapSize.y
@@ -45,7 +48,10 @@ function PerlinNoiseDevice(mapSize, seed, amplitude, stretch)
                     Task.Wait()
                 -- coroutine.yield("HI people")
                 end
-                noiseMap[i][ii] = (Noise.make(i * self.stretch.x, ii * self.stretch.y) + 1) / 2 * amplitude
+                -- noiseMap[i][ii] =
+                --     (noise.Evaluate(Vector3.New(i * self.stretch.x, ii * self.stretch.y, -10)) * amplitude + 1) / 2
+                -- noiseMap[i][ii] = noise.Evaluate(Vector3.New(i * self.stretch.x*10000, ii * self.stretch.y*&10000,0))* 20000
+                noiseMap[i][ii] = (Noise.make(i * self.stretch.x, ii * self.stretch.y) * amplitude + 1) / 2
                 if options.heightMap then
                     noiseMap[i][ii] = noiseMap[i][ii] + options.heightMap[i][ii]
                 end

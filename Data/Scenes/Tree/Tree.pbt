@@ -15,7 +15,7 @@ Objects {
     }
   }
   ChildIds: 14809377134483817550
-  ChildIds: 16571332942917944541
+  ChildIds: 10145188579493919662
   ChildIds: 1417443500982511754
   ChildIds: 18149173386979035266
   UnregisteredParameters {
@@ -69,6 +69,19 @@ Objects {
         }
       }
     }
+    ParameterOverrideMap {
+      key: 11291433408293447122
+      value {
+        Overrides {
+          Name: "Position"
+          Vector {
+            X: 50
+            Y: 30
+            Z: -800
+          }
+        }
+      }
+    }
     TemplateAsset {
       Id: 5027466373211250011
     }
@@ -108,9 +121,13 @@ Objects {
   }
 }
 Objects {
-  Id: 16571332942917944541
+  Id: 10145188579493919662
   Name: "Library"
   Transform {
+    Location {
+    }
+    Rotation {
+    }
     Scale {
       X: 1
       Y: 1
@@ -124,38 +141,22 @@ Objects {
   Visible_v2 {
     Value: "mc:evisibilitysetting:inheritfromparent"
   }
-  TemplateInstance {
-    ParameterOverrideMap {
-      key: 13947849939794823213
-      value {
-        Overrides {
-          Name: "Name"
-          String: "Library"
-        }
-        Overrides {
-          Name: "Position"
-          Vector {
-          }
-        }
-        Overrides {
-          Name: "Rotation"
-          Rotator {
-          }
-        }
-      }
-    }
-    ParameterOverrideMap {
-      key: 17546773369391715811
-      value {
-        Overrides {
-          Name: "Name"
-          String: "SimplexNoise"
-        }
-      }
-    }
-    TemplateAsset {
-      Id: 3084018047747701294
-    }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  Folder {
+    IsFilePartition: true
+    FilePartitionName: "Library"
+  }
+  InstanceHistory {
+    SelfId: 10145188579493919662
+    SubobjectId: 13947849939794823213
+    InstanceId: 16571332942917944541
+    TemplateId: 3084018047747701294
+    WasRoot: true
   }
 }
 Objects {

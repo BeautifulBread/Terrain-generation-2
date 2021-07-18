@@ -54,7 +54,7 @@ function BasicTerrainBuilderDevice(spawnedObjectsParent, scale)
         correctedSpawnParams[1] = {}
         correctedSpawnParams[height] = {}
         iters = iters % MAX_ITERS_PER_TICK
-        MAX_ITERS_PER_TICK = 8000
+        MAX_ITERS_PER_TICK = 5000
         for i = 1, height do
             correctedSpawnParams[i] = {}
             for ii = 1, width do
@@ -101,8 +101,14 @@ function BasicTerrainBuilderDevice(spawnedObjectsParent, scale)
         --         spawnParams[i][k] = v
         --     end
         -- end
+        iters = iters % MAX_ITERS_PER_TICK
+        MAX_ITERS_PER_TICK = 8000
         for i = 1, height do
             for ii = 1, width do
+                iters = iters + 1
+                if iters % MAX_ITERS_PER_TICK == 0 then
+                    Task.Wait()
+                end
                 -- spawnParams[i][ii] = correctedSpawnParams[i][ii] or spawnParams[i][ii]
                 if correctedSpawnParams[i][ii] then
                     spawnParams[i][ii] = correctedSpawnParams[i][ii]

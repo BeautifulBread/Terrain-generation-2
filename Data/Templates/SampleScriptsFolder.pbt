@@ -1,13 +1,13 @@
 Assets {
   Id: 5027466373211250011
-  Name: "ScriptFolder"
+  Name: "SampleScriptsFolder"
   PlatformAssetType: 5
   TemplateAsset {
     ObjectBlock {
       RootId: 6127463511379346490
       Objects {
         Id: 6127463511379346490
-        Name: "ScriptFolder"
+        Name: "SampleScriptsFolder"
         Transform {
           Scale {
             X: 1
@@ -217,7 +217,9 @@ Assets {
         Name: "TerrainCube"
         Transform {
           Location {
-            Z: 295
+            X: 50
+            Y: 30
+            Z: -800
           }
           Rotation {
           }

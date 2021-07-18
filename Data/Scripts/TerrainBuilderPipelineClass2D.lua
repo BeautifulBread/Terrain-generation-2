@@ -1,6 +1,7 @@
 local Imports = _G.Imports
 
 local CUBE = script:GetCustomProperty('cube')
+local PerformanceReportClass = Imports.Profiling.PerformanceReportClass.require()
 local TableUtils = Imports.Utils.TableUtils.require()
 local AsyncOS = Imports.Coroutines.AsyncOS.require()
 local async, await = AsyncOS.async, AsyncOS.await
@@ -9,10 +10,12 @@ function TerrainHeightmapBuilderPipelineClass2D()
         type = 'TerrainHeightmapBuilderPipelineClass2D',
         devices = {},
         remaps = {},
-        perfReports = {}
+        perfReport = PerformanceReportClass('Terrain generation'),
+        _associatedTasks = {}
     }
     function self.AddDevice(device)
-        self.devices[#self.devices + 1] = {device = device, associatedTask = nil}
+        self.devices[#self.devices + 1] = device
+        self._associatedTasks[#self.devices + 1] = nil
     end
     function self.ListDevices()
         print('devices:')
@@ -34,45 +37,26 @@ function TerrainHeightmapBuilderPipelineClass2D()
         print()
     end
     function self.ListPerformance()
-        print('terrain generation timings:')
-        print('-----------')
-        for i = 1, #self.devices do
-            local index = self.devices[i].device.type
-            -- FIXME: useself.devices[i].perfReport instead
-            local report = tostring(CoreMath.Round(self.perfReports[index].totalTime, 6) * 1000)
-            local text =
-                index ..
-                string.rep(' ', math.max(50 - #index, 1)) ..
-                    report .. string.rep(' ', math.max(10 - #report, 1)) .. 'ms'
-            print(text)
-        end
-        print()
-        print(
-            'Terrain generation took ' ..
-                tostring(CoreMath.Round(self.perfReports[self.type].totalTime, 6) * 1000) .. ' ms'
-        )
-        print('-----------')
-        print()
+        self.perfReport.PrintReport()
     end
     function self.Remap(table)
         self.remaps[#self.devices] = table
     end
     function self.Execute(options)
         options = options or {}
-        local totalPerfReport = {}
-        totalPerfReport.startTime = time()
         for i = 1, #self.devices do
-            assert(self.devices[i].device)
-            assert(self.devices[i].device.type)
+            assert(self.devices[i])
+            assert(self.devices[i].type)
             local perfReport = {}
+            perfReport.type = self.devices[i].type
             perfReport.startTime = time()
-            self.devices[i].associatedTask =
+            self._associatedTasks[i] =
                 async(
                 function()
-                    return self.devices[i].device(options)
+                    return self.devices[i](options)
                 end
             )
-            options = await(self.devices[i].associatedTask)
+            options = await(self._associatedTasks[i])
             if self.remaps[i] then
                 for k, v in pairs(self.remaps[i]) do
                     assert(options[v] == options[k] or not options[v], "You can't remap to an occupied key")
@@ -82,9 +66,7 @@ function TerrainHeightmapBuilderPipelineClass2D()
             end
 
             perfReport.finishTime = time()
-            perfReport.totalTime = perfReport.finishTime - perfReport.startTime
-            -- assert(not self.perfReports[self.devices[i].type]) -- FIXME:
-            self.perfReports[self.devices[i].device.type] = perfReport
+            self.perfReport.Entry(perfReport)
             Task.Wait()
         end
 
@@ -105,9 +87,6 @@ function TerrainHeightmapBuilderPipelineClass2D()
                 World.SpawnAsset(CUBE, thisParams)
             end
         end
-        totalPerfReport.finishTime = time()
-        totalPerfReport.totalTime = totalPerfReport.finishTime - totalPerfReport.startTime
-        self.perfReports[self.type] = totalPerfReport
         return options
     end
     return setmetatable(self, self)

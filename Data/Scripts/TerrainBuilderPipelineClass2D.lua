@@ -57,6 +57,7 @@ function TerrainHeightmapBuilderPipelineClass2D()
                 end
             )
             options = await(self._associatedTasks[i])
+            -- options = self.devices[i](options)
             if self.remaps[i] then
                 for k, v in pairs(self.remaps[i]) do
                     assert(options[v] == options[k] or not options[v], "You can't remap to an occupied key")

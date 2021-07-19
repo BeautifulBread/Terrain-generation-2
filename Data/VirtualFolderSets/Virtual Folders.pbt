@@ -9,11 +9,6 @@ Assets {
       PlatformAssetType: 3
     }
     Folders {
-      VirtualFolderPath: "Manager"
-      VirtualFolderPath: "Library"
-      PlatformAssetType: 3
-    }
-    Folders {
       VirtualFolderPath: "Procedural"
       PlatformAssetType: 3
     }
@@ -28,6 +23,10 @@ Assets {
     }
     Folders {
       VirtualFolderPath: "temp"
+      PlatformAssetType: 3
+    }
+    Folders {
+      VirtualFolderPath: "Library"
       PlatformAssetType: 3
     }
   }

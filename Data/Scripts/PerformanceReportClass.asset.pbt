@@ -13,4 +13,5 @@ Assets {
     }
   }
   SerializationVersion: 92
+  VirtualFolderPath: "Library"
 }

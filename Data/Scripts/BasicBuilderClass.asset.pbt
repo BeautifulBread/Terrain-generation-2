@@ -1,18 +1,16 @@
 Assets {
-  Id: 16904250612611961310
-  Name: "NewScript2"
+  Id: 5567299061320694170
+  Name: "BasicBuilderClass"
   PlatformAssetType: 3
   TextAsset {
     CustomParameters {
       Overrides {
         Name: "cs:self"
         AssetReference {
-          Id: 16904250612611961310
+          Id: 5567299061320694170
         }
       }
     }
   }
   SerializationVersion: 92
-  VirtualFolderPath: "Manager"
-  VirtualFolderPath: "Library"
 }

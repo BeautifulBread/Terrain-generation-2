@@ -17,6 +17,5 @@ Assets {
   }
   SerializationVersion: 92
   DirectlyPublished: true
-  VirtualFolderPath: "Manager"
   VirtualFolderPath: "Library"
 }

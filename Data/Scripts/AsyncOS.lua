@@ -44,6 +44,7 @@ function AsyncOSScheduler(threadCount)
     --     function()
     for i = 1, self.threadCount do
         -- if not self.threads[i] then
+        -- TODO: deal with crashes
         local thread = self._SpawnThread()
         self.threads[i] = thread
         -- end

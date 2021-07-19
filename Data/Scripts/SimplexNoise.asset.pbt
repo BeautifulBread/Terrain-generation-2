@@ -13,5 +13,5 @@ Assets {
     }
   }
   SerializationVersion: 92
-  VirtualFolderPath: "Procedural"
+  VirtualFolderPath: "Library"
 }

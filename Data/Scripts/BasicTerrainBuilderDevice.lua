@@ -29,7 +29,7 @@ function BasicTerrainBuilderDevice(spawnedObjectsParent, scale)
         local SPACING = self.scale * 100
         local width = #options.heightMap[1]
         local height = #options.heightMap
-
+        -- -- compute terrain assets positions
         local heightMap = options.heightMap -- is an optimization
         local iters = 0 -- to avoid instruction limit errors
         local MAX_ITERS_PER_TICK = 10000
@@ -45,18 +45,16 @@ function BasicTerrainBuilderDevice(spawnedObjectsParent, scale)
                 local position = Vector3.New(ii * SPACING, i * SPACING, zOffset)
                 spawnParams[i][ii] = {
                     parent = self.spawnedObjectsParent,
-                    position = position + options.position,
+                    position = position + options.position - Vector3.New(50, 50, 0),
                     scale = Vector3.ONE * self.scale
                 }
             end
         end
-        local correctedSpawnParams = {}
-        correctedSpawnParams[1] = {}
-        correctedSpawnParams[height] = {}
+
+        -- -- correct holes when neighbouring zOffset is too much
         iters = iters % MAX_ITERS_PER_TICK
         MAX_ITERS_PER_TICK = 5000
         for i = 1, height do
-            correctedSpawnParams[i] = {}
             for ii = 1, width do
                 iters = iters + 1
                 if iters % MAX_ITERS_PER_TICK == 0 then
@@ -73,6 +71,7 @@ function BasicTerrainBuilderDevice(spawnedObjectsParent, scale)
                 end
                 local offsets = {}
                 for k, v in pairs(neighbours) do
+                    assert(spawnParams[i][ii])
                     offsets[k] = spawnParams[i][ii].position.z - v.position.z
                 end
                 local maxOffset = 0
@@ -84,34 +83,14 @@ function BasicTerrainBuilderDevice(spawnedObjectsParent, scale)
                 end
                 assert(maxOffset and type(maxOffset) == 'number', type(maxOffset))
                 if maxOffset > SPACING then
-                    correctedSpawnParams[i][ii] = {
+                    spawnParams[i][ii] = {
                         position = spawnParams[i][ii].position,
                         scale = spawnParams[i][ii].scale,
                         parent = spawnParams[i][ii].parent
                     }
-                    correctedSpawnParams[i][ii].position.z =
-                        correctedSpawnParams[i][ii].position.z - (maxOffset - SPACING) / 2
-                    correctedSpawnParams[i][ii].scale.z =
-                        correctedSpawnParams[i][ii].scale.z + math.max(0, (maxOffset - SPACING) / SPACING)
-                end
-            end
-        end
-        -- for i=1,height do
-        --     for k,v in ipairs(correctedSpawnParams[i]) do
-        --         spawnParams[i][k] = v
-        --     end
-        -- end
-        iters = iters % MAX_ITERS_PER_TICK
-        MAX_ITERS_PER_TICK = 8000
-        for i = 1, height do
-            for ii = 1, width do
-                iters = iters + 1
-                if iters % MAX_ITERS_PER_TICK == 0 then
-                    Task.Wait()
-                end
-                -- spawnParams[i][ii] = correctedSpawnParams[i][ii] or spawnParams[i][ii]
-                if correctedSpawnParams[i][ii] then
-                    spawnParams[i][ii] = correctedSpawnParams[i][ii]
+                    spawnParams[i][ii].position.z = spawnParams[i][ii].position.z - (maxOffset - SPACING) / 2
+                    spawnParams[i][ii].scale.z =
+                        spawnParams[i][ii].scale.z + math.max(0, (maxOffset - SPACING) / SPACING)
                 end
             end
         end

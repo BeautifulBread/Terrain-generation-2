@@ -1,3 +1,4 @@
+local mergedModel = script:GetCustomProperty('mergedModel')
 function DraftChunkedBuilder(parent, options, asset, chunkSize, viewDistance)
     assert(parent)
     assert(options)
@@ -9,7 +10,8 @@ function DraftChunkedBuilder(parent, options, asset, chunkSize, viewDistance)
         options = options,
         asset = asset,
         viewDistance = viewDistance or 4,
-        chunkSize = chunkSize or 16
+        chunkSize = chunkSize or 12,
+        chunkModels = {}
     }
     function self.ConvertSpawnParamsToChunkData()
         assert(self.options)
@@ -41,9 +43,21 @@ function DraftChunkedBuilder(parent, options, asset, chunkSize, viewDistance)
         local chunkData = self.ConvertSpawnParamsToChunkData(self.options)
         local iters = 0
         local MAX_ITERS_PER_TICK = 100
-        for _, v in ipairs(chunkData) do
-            for _, vv in ipairs(v) do
-                for i = 1, #vv do
+        for ky, y in ipairs(chunkData) do
+            for kx, x in ipairs(y) do
+                -- build merged model for the chunk
+                -- self.chunkModels[y] = self.chunkModels[y] or {}
+                -- if not self.chunkModels[y][x] then
+                --     local posOffset = (Vector3.New(1, 0, 0) * ky + Vector3.New(0, 1, 0) * kx) * SPACING * self.chunkSize
+                --     assert(posOffset)
+                --     local pos =
+                --         self.parent:GetWorldPosition() + posOffset +
+                --         (SPACING * self.chunkSize / 2) * Vector3.New(1, 1, 0)
+                --     assert(pos)
+                --     self.chunkModels[y][x] = World.SpawnAsset(mergedModel, {position = pos})
+                -- end
+                -- local currentlyChunk = self.chunkModels[y][x]
+                for i = 1, #x do
                     iters = iters + 1
                     if iters % MAX_ITERS_PER_TICK == 0 then
                         if iters > 10000 then
@@ -51,7 +65,9 @@ function DraftChunkedBuilder(parent, options, asset, chunkSize, viewDistance)
                         end
                         Task.Wait()
                     end
-                    local thisParams = vv[i]
+                    local thisParams = x[i]
+                    -- thisParams.position = thisParams.position-(currentlyChunk:GetPosition()-self.parent:GetWorldPosition())
+                    -- thisParams.parent = currentlyChunk
                     World.SpawnAsset(self.asset, thisParams)
                 end
             end

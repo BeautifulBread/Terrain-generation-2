@@ -29,5 +29,9 @@ Assets {
       VirtualFolderPath: "Library"
       PlatformAssetType: 3
     }
+    Folders {
+      VirtualFolderPath: "atomics"
+      PlatformAssetType: 5
+    }
   }
 }

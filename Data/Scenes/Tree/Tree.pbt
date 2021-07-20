@@ -18,6 +18,7 @@ Objects {
   ChildIds: 10145188579493919662
   ChildIds: 1417443500982511754
   ChildIds: 18149173386979035266
+  ChildIds: 5359201860046395098
   UnregisteredParameters {
   }
   Collidable_v2 {
@@ -30,6 +31,38 @@ Objects {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
   Folder {
+  }
+}
+Objects {
+  Id: 5359201860046395098
+  Name: "EmptyMergedModel"
+  Transform {
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 4781671109827199097
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  TemplateInstance {
+    ParameterOverrideMap {
+      key: 14399100041514933260
+      value {
+        Overrides {
+          Name: "Name"
+          String: "EmptyMergedModel"
+        }
+      }
+    }
+    TemplateAsset {
+      Id: 6006095901283272481
+    }
   }
 }
 Objects {

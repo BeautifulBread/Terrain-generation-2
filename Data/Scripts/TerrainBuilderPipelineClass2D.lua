@@ -74,7 +74,7 @@ function TerrainBuilderPipelineClass2D(parent)
             Task.Wait()
         end
         DraftChunkedBuilder(self.parent, options, CUBE).Build(16)
-        BasicBuilderClass(options, CUBE).Build()
+        -- BasicBuilderClass(options, CUBE).Build()
         return options
     end
     return setmetatable(self, self)

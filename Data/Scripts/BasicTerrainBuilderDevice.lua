@@ -1,11 +1,11 @@
-function BasicTerrainBuilderDevice(spawnedObjectsParent, scale)
-    assert(not scale or type(scale) == 'number')
+function BasicTerrainBuilderDevice(spawnedObjectsParent, blockSize)
+    assert(not blockSize or type(blockSize) == 'number')
     local self = {
         type = 'BasicTerrainBuilderDevice',
         spawnedObjectsParent = spawnedObjectsParent,
-        scale = scale or 1,
+        blockSize = blockSize or 1,
         inputKeys = {'heightMap'},
-        outputKeys = {'spawnParams', 'width', 'height'}
+        outputKeys = {'spawnParams', 'width', 'height', 'blockSize'}
     }
     function self.__call(_, options)
         -- input validation
@@ -26,7 +26,7 @@ function BasicTerrainBuilderDevice(spawnedObjectsParent, scale)
         )
 
         -- actual building
-        local SPACING = self.scale * 100
+        local SPACING = self.blockSize * 100
         local width = #options.heightMap[1]
         local height = #options.heightMap
         -- -- compute terrain assets positions
@@ -46,7 +46,7 @@ function BasicTerrainBuilderDevice(spawnedObjectsParent, scale)
                 spawnParams[i][ii] = {
                     parent = self.spawnedObjectsParent,
                     position = position + options.position - Vector3.New(50, 50, 0),
-                    scale = Vector3.ONE * self.scale
+                    scale = Vector3.ONE * self.blockSize
                 }
             end
         end
@@ -91,6 +91,7 @@ function BasicTerrainBuilderDevice(spawnedObjectsParent, scale)
         end
         options.width = width
         options.height = height
+        options.blockSize = self.blockSize
         options.spawnParams = spawnParams
         return options
     end

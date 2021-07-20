@@ -6,7 +6,7 @@ function BlockyTerrainBuilderDevice(parent, blockSize)
         parent = parent,
         blockSize = blockSize or 1,
         inputKeys = {'heightMap'},
-        outputKeys = {'spawnParams', 'width', 'height','blockSize'}
+        outputKeys = {'spawnParams', 'width', 'height', 'blockSize'}
     }
     function self.__call(_, options)
         -- input validation

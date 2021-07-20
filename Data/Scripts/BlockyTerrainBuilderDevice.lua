@@ -1,8 +1,9 @@
-function BasicTerrainBuilderDevice(spawnedObjectsParent, scale)
-    assert(not scale or type(scale) == 'number')
+-- local Imports = _G.Imports
+-- local TableUtils = Imports.Utils.TableUtils.require()
+function BlockyTerrainBuilderDevice(parent, scale)
     local self = {
-        type = 'BasicTerrainBuilderDevice',
-        spawnedObjectsParent = spawnedObjectsParent,
+        type = 'BlockyTerrainBuilderDevice',
+        parent = parent,
         scale = scale or 1,
         inputKeys = {'heightMap'},
         outputKeys = {'spawnParams', 'width', 'height'}
@@ -24,7 +25,7 @@ function BasicTerrainBuilderDevice(spawnedObjectsParent, scale)
             type(options.position) == 'userdata' and options.position.type == 'Vector3',
             "You've passed invalid position argument to " .. self.type
         )
-
+        -- TODO:
         -- actual building
         local SPACING = self.scale * 100
         local width = #options.heightMap[1]
@@ -42,10 +43,12 @@ function BasicTerrainBuilderDevice(spawnedObjectsParent, scale)
                     Task.Wait()
                 end
                 local zOffset = heightMap[i][ii]
-                local position = Vector3.New(ii * SPACING, i * SPACING, zOffset)
+                local position = Vector3.New(ii * SPACING, i * SPACING, (zOffset // SPACING) * SPACING)
+                position = position + options.position - Vector3.New(50, 50, 0)
+                position.z = (position.z // SPACING) * SPACING
                 spawnParams[i][ii] = {
-                    parent = self.spawnedObjectsParent,
-                    position = position + options.position - Vector3.New(50, 50, 0),
+                    parent = self.parent,
+                    position = position,
                     scale = Vector3.ONE * self.scale
                 }
             end
@@ -82,10 +85,15 @@ function BasicTerrainBuilderDevice(spawnedObjectsParent, scale)
                     end
                 end
                 assert(maxOffset and type(maxOffset) == 'number', type(maxOffset))
-                if maxOffset > SPACING then
-                    spawnParams[i][ii].position.z = spawnParams[i][ii].position.z - (maxOffset - SPACING) / 2
-                    spawnParams[i][ii].scale.z =
-                        spawnParams[i][ii].scale.z + math.max(0, (maxOffset - SPACING) / SPACING)
+                for l = 1, maxOffset // SPACING - 1 do
+                    local position = Vector3.New(spawnParams[i][ii].position - Vector3.UP * l * SPACING)
+                    -- CoreDebug.DrawBox(position + self.parent:GetWorldPosition(), Vector3.New(1,1,1) * SPACING/2, {duration = 500})
+                    spawnParams[0] = spawnParams[0] or {}
+                    spawnParams[0][#spawnParams[0] + 1] = {
+                        position = position,
+                        scale = Vector3.New(spawnParams[i][ii].scale),
+                        parent = spawnParams[i][ii].parent
+                    }
                 end
             end
         end
@@ -94,9 +102,6 @@ function BasicTerrainBuilderDevice(spawnedObjectsParent, scale)
         options.spawnParams = spawnParams
         return options
     end
-    function self.__tostring()
-        return self.type
-    end
     return setmetatable(self, self)
 end
-return BasicTerrainBuilderDevice
+return BlockyTerrainBuilderDevice

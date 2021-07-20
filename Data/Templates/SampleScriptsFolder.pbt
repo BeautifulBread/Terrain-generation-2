@@ -16,9 +16,11 @@ Assets {
           }
         }
         ParentId: 4781671109827199097
+        ChildIds: 6141923214026955945
         ChildIds: 14727346271638909587
         ChildIds: 10673794878616746981
         ChildIds: 5688057693001962846
+        ChildIds: 14085173919148691377
         UnregisteredParameters {
           Overrides {
             Name: "cs:self"
@@ -42,6 +44,47 @@ Assets {
         Script {
           ScriptAsset {
             Id: 2394074719941360336
+          }
+        }
+      }
+      Objects {
+        Id: 6141923214026955945
+        Name: "Settings"
+        Transform {
+          Location {
+          }
+          Rotation {
+          }
+          Scale {
+            X: 1
+            Y: 1
+            Z: 1
+          }
+        }
+        ParentId: 6127463511379346490
+        UnregisteredParameters {
+          Overrides {
+            Name: "cs:self"
+            AssetReference {
+              Id: 13616194193844660593
+            }
+          }
+        }
+        Collidable_v2 {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        Visible_v2 {
+          Value: "mc:evisibilitysetting:inheritfromparent"
+        }
+        CameraCollidable {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        EditorIndicatorVisibility {
+          Value: "mc:eindicatorvisibility:visiblewhenselected"
+        }
+        Script {
+          ScriptAsset {
+            Id: 13616194193844660593
           }
         }
       }
@@ -188,8 +231,8 @@ Assets {
           }
         }
         ParentId: 6127463511379346490
-        ChildIds: 1936163289547068984
         ChildIds: 5149795236477952669
+        ChildIds: 1685850003832734224
         Collidable_v2 {
           Value: "mc:ecollisionsetting:inheritfromparent"
         }
@@ -204,39 +247,6 @@ Assets {
         }
         NetworkContext {
           Type: RuntimeStatic
-        }
-      }
-      Objects {
-        Id: 1936163289547068984
-        Name: "TemporaryTerrainGenerator"
-        Transform {
-          Location {
-          }
-          Rotation {
-          }
-          Scale {
-            X: 1
-            Y: 1
-            Z: 1
-          }
-        }
-        ParentId: 10673794878616746981
-        Collidable_v2 {
-          Value: "mc:ecollisionsetting:inheritfromparent"
-        }
-        Visible_v2 {
-          Value: "mc:evisibilitysetting:inheritfromparent"
-        }
-        CameraCollidable {
-          Value: "mc:ecollisionsetting:inheritfromparent"
-        }
-        EditorIndicatorVisibility {
-          Value: "mc:eindicatorvisibility:visiblewhenselected"
-        }
-        Script {
-          ScriptAsset {
-            Id: 4829217015423507923
-          }
         }
       }
       Objects {
@@ -272,6 +282,39 @@ Assets {
         }
       }
       Objects {
+        Id: 1685850003832734224
+        Name: "ChunkPlayerTracker"
+        Transform {
+          Location {
+          }
+          Rotation {
+          }
+          Scale {
+            X: 1
+            Y: 1
+            Z: 1
+          }
+        }
+        ParentId: 10673794878616746981
+        Collidable_v2 {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        Visible_v2 {
+          Value: "mc:evisibilitysetting:inheritfromparent"
+        }
+        CameraCollidable {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        EditorIndicatorVisibility {
+          Value: "mc:eindicatorvisibility:visiblewhenselected"
+        }
+        Script {
+          ScriptAsset {
+            Id: 3668077739940992346
+          }
+        }
+      }
+      Objects {
         Id: 5688057693001962846
         Name: "async Sample"
         Transform {
@@ -301,6 +344,73 @@ Assets {
         Script {
           ScriptAsset {
             Id: 3928677769441614418
+          }
+        }
+      }
+      Objects {
+        Id: 14085173919148691377
+        Name: "ClientContext"
+        Transform {
+          Location {
+          }
+          Rotation {
+          }
+          Scale {
+            X: 1
+            Y: 1
+            Z: 1
+          }
+        }
+        ParentId: 6127463511379346490
+        ChildIds: 17563885829894157699
+        Collidable_v2 {
+          Value: "mc:ecollisionsetting:forceoff"
+        }
+        Visible_v2 {
+          Value: "mc:evisibilitysetting:inheritfromparent"
+        }
+        CameraCollidable {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        EditorIndicatorVisibility {
+          Value: "mc:eindicatorvisibility:visiblewhenselected"
+        }
+        NetworkContext {
+        }
+      }
+      Objects {
+        Id: 17563885829894157699
+        Name: "EventFirer"
+        Transform {
+          Location {
+            X: -455
+            Y: -230
+            Z: -1365
+          }
+          Rotation {
+          }
+          Scale {
+            X: 1
+            Y: 1
+            Z: 1
+          }
+        }
+        ParentId: 14085173919148691377
+        Collidable_v2 {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        Visible_v2 {
+          Value: "mc:evisibilitysetting:inheritfromparent"
+        }
+        CameraCollidable {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        EditorIndicatorVisibility {
+          Value: "mc:eindicatorvisibility:visiblewhenselected"
+        }
+        Script {
+          ScriptAsset {
+            Id: 14729152465542575556
           }
         }
       }

@@ -10,12 +10,6 @@ Assets {
           Id: 11090181159666109438
         }
       }
-      Overrides {
-        Name: "cs:cube"
-        AssetReference {
-          Id: 5521646414114951371
-        }
-      }
     }
   }
   SerializationVersion: 92

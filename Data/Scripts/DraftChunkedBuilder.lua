@@ -1,4 +1,4 @@
-local mergedModel = script:GetCustomProperty('mergedModel')
+-- local mergedModel = script:GetCustomProperty('mergedModel')
 function DraftChunkedBuilder(parent, options, asset, chunkSize, viewDistance)
     assert(parent)
     assert(options)

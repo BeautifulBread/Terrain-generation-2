@@ -1,9 +1,5 @@
 local Imports = _G.Imports
-
-local CUBE = script:GetCustomProperty('cube')
 local PerformanceReportClass = Imports.Profiling.PerformanceReportClass.require()
-local BasicBuilderClass = Imports.Procedural.BasicBuilderClass.require()
-local DraftChunkedBuilder = Imports.Procedural.DraftChunkedBuilder.require()
 local TableUtils = Imports.Utils.TableUtils.require()
 local AsyncOS = Imports.Coroutines.AsyncOS.require()
 local async, await = AsyncOS.async, AsyncOS.await
@@ -73,8 +69,6 @@ function TerrainBuilderPipelineClass2D(parent)
             self.perfReport.Entry(perfReport)
             Task.Wait()
         end
-        DraftChunkedBuilder(self.parent, options, CUBE).Build(16)
-        -- BasicBuilderClass(options, CUBE).Build()
         return options
     end
     return setmetatable(self, self)

@@ -1,19 +1,31 @@
 local Imports = _G.Imports
-function PlayerChunkDataClass(player, chunkingParent)
+local Settings = Imports.Settings.require()
+local ChunkedTerrainInstance = Imports.Procedural.ChunkedTerrainInstance.require()
+local TemporaryTerrainGenerator = Imports.Procedural.TemporaryTerrainGenerator.require()
+
+-- local terrainInstance = ChunkedTerrainInstance(terrainPipelineInstance, 16, 1, script.parent)
+function PlayerChunkDataClass(player, terrainParent)
+    local pipeline = TemporaryTerrainGenerator.GeneratePipeline(terrainParent)
+    -- local terrainParent = script.parent:FindChildByName('Geom')
+    local terrainInstance = ChunkedTerrainInstance(pipeline, 16, 1, terrainParent)
     local self = {
         currentChunk = nil,
         player = player,
-        chunkingParent = chunkingParent,
+        terrainParent = terrainParent,
         chunkCoordX = nil,
-        chunkCoordY = nil
+        chunkCoordY = nil,
+        viewDistance = Settings.viewDistance,
+        pipeline = pipeline,
+        terrainInstance = terrainInstance
     }
+    self.terrainInstance.LoadTerrain()
     local chunkCheckerForPlayer =
         Task.Spawn(
         function()
-            local chunkSize = 12 -- TODO: abstract
-            local blockSize = 1
+            local chunkSize = terrainInstance.chunkSize
+            local blockSize = terrainInstance.blockSize
             local chunkSide = blockSize * 100 * chunkSize
-            local ppos = player:GetWorldPosition() - self.chunkingParent:GetWorldPosition()
+            local ppos = player:GetWorldPosition() - self.terrainParent:GetWorldPosition()
             local chunkCoordX = math.floor(ppos.x // chunkSide + 1)
             local chunkCoordY = math.floor(ppos.y // chunkSide + 1)
             if not (chunkCoordX == self.chunkCoordX and chunkCoordY == self.chunkCoordY) then

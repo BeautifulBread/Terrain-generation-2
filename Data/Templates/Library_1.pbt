@@ -18,7 +18,7 @@ Assets {
         ParentId: 4781671109827199097
         ChildIds: 12585898241356728914
         ChildIds: 215510664278319802
-        ChildIds: 3425520380183755865
+        ChildIds: 2487858722719268397
         Collidable_v2 {
           Value: "mc:ecollisionsetting:inheritfromparent"
         }
@@ -118,7 +118,7 @@ Assets {
         }
         Folder {
           IsFilePartition: true
-          FilePartitionName: "Utils"
+          FilePartitionName: "Utils_1"
         }
       }
       Objects {
@@ -357,6 +357,7 @@ Assets {
         }
         Folder {
           IsFilePartition: true
+          FilePartitionName: "Profiling_1"
         }
       }
       Objects {
@@ -423,7 +424,7 @@ Assets {
         }
         Folder {
           IsFilePartition: true
-          FilePartitionName: "Math"
+          FilePartitionName: "Math_1"
         }
       }
       Objects {
@@ -540,9 +541,12 @@ Assets {
           }
         }
         ParentId: 12585898241356728914
+        ChildIds: 3341440163283547314
         ChildIds: 6386780660800616518
         ChildIds: 12411916480163894522
         ChildIds: 2006653027986029394
+        ChildIds: 17083961651850628295
+        ChildIds: 5228905130180530856
         Collidable_v2 {
           Value: "mc:ecollisionsetting:inheritfromparent"
         }
@@ -557,7 +561,51 @@ Assets {
         }
         Folder {
           IsFilePartition: true
-          FilePartitionName: "Procedural_1"
+          FilePartitionName: "Procedural"
+        }
+      }
+      Objects {
+        Id: 3341440163283547314
+        Name: "TemporaryTerrainGenerator"
+        Transform {
+          Location {
+            X: -455
+            Y: -230
+            Z: -1365
+          }
+          Rotation {
+          }
+          Scale {
+            X: 1
+            Y: 1
+            Z: 1
+          }
+        }
+        ParentId: 15578743045634390222
+        UnregisteredParameters {
+          Overrides {
+            Name: "cs:self"
+            AssetReference {
+              Id: 4829217015423507923
+            }
+          }
+        }
+        Collidable_v2 {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        Visible_v2 {
+          Value: "mc:evisibilitysetting:inheritfromparent"
+        }
+        CameraCollidable {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        EditorIndicatorVisibility {
+          Value: "mc:eindicatorvisibility:visiblewhenselected"
+        }
+        Script {
+          ScriptAsset {
+            Id: 4829217015423507923
+          }
         }
       }
       Objects {
@@ -629,7 +677,7 @@ Assets {
         }
         Folder {
           IsFilePartition: true
-          FilePartitionName: "Devices_1"
+          FilePartitionName: "Devices"
         }
       }
       Objects {
@@ -905,6 +953,72 @@ Assets {
         }
       }
       Objects {
+        Id: 17083961651850628295
+        Name: "DraftChunkedBuilder"
+        Transform {
+          Location {
+          }
+          Rotation {
+          }
+          Scale {
+            X: 1
+            Y: 1
+            Z: 1
+          }
+        }
+        ParentId: 15578743045634390222
+        Collidable_v2 {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        Visible_v2 {
+          Value: "mc:evisibilitysetting:inheritfromparent"
+        }
+        CameraCollidable {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        EditorIndicatorVisibility {
+          Value: "mc:eindicatorvisibility:visiblewhenselected"
+        }
+        Script {
+          ScriptAsset {
+            Id: 4646246654061509086
+          }
+        }
+      }
+      Objects {
+        Id: 5228905130180530856
+        Name: "ChunkedTerrainInstance"
+        Transform {
+          Location {
+          }
+          Rotation {
+          }
+          Scale {
+            X: 1
+            Y: 1
+            Z: 1
+          }
+        }
+        ParentId: 15578743045634390222
+        Collidable_v2 {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        Visible_v2 {
+          Value: "mc:evisibilitysetting:inheritfromparent"
+        }
+        CameraCollidable {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        EditorIndicatorVisibility {
+          Value: "mc:eindicatorvisibility:visiblewhenselected"
+        }
+        Script {
+          ScriptAsset {
+            Id: 14819962589147005622
+          }
+        }
+      }
+      Objects {
         Id: 12364901478275426651
         Name: "Coroutines"
         Transform {
@@ -935,7 +1049,7 @@ Assets {
         }
         Folder {
           IsFilePartition: true
-          FilePartitionName: "Coroutines"
+          FilePartitionName: "Coroutines_1"
         }
       }
       Objects {
@@ -1367,7 +1481,7 @@ Assets {
         }
       }
       Objects {
-        Id: 3425520380183755865
+        Id: 2487858722719268397
         Name: "ClientContext"
         Transform {
           Location {
@@ -1381,7 +1495,7 @@ Assets {
           }
         }
         ParentId: 13947849939794823213
-        ChildIds: 4556406809927511360
+        ChildIds: 7408458993617181460
         Collidable_v2 {
           Value: "mc:ecollisionsetting:forceoff"
         }
@@ -1398,7 +1512,7 @@ Assets {
         }
       }
       Objects {
-        Id: 4556406809927511360
+        Id: 7408458993617181460
         Name: "Library"
         Transform {
           Location {
@@ -1411,13 +1525,13 @@ Assets {
             Z: 1
           }
         }
-        ParentId: 3425520380183755865
-        ChildIds: 1638089588442490011
-        ChildIds: 2689967708583145653
-        ChildIds: 9463388055425671698
-        ChildIds: 2715628597309094955
-        ChildIds: 1984263740646340128
-        ChildIds: 3856595820954551356
+        ParentId: 2487858722719268397
+        ChildIds: 11542628700951034902
+        ChildIds: 1446098567597656607
+        ChildIds: 13304676849102512505
+        ChildIds: 4122483451004796207
+        ChildIds: 17364227336532800683
+        ChildIds: 14789576415535850220
         UnregisteredParameters {
           Overrides {
             Name: "cs:self"
@@ -1445,7 +1559,7 @@ Assets {
         }
       }
       Objects {
-        Id: 1638089588442490011
+        Id: 11542628700951034902
         Name: "Utils"
         Transform {
           Location {
@@ -1458,13 +1572,13 @@ Assets {
             Z: 1
           }
         }
-        ParentId: 4556406809927511360
-        ChildIds: 12667807956842174448
-        ChildIds: 7796605405120583371
-        ChildIds: 1530130864137855415
-        ChildIds: 7981159789331383119
-        ChildIds: 10710693652348405749
-        ChildIds: 7965251039188569694
+        ParentId: 7408458993617181460
+        ChildIds: 1056804502312952053
+        ChildIds: 7689127788554018891
+        ChildIds: 16926729833263692554
+        ChildIds: 9516448495020117575
+        ChildIds: 12110177923635185675
+        ChildIds: 15607963812860141045
         Collidable_v2 {
           Value: "mc:ecollisionsetting:inheritfromparent"
         }
@@ -1479,11 +1593,11 @@ Assets {
         }
         Folder {
           IsFilePartition: true
-          FilePartitionName: "Utils"
+          FilePartitionName: "Utils_1"
         }
       }
       Objects {
-        Id: 12667807956842174448
+        Id: 1056804502312952053
         Name: "CoreObjectUtils"
         Transform {
           Location {
@@ -1496,7 +1610,7 @@ Assets {
             Z: 1
           }
         }
-        ParentId: 1638089588442490011
+        ParentId: 11542628700951034902
         Collidable_v2 {
           Value: "mc:ecollisionsetting:inheritfromparent"
         }
@@ -1516,7 +1630,7 @@ Assets {
         }
       }
       Objects {
-        Id: 7796605405120583371
+        Id: 7689127788554018891
         Name: "FunctionalUtils"
         Transform {
           Location {
@@ -1529,7 +1643,7 @@ Assets {
             Z: 1
           }
         }
-        ParentId: 1638089588442490011
+        ParentId: 11542628700951034902
         Collidable_v2 {
           Value: "mc:ecollisionsetting:inheritfromparent"
         }
@@ -1549,7 +1663,7 @@ Assets {
         }
       }
       Objects {
-        Id: 1530130864137855415
+        Id: 16926729833263692554
         Name: "TableUtils"
         Transform {
           Location {
@@ -1562,7 +1676,7 @@ Assets {
             Z: 1
           }
         }
-        ParentId: 1638089588442490011
+        ParentId: 11542628700951034902
         Collidable_v2 {
           Value: "mc:ecollisionsetting:inheritfromparent"
         }
@@ -1582,7 +1696,7 @@ Assets {
         }
       }
       Objects {
-        Id: 7981159789331383119
+        Id: 9516448495020117575
         Name: "JSON"
         Transform {
           Location {
@@ -1595,7 +1709,7 @@ Assets {
             Z: 1
           }
         }
-        ParentId: 1638089588442490011
+        ParentId: 11542628700951034902
         Collidable_v2 {
           Value: "mc:ecollisionsetting:inheritfromparent"
         }
@@ -1615,7 +1729,7 @@ Assets {
         }
       }
       Objects {
-        Id: 10710693652348405749
+        Id: 12110177923635185675
         Name: "KeyCodes"
         Transform {
           Location {
@@ -1628,7 +1742,7 @@ Assets {
             Z: 1
           }
         }
-        ParentId: 1638089588442490011
+        ParentId: 11542628700951034902
         Collidable_v2 {
           Value: "mc:ecollisionsetting:inheritfromparent"
         }
@@ -1648,7 +1762,7 @@ Assets {
         }
       }
       Objects {
-        Id: 7965251039188569694
+        Id: 15607963812860141045
         Name: "IdGenClass"
         Transform {
           Location {
@@ -1661,7 +1775,7 @@ Assets {
             Z: 1
           }
         }
-        ParentId: 1638089588442490011
+        ParentId: 11542628700951034902
         UnregisteredParameters {
           Overrides {
             Name: "cs:self"
@@ -1689,7 +1803,7 @@ Assets {
         }
       }
       Objects {
-        Id: 2689967708583145653
+        Id: 1446098567597656607
         Name: "Profiling"
         Transform {
           Location {
@@ -1702,8 +1816,8 @@ Assets {
             Z: 1
           }
         }
-        ParentId: 4556406809927511360
-        ChildIds: 8663612536305138153
+        ParentId: 7408458993617181460
+        ChildIds: 10962100393467339121
         Collidable_v2 {
           Value: "mc:ecollisionsetting:inheritfromparent"
         }
@@ -1718,10 +1832,11 @@ Assets {
         }
         Folder {
           IsFilePartition: true
+          FilePartitionName: "Profiling_1"
         }
       }
       Objects {
-        Id: 8663612536305138153
+        Id: 10962100393467339121
         Name: "PerformanceReportClass"
         Transform {
           Location {
@@ -1734,7 +1849,7 @@ Assets {
             Z: 1
           }
         }
-        ParentId: 2689967708583145653
+        ParentId: 1446098567597656607
         Collidable_v2 {
           Value: "mc:ecollisionsetting:inheritfromparent"
         }
@@ -1754,7 +1869,7 @@ Assets {
         }
       }
       Objects {
-        Id: 9463388055425671698
+        Id: 13304676849102512505
         Name: "Math"
         Transform {
           Location {
@@ -1767,9 +1882,9 @@ Assets {
             Z: 1
           }
         }
-        ParentId: 4556406809927511360
-        ChildIds: 2794680384227957332
-        ChildIds: 8852167333979891771
+        ParentId: 7408458993617181460
+        ChildIds: 1945384804702962149
+        ChildIds: 7548474218300674808
         Collidable_v2 {
           Value: "mc:ecollisionsetting:inheritfromparent"
         }
@@ -1784,11 +1899,11 @@ Assets {
         }
         Folder {
           IsFilePartition: true
-          FilePartitionName: "Math"
+          FilePartitionName: "Math_1"
         }
       }
       Objects {
-        Id: 2794680384227957332
+        Id: 1945384804702962149
         Name: "SimplexNoise"
         Transform {
           Location {
@@ -1801,7 +1916,7 @@ Assets {
             Z: 1
           }
         }
-        ParentId: 9463388055425671698
+        ParentId: 13304676849102512505
         Collidable_v2 {
           Value: "mc:ecollisionsetting:inheritfromparent"
         }
@@ -1821,7 +1936,7 @@ Assets {
         }
       }
       Objects {
-        Id: 8852167333979891771
+        Id: 7548474218300674808
         Name: "Noise"
         Transform {
           Location {
@@ -1834,7 +1949,7 @@ Assets {
             Z: 1
           }
         }
-        ParentId: 9463388055425671698
+        ParentId: 13304676849102512505
         Collidable_v2 {
           Value: "mc:ecollisionsetting:inheritfromparent"
         }
@@ -1854,7 +1969,7 @@ Assets {
         }
       }
       Objects {
-        Id: 2715628597309094955
+        Id: 4122483451004796207
         Name: "Tests"
         Transform {
           Location {
@@ -1867,7 +1982,7 @@ Assets {
             Z: 1
           }
         }
-        ParentId: 4556406809927511360
+        ParentId: 7408458993617181460
         Collidable_v2 {
           Value: "mc:ecollisionsetting:inheritfromparent"
         }
@@ -1887,7 +2002,7 @@ Assets {
         }
       }
       Objects {
-        Id: 1984263740646340128
+        Id: 17364227336532800683
         Name: "Procedural"
         Transform {
           Location {
@@ -1900,10 +2015,13 @@ Assets {
             Z: 1
           }
         }
-        ParentId: 4556406809927511360
-        ChildIds: 4417572466168138542
-        ChildIds: 844706063346786448
-        ChildIds: 13076450025806711353
+        ParentId: 7408458993617181460
+        ChildIds: 2438796335028330489
+        ChildIds: 15903943131833330807
+        ChildIds: 6878644036468509577
+        ChildIds: 1174808053396654255
+        ChildIds: 8696225136571866292
+        ChildIds: 8040834730797387744
         Collidable_v2 {
           Value: "mc:ecollisionsetting:inheritfromparent"
         }
@@ -1918,11 +2036,55 @@ Assets {
         }
         Folder {
           IsFilePartition: true
-          FilePartitionName: "Procedural_1"
+          FilePartitionName: "Procedural"
         }
       }
       Objects {
-        Id: 4417572466168138542
+        Id: 2438796335028330489
+        Name: "TemporaryTerrainGenerator"
+        Transform {
+          Location {
+            X: -455
+            Y: -230
+            Z: -1365
+          }
+          Rotation {
+          }
+          Scale {
+            X: 1
+            Y: 1
+            Z: 1
+          }
+        }
+        ParentId: 17364227336532800683
+        UnregisteredParameters {
+          Overrides {
+            Name: "cs:self"
+            AssetReference {
+              Id: 4829217015423507923
+            }
+          }
+        }
+        Collidable_v2 {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        Visible_v2 {
+          Value: "mc:evisibilitysetting:inheritfromparent"
+        }
+        CameraCollidable {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        EditorIndicatorVisibility {
+          Value: "mc:eindicatorvisibility:visiblewhenselected"
+        }
+        Script {
+          ScriptAsset {
+            Id: 4829217015423507923
+          }
+        }
+      }
+      Objects {
+        Id: 15903943131833330807
         Name: "TerrainBuilderPipelineClass2D"
         Transform {
           Location {
@@ -1935,7 +2097,7 @@ Assets {
             Z: 1
           }
         }
-        ParentId: 1984263740646340128
+        ParentId: 17364227336532800683
         Collidable_v2 {
           Value: "mc:ecollisionsetting:inheritfromparent"
         }
@@ -1955,7 +2117,7 @@ Assets {
         }
       }
       Objects {
-        Id: 844706063346786448
+        Id: 6878644036468509577
         Name: "Devices"
         Transform {
           Location {
@@ -1968,14 +2130,14 @@ Assets {
             Z: 1
           }
         }
-        ParentId: 1984263740646340128
-        ChildIds: 2503367304908092980
-        ChildIds: 3072855318571724721
-        ChildIds: 9239039010238732197
-        ChildIds: 5311352458726329814
-        ChildIds: 14576882011833279906
-        ChildIds: 10588950869691111072
-        ChildIds: 7011840015594610191
+        ParentId: 17364227336532800683
+        ChildIds: 4975770182761458436
+        ChildIds: 9794163392512720539
+        ChildIds: 7511393942930680445
+        ChildIds: 11701246886541961367
+        ChildIds: 3141786763001188981
+        ChildIds: 11096939633108155644
+        ChildIds: 5879772402515094705
         Collidable_v2 {
           Value: "mc:ecollisionsetting:inheritfromparent"
         }
@@ -1990,11 +2152,11 @@ Assets {
         }
         Folder {
           IsFilePartition: true
-          FilePartitionName: "Devices_1"
+          FilePartitionName: "Devices"
         }
       }
       Objects {
-        Id: 2503367304908092980
+        Id: 4975770182761458436
         Name: "UniformZDevice"
         Transform {
           Location {
@@ -2007,7 +2169,7 @@ Assets {
             Z: 1
           }
         }
-        ParentId: 844706063346786448
+        ParentId: 6878644036468509577
         Collidable_v2 {
           Value: "mc:ecollisionsetting:inheritfromparent"
         }
@@ -2027,7 +2189,7 @@ Assets {
         }
       }
       Objects {
-        Id: 3072855318571724721
+        Id: 9794163392512720539
         Name: "PerlinNoiseDevice"
         Transform {
           Location {
@@ -2040,7 +2202,7 @@ Assets {
             Z: 1
           }
         }
-        ParentId: 844706063346786448
+        ParentId: 6878644036468509577
         Collidable_v2 {
           Value: "mc:ecollisionsetting:inheritfromparent"
         }
@@ -2060,7 +2222,7 @@ Assets {
         }
       }
       Objects {
-        Id: 9239039010238732197
+        Id: 7511393942930680445
         Name: "GlaciarizerDevice"
         Transform {
           Location {
@@ -2073,7 +2235,7 @@ Assets {
             Z: 1
           }
         }
-        ParentId: 844706063346786448
+        ParentId: 6878644036468509577
         Collidable_v2 {
           Value: "mc:ecollisionsetting:inheritfromparent"
         }
@@ -2093,7 +2255,7 @@ Assets {
         }
       }
       Objects {
-        Id: 5311352458726329814
+        Id: 11701246886541961367
         Name: "BasicTerrainBuilderDevice"
         Transform {
           Location {
@@ -2106,7 +2268,7 @@ Assets {
             Z: 1
           }
         }
-        ParentId: 844706063346786448
+        ParentId: 6878644036468509577
         UnregisteredParameters {
           Overrides {
             Name: "cs:cube"
@@ -2134,7 +2296,7 @@ Assets {
         }
       }
       Objects {
-        Id: 14576882011833279906
+        Id: 3141786763001188981
         Name: "CombinerDevice"
         Transform {
           Location {
@@ -2147,7 +2309,7 @@ Assets {
             Z: 1
           }
         }
-        ParentId: 844706063346786448
+        ParentId: 6878644036468509577
         Collidable_v2 {
           Value: "mc:ecollisionsetting:inheritfromparent"
         }
@@ -2167,7 +2329,7 @@ Assets {
         }
       }
       Objects {
-        Id: 10588950869691111072
+        Id: 11096939633108155644
         Name: "AvgBasedSmoothingDevice"
         Transform {
           Location {
@@ -2180,7 +2342,7 @@ Assets {
             Z: 1
           }
         }
-        ParentId: 844706063346786448
+        ParentId: 6878644036468509577
         Collidable_v2 {
           Value: "mc:ecollisionsetting:inheritfromparent"
         }
@@ -2200,7 +2362,7 @@ Assets {
         }
       }
       Objects {
-        Id: 7011840015594610191
+        Id: 5879772402515094705
         Name: "BlockyTerrainBuilderDevice"
         Transform {
           Location {
@@ -2213,7 +2375,7 @@ Assets {
             Z: 1
           }
         }
-        ParentId: 844706063346786448
+        ParentId: 6878644036468509577
         Collidable_v2 {
           Value: "mc:ecollisionsetting:inheritfromparent"
         }
@@ -2233,7 +2395,7 @@ Assets {
         }
       }
       Objects {
-        Id: 13076450025806711353
+        Id: 1174808053396654255
         Name: "BasicBuilderClass"
         Transform {
           Location {
@@ -2246,7 +2408,7 @@ Assets {
             Z: 1
           }
         }
-        ParentId: 1984263740646340128
+        ParentId: 17364227336532800683
         Collidable_v2 {
           Value: "mc:ecollisionsetting:inheritfromparent"
         }
@@ -2266,7 +2428,73 @@ Assets {
         }
       }
       Objects {
-        Id: 3856595820954551356
+        Id: 8696225136571866292
+        Name: "DraftChunkedBuilder"
+        Transform {
+          Location {
+          }
+          Rotation {
+          }
+          Scale {
+            X: 1
+            Y: 1
+            Z: 1
+          }
+        }
+        ParentId: 17364227336532800683
+        Collidable_v2 {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        Visible_v2 {
+          Value: "mc:evisibilitysetting:inheritfromparent"
+        }
+        CameraCollidable {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        EditorIndicatorVisibility {
+          Value: "mc:eindicatorvisibility:visiblewhenselected"
+        }
+        Script {
+          ScriptAsset {
+            Id: 4646246654061509086
+          }
+        }
+      }
+      Objects {
+        Id: 8040834730797387744
+        Name: "ChunkedTerrainInstance"
+        Transform {
+          Location {
+          }
+          Rotation {
+          }
+          Scale {
+            X: 1
+            Y: 1
+            Z: 1
+          }
+        }
+        ParentId: 17364227336532800683
+        Collidable_v2 {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        Visible_v2 {
+          Value: "mc:evisibilitysetting:inheritfromparent"
+        }
+        CameraCollidable {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        EditorIndicatorVisibility {
+          Value: "mc:eindicatorvisibility:visiblewhenselected"
+        }
+        Script {
+          ScriptAsset {
+            Id: 14819962589147005622
+          }
+        }
+      }
+      Objects {
+        Id: 14789576415535850220
         Name: "Coroutines"
         Transform {
           Location {
@@ -2279,9 +2507,9 @@ Assets {
             Z: 1
           }
         }
-        ParentId: 4556406809927511360
-        ChildIds: 9694599700238731564
-        ChildIds: 3610295481359506489
+        ParentId: 7408458993617181460
+        ChildIds: 830905399378242733
+        ChildIds: 15371337277791094260
         Collidable_v2 {
           Value: "mc:ecollisionsetting:inheritfromparent"
         }
@@ -2296,11 +2524,11 @@ Assets {
         }
         Folder {
           IsFilePartition: true
-          FilePartitionName: "Coroutines"
+          FilePartitionName: "Coroutines_1"
         }
       }
       Objects {
-        Id: 9694599700238731564
+        Id: 830905399378242733
         Name: "ProtectedCoroutine"
         Transform {
           Location {
@@ -2313,7 +2541,7 @@ Assets {
             Z: 1
           }
         }
-        ParentId: 3856595820954551356
+        ParentId: 14789576415535850220
         Collidable_v2 {
           Value: "mc:ecollisionsetting:inheritfromparent"
         }
@@ -2333,7 +2561,7 @@ Assets {
         }
       }
       Objects {
-        Id: 3610295481359506489
+        Id: 15371337277791094260
         Name: "AsyncOS"
         Transform {
           Location {
@@ -2346,7 +2574,7 @@ Assets {
             Z: 1
           }
         }
-        ParentId: 3856595820954551356
+        ParentId: 14789576415535850220
         Collidable_v2 {
           Value: "mc:ecollisionsetting:inheritfromparent"
         }

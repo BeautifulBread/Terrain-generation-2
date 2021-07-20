@@ -83,6 +83,7 @@ Objects {
   ChildIds: 13094712781061170074
   ChildIds: 17148343304422386412
   ChildIds: 3975485325673858135
+  ChildIds: 13448697981816184504
   UnregisteredParameters {
     Overrides {
       Name: "cs:self"
@@ -114,6 +115,73 @@ Objects {
     InstanceId: 18149173386979035266
     TemplateId: 5027466373211250011
     WasRoot: true
+  }
+}
+Objects {
+  Id: 13448697981816184504
+  Name: "ClientContext"
+  Transform {
+    Location {
+    }
+    Rotation {
+    }
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 3229880396597548339
+  ChildIds: 9972303936201516170
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:forceoff"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  NetworkContext {
+  }
+}
+Objects {
+  Id: 9972303936201516170
+  Name: "EventFirer"
+  Transform {
+    Location {
+      X: -455
+      Y: -230
+      Z: -1365
+    }
+    Rotation {
+    }
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 13448697981816184504
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  Script {
+    ScriptAsset {
+      Id: 14729152465542575556
+    }
   }
 }
 Objects {
@@ -176,6 +244,7 @@ Objects {
   ChildIds: 7135226566484952881
   ChildIds: 4516116439347409812
   ChildIds: 7979990581828145945
+  ChildIds: 6338353179210120046
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
@@ -196,6 +265,36 @@ Objects {
     SubobjectId: 10673794878616746981
     InstanceId: 18149173386979035266
     TemplateId: 5027466373211250011
+  }
+}
+Objects {
+  Id: 6338353179210120046
+  Name: "ClientContext"
+  Transform {
+    Location {
+    }
+    Rotation {
+    }
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 17148343304422386412
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:forceoff"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  NetworkContext {
   }
 }
 Objects {

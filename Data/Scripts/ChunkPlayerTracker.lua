@@ -38,6 +38,6 @@ end
 if Environment.IsServer() then
     Game.playerJoinedEvent:Connect(OnPlayerJoined)
 else
-    OnPlayerJoined(Game.GetLocalPlayer())
+    Events.Connect('LocalPlayerJoined', OnPlayerJoined)
 end
 -- print(Vector3.ONE == Vector3.ONE)

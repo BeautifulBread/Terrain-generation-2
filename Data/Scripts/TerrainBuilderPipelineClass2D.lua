@@ -3,12 +3,14 @@ local Imports = _G.Imports
 local CUBE = script:GetCustomProperty('cube')
 local PerformanceReportClass = Imports.Profiling.PerformanceReportClass.require()
 local BasicBuilderClass = Imports.Procedural.BasicBuilderClass.require()
+local DraftChunkedBuilder = Imports.Procedural.DraftChunkedBuilder.require()
 local TableUtils = Imports.Utils.TableUtils.require()
 local AsyncOS = Imports.Coroutines.AsyncOS.require()
 local async, await = AsyncOS.async, AsyncOS.await
-function TerrainHeightmapBuilderPipelineClass2D()
+function TerrainBuilderPipelineClass2D(parent)
     local self = {
-        type = 'TerrainHeightmapBuilderPipelineClass2D',
+        type = 'TerrainBuilderPipelineClass2D',
+        parent = parent,
         devices = {},
         remaps = {},
         perfReport = PerformanceReportClass('Terrain generation'),
@@ -71,9 +73,10 @@ function TerrainHeightmapBuilderPipelineClass2D()
             self.perfReport.Entry(perfReport)
             Task.Wait()
         end
+        DraftChunkedBuilder(self.parent, options, CUBE).Build(16)
         BasicBuilderClass(options, CUBE).Build()
         return options
     end
     return setmetatable(self, self)
 end
-return TerrainHeightmapBuilderPipelineClass2D
+return TerrainBuilderPipelineClass2D

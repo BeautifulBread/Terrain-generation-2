@@ -9,7 +9,7 @@ local AvgBasedSmoothingDevice = Imports.Procedural.Devices.AvgBasedSmoothingDevi
 local CombinerDevice = Imports.Procedural.Devices.CombinerDevice.require()
 local terrainParent = script.parent:FindChildByName('Geom')
 
-local pipeline = TerrainHeightmapBuilderPipelineClass2D()
+local pipeline = TerrainHeightmapBuilderPipelineClass2D(terrainParent)
 
 local mapSize = Vector2.New(100, 100)
 pipeline.AddDevice(PerlinNoiseDevice(mapSize, 5034, 1000, Vector2.New(0.05, 0.05)))

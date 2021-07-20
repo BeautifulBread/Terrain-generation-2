@@ -1,12 +1,12 @@
 -- local Imports = _G.Imports
 -- local TableUtils = Imports.Utils.TableUtils.require()
-function BlockyTerrainBuilderDevice(parent, scale)
+function BlockyTerrainBuilderDevice(parent, blockSize)
     local self = {
         type = 'BlockyTerrainBuilderDevice',
         parent = parent,
-        scale = scale or 1,
+        blockSize = blockSize or 1,
         inputKeys = {'heightMap'},
-        outputKeys = {'spawnParams', 'width', 'height'}
+        outputKeys = {'spawnParams', 'width', 'height','blockSize'}
     }
     function self.__call(_, options)
         -- input validation
@@ -27,7 +27,8 @@ function BlockyTerrainBuilderDevice(parent, scale)
         )
         -- TODO:
         -- actual building
-        local SPACING = self.scale * 100
+        local SPACING = self.blockSize * 100
+        options.blockSize = self.blockSize
         local width = #options.heightMap[1]
         local height = #options.heightMap
         -- -- compute terrain assets positions
@@ -49,7 +50,7 @@ function BlockyTerrainBuilderDevice(parent, scale)
                 spawnParams[i][ii] = {
                     parent = self.parent,
                     position = position,
-                    scale = Vector3.ONE * self.scale
+                    scale = Vector3.ONE * self.blockSize
                 }
             end
         end

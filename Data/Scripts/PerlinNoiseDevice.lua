@@ -5,7 +5,7 @@ function PerlinNoiseDevice(mapSize, seed, amplitude, stretch)
     local self = {
         type = 'PerlinNoiseDevice',
         mapSize = mapSize,
-        seed = seed,
+        seed = seed or 0,
         amplitude = amplitude or error('You have to supply an amplitude'),
         stretch = stretch or error('You have to supply a stretch'),
         inputKeys = {'heightMap'},
@@ -30,8 +30,6 @@ function PerlinNoiseDevice(mapSize, seed, amplitude, stretch)
 
         -- terrain generation
         local MAX_ITERATIONS_PER_TICK = 2000
-
-        -- FIXME: error handling on omitting seed
         Noise.seed(self.seed)
         -- local noise = SimplexNoise()
         -- noise.Noise(self.seed)
@@ -46,7 +44,6 @@ function PerlinNoiseDevice(mapSize, seed, amplitude, stretch)
                 iters = iters + 1
                 if iters % MAX_ITERATIONS_PER_TICK == 0 then
                     Task.Wait()
-                -- coroutine.yield("HI people")
                 end
                 -- noiseMap[i][ii] =
                 --     (noise.Evaluate(Vector3.New(i * self.stretch.x, ii * self.stretch.y, -10)) * amplitude + 1) / 2
@@ -59,7 +56,6 @@ function PerlinNoiseDevice(mapSize, seed, amplitude, stretch)
         end
         local ret = options
         ret.heightMap = noiseMap
-        -- print("Hello")
         return ret
     end
     return setmetatable(self, self)

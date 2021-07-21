@@ -15,11 +15,12 @@ function PerlinNoiseDevice(mapSize, seed, amplitude, stretch)
         return self.type
     end
     function self.__call(_, options)
+        error("this is not supposed to be used anymore")
         -- input validation
         assert(
             options,
             [[You've failed to pass options to ]] .. self.type .. [[! Elective options:
-            heighMap: table]]
+            heightMap: table]]
         )
         if options.heightMap then
             local msg = 'Dimension mismatch'
@@ -57,6 +58,28 @@ function PerlinNoiseDevice(mapSize, seed, amplitude, stretch)
         local ret = options
         ret.heightMap = noiseMap
         return ret
+    end
+    function self.ExecuteForArea(options,startX,startY,width,height)
+        assert(
+            options,
+            [[You've failed to pass options to ]] .. self.type .. [[! Elective options:
+            heightMap: table]]
+        )
+        Noise.seed(self.seed)
+        options.heightMap = options.heightMap or {}
+        local MAX_ITERATIONS_PER_TICK = 2000
+        local iters = 0
+        for y=startY,startY+height do
+            options.heightMap[y] = options.heightMap[y] or {}
+            for x=startX,startX+width do
+                iters = iters + 1
+                if iters % MAX_ITERATIONS_PER_TICK == 0 then
+                    Task.Wait()
+                end
+                options.heightMap[y][x] = (Noise.make(y * self.stretch.x, x * self.stretch.y) * amplitude + 1) / 2
+            end
+        end
+        return options
     end
     return setmetatable(self, self)
 end

@@ -103,6 +103,52 @@ function BlockyTerrainBuilderDevice(parent, blockSize)
         options.spawnParams = spawnParams
         return options
     end
+    function self.ExecuteForArea(options,startX,startY,width,height)
+        assert(
+            options,
+            [[You've failed to pass options to ]] .. self.type .. [[! Mandatory options:
+            heighMap: table]]
+        )
+        assert(options.heightMap, 'There was no heightMap supplied to ' .. self.type)
+        if #options.heightMap == 0 then
+            return {heightMap = {}}
+        end
+        assert(type(options.heightMap) == 'table', "You've passed invalid heightMap to " .. self.type)
+        options.position = options.position or Vector3.ZERO
+        assert(
+            type(options.position) == 'userdata' and options.position.type == 'Vector3',
+            "You've passed invalid position argument to " .. self.type
+        )
+        -- TODO:
+        -- actual building
+        local SPACING = self.blockSize * 100
+        -- -- compute terrain assets positions
+        local heightMap = options.heightMap -- is an optimization
+        local iters = 0 -- to avoid instruction limit errors
+        local MAX_ITERS_PER_TICK = 10000
+        local spawnParams = {}
+        for y = startY, startY+height do
+            spawnParams[y] = {}
+            for x=startX,startX+width do
+                iters = iters + 1
+                if iters % MAX_ITERS_PER_TICK == 0 then
+                    Task.Wait()
+                end
+                assert(heightMap[y][x])
+                local zOffset = heightMap[y][x]
+                local position = Vector3.New(x * SPACING, y * SPACING, (zOffset // SPACING) * SPACING)
+                position = position + options.position - Vector3.New(50, 50, 0)
+                position.z = (position.z // SPACING) * SPACING
+                spawnParams[y][x] = {
+                    parent = self.parent,
+                    position = position,
+                    scale = Vector3.ONE * self.blockSize
+                }
+            end
+        end
+        options.spawnParams = spawnParams
+        return options
+    end
     return setmetatable(self, self)
 end
 return BlockyTerrainBuilderDevice

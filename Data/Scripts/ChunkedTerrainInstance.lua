@@ -15,7 +15,7 @@ function ChunkedTerrainInstance(pipeline, chunkSize, blockSize, terrainParent)
     self.builder = DraftChunkedBuilder(self.terrainParent, CUBE, self.chunkSize, self.blockSize)
     -- DEPRECATED:
     function self.LoadTerrain()
-        local options = self.pipeline.Execute()
+        local options = self.pipeline.ExecuteForArea(1,1,50,50)
         print(type(options))
         self.builder.Build(options)
         self.pipeline.ListPerformance()
@@ -26,7 +26,10 @@ function ChunkedTerrainInstance(pipeline, chunkSize, blockSize, terrainParent)
         if self.loadedChunks[y] and self.loadedChunks[y][x] then
             return
         end
-        self.pipeline.ExecuteOnArea(x * self.chunkSize, y * self.chunkSize, self.chunkSize, self.chunkSize)
+        -- local options = self.pipeline.Execute()
+        -- local options = self.pipeline.ExecuteOnArea(x * self.chunkSize, y * self.chunkSize, self.chunkSize, self.chunkSize)
+        -- assert(options)
+        -- self.builder.BuildArea(options, x * self.chunkSize, y * self.chunkSize, self.chunkSize, self.chunkSize)
         -- TODO:
     end
     function self.UnloadChunk(x, y)

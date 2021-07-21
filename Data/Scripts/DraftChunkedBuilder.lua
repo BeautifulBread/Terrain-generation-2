@@ -12,13 +12,15 @@ function DraftChunkedBuilder(parent, asset, chunkSize, viewDistance)
     function self.ConvertSpawnParamsToChunkData(options)
         assert(options)
         assert(options.spawnParams)
-        assert(options.height)
-        assert(options.width)
         local chunkData = {}
-        local chunkSide = options.blockSize * 100 * self.chunkSize
-        for i = 0, options.height do
+        local blockSize = 1 -- FIXME:
+        local chunkSide = blockSize * 100 * self.chunkSize
+        -- for i = 0, options.height do
+        for i in ipairs(options.spawnParams) do
+            -- if options.spawnParams[i] and #options.spawnParams[i] ~= 0 then
             if options.spawnParams[i] and #options.spawnParams[i] ~= 0 then
-                for ii = 1, #options.spawnParams[i] do
+                -- for ii = 1, #options.spawnParams[i] do
+                for ii in ipairs(options.spawnParams[i]) do
                     assert(options.spawnParams[i][ii])
                     local spos = options.spawnParams[i][ii].position
                     local chunkCoordX = math.floor(spos.x // chunkSide + 1)
@@ -37,7 +39,8 @@ function DraftChunkedBuilder(parent, asset, chunkSize, viewDistance)
         assert(options)
         assert(type(options) == 'table', type(options))
         assert(options.spawnParams)
-        local SPACING = options.blockSize * 100 -- FIXME: use self.blockSize instead
+        local blockSize = 1 -- FIXME:
+        local SPACING = blockSize * 100 -- FIXME: use self.blockSize instead
         -- spawn Terrain
         local chunkData = self.ConvertSpawnParamsToChunkData(options)
         local iters = 0
@@ -82,6 +85,36 @@ function DraftChunkedBuilder(parent, asset, chunkSize, viewDistance)
                 )
             end
         end
+    end
+    function self.BuildArea(options, startX, startY, width, height)
+        local iters = 0
+        local MAX_ITERS_PER_TICK = 100
+        for i = startY, startY + height do
+            for ii = startX, startX + width do
+                iters = iters + 1
+                if iters % MAX_ITERS_PER_TICK == 0 then
+                    if iters > 10000 then
+                        MAX_ITERS_PER_TICK = 40
+                    end
+                    Task.Wait()
+                end
+                if options.spawnParams[i] and options.spawnParams[i][ii] then
+                    -- local thisParams = options.spawnParams[i][ii]
+                    -- local SPACING = self.chunkSize * 100
+                    -- thisParams.position = thisParams.position-(currentlyChunk:GetPosition()-self.parent:GetWorldPosition())
+                    -- thisParams.parent = currentlyChunk
+                    -- World.SpawnAsset(self.asset, thisParams)
+                    -- local posOffset = (Vector3.New(1, 0, 0) * i + Vector3.New(0, 1, 0) * ii) * SPACING * self.chunkSize
+                    -- CoreDebug.DrawBox(
+                    --     self.parent:GetWorldPosition() + posOffset +
+                    --         (SPACING * self.chunkSize / 2) * Vector3.New(1, 1, 0),
+                    --     Vector3.New(1, 1, 6.5) * SPACING / 2 * self.chunkSize,
+                    --     {duration = 500, thickness = 3}
+                    -- )
+                end
+            end
+        end
+        return
     end
     return setmetatable(self, self)
 end

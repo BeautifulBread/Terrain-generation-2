@@ -5,7 +5,6 @@ local PerlinNoiseDevice = Imports.Procedural.Devices.PerlinNoiseDevice.require()
 -- local FlatSurfaceSmoothingFilterDevice = Imports.Procedural.Devices.FlatSurfaceSmoothingFilterDevice.require()
 local BasicTerrainBuilderDevice = Imports.Procedural.Devices.BasicTerrainBuilderDevice.require()
 local BlockyTerrainBuilderDevice = Imports.Procedural.Devices.BlockyTerrainBuilderDevice.require()
-local ChunkedTerrainInstance = Imports.Procedural.ChunkedTerrainInstance.require()
 local AvgBasedSmoothingDevice = Imports.Procedural.Devices.AvgBasedSmoothingDevice.require()
 local CombinerDevice = Imports.Procedural.Devices.CombinerDevice.require()
 
@@ -26,6 +25,7 @@ function TemporaryTerrainGenerator.GeneratePipeline(terrainParent)
     pipeline.AddDevice(CombinerDevice())
     pipeline.AddDevice(AvgBasedSmoothingDevice(1))
     -- pipeline.AddDevice(FlatSurfaceSmoothingFilterDevice(20))
+
     -- pipeline.AddDevice(BasicTerrainBuilderDevice(terrainParent))
     pipeline.AddDevice(BlockyTerrainBuilderDevice(terrainParent))
     return pipeline

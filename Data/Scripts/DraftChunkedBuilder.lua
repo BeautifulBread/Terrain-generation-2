@@ -1,46 +1,45 @@
 -- local mergedModel = script:GetCustomProperty('mergedModel')
-function DraftChunkedBuilder(parent, options, asset, chunkSize, viewDistance)
+function DraftChunkedBuilder(parent, asset, chunkSize, viewDistance)
     assert(parent)
-    assert(options)
-    assert(type(options) == 'table')
-    assert(options.spawnParams)
     assert(asset)
     local self = {
         parent = parent,
-        options = options,
         asset = asset,
         viewDistance = viewDistance or error('', 2),
         chunkSize = chunkSize or error('', 2),
         chunkModels = {}
     }
-    function self.ConvertSpawnParamsToChunkData()
-        assert(self.options)
-        assert(self.options.spawnParams)
-        assert(self.options.height)
-        assert(self.options.width)
+    function self.ConvertSpawnParamsToChunkData(options)
+        assert(options)
+        assert(options.spawnParams)
+        assert(options.height)
+        assert(options.width)
         local chunkData = {}
-        local chunkSide = self.options.blockSize * 100 * self.chunkSize
-        for i = 0, self.options.height do
-            if self.options.spawnParams[i] and #self.options.spawnParams[i] ~= 0 then
-                for ii = 1, #self.options.spawnParams[i] do
-                    assert(self.options.spawnParams[i][ii])
-                    local spos = self.options.spawnParams[i][ii].position
+        local chunkSide = options.blockSize * 100 * self.chunkSize
+        for i = 0, options.height do
+            if options.spawnParams[i] and #options.spawnParams[i] ~= 0 then
+                for ii = 1, #options.spawnParams[i] do
+                    assert(options.spawnParams[i][ii])
+                    local spos = options.spawnParams[i][ii].position
                     local chunkCoordX = math.floor(spos.x // chunkSide + 1)
                     local chunkCoordY = math.floor(spos.y // chunkSide + 1)
                     chunkData[chunkCoordY] = chunkData[chunkCoordY] or {}
                     chunkData[chunkCoordY][chunkCoordX] = chunkData[chunkCoordY][chunkCoordX] or {}
                     chunkData[chunkCoordY][chunkCoordX][#chunkData[chunkCoordY][chunkCoordX] + 1] =
-                        self.options.spawnParams[i][ii]
+                        options.spawnParams[i][ii]
                 end
             end
         end
         assert(#chunkData ~= 0)
         return chunkData
     end
-    function self.Build()
-        local SPACING = self.options.blockSize * 100 -- FIXME: use self.blockSize instead
+    function self.Build(options)
+        assert(options)
+        assert(type(options) == 'table', type(options))
+        assert(options.spawnParams)
+        local SPACING = options.blockSize * 100 -- FIXME: use self.blockSize instead
         -- spawn Terrain
-        local chunkData = self.ConvertSpawnParamsToChunkData(self.options)
+        local chunkData = self.ConvertSpawnParamsToChunkData(options)
         local iters = 0
         local MAX_ITERS_PER_TICK = 100
         for ky, y in ipairs(chunkData) do

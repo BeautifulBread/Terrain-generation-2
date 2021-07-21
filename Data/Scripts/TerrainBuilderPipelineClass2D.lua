@@ -69,7 +69,13 @@ function TerrainBuilderPipelineClass2D(parent)
             self.perfReport.Entry(perfReport)
             Task.Wait()
         end
+        print(type(options))
         return options
+    end
+    function self.ExecuteOnArea(startX, startY, width, height)
+        -- TODO:
+        return warn('not yet implemented')
+        -- TODO: caching
     end
     return setmetatable(self, self)
 end

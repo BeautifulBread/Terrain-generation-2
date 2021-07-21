@@ -15,7 +15,7 @@ function ChunkedTerrainInstance(pipeline, chunkSize, blockSize, terrainParent)
     function self.LoadTerrain()
         local options = self.pipeline.Execute()
         self.pipeline.ListPerformance()
-        DraftChunkedBuilder(self.terrainParent, options, CUBE).Build(16)
+        DraftChunkedBuilder(self.terrainParent, options, CUBE, self.chunkSize, self.blockSize).Build(16)
         -- BasicBuilderClass(options, CUBE).Build()
     end
 
@@ -32,7 +32,10 @@ function ChunkedTerrainInstance(pipeline, chunkSize, blockSize, terrainParent)
         -- TODO:
     end
     function self.WorldPositionToChunkCoords(pos)
-
+        local ppos = pos - self.terrainParent:GetWorldPosition()
+        local chunkCoordY = math.floor(ppos.y // (self.chunkSize * self.blockSize * 100) + 1)
+        local chunkCoordX = math.floor(ppos.x // (self.chunkSize * self.blockSize * 100) + 1)
+        return chunkCoordX, chunkCoordY
     end
     return setmetatable(self, self)
 end

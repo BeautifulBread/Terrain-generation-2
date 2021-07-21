@@ -9,8 +9,8 @@ function DraftChunkedBuilder(parent, options, asset, chunkSize, viewDistance)
         parent = parent,
         options = options,
         asset = asset,
-        viewDistance = viewDistance or 4,
-        chunkSize = chunkSize or 12,
+        viewDistance = viewDistance or error('', 2),
+        chunkSize = chunkSize or error('', 2),
         chunkModels = {}
     }
     function self.ConvertSpawnParamsToChunkData()
@@ -38,7 +38,7 @@ function DraftChunkedBuilder(parent, options, asset, chunkSize, viewDistance)
         return chunkData
     end
     function self.Build()
-        local SPACING = self.options.blockSize * 100
+        local SPACING = self.options.blockSize * 100 -- FIXME: use self.blockSize instead
         -- spawn Terrain
         local chunkData = self.ConvertSpawnParamsToChunkData(self.options)
         local iters = 0
@@ -73,8 +73,8 @@ function DraftChunkedBuilder(parent, options, asset, chunkSize, viewDistance)
             end
         end
         -- draw Chunk gizmos
-        for i = 0, self.viewDistance do
-            for ii = 0, self.viewDistance do
+        for i = 0, 5 do
+            for ii = 0, 5 do
                 local posOffset = (Vector3.New(1, 0, 0) * i + Vector3.New(0, 1, 0) * ii) * SPACING * self.chunkSize
                 CoreDebug.DrawBox(
                     self.parent:GetWorldPosition() + posOffset + (SPACING * self.chunkSize / 2) * Vector3.New(1, 1, 0),

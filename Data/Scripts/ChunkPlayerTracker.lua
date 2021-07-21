@@ -7,7 +7,7 @@ local TemporaryTerrainGenerator = Imports.Procedural.TemporaryTerrainGenerator.r
 function PlayerChunkDataClass(player, terrainParent)
     local pipeline = TemporaryTerrainGenerator.GeneratePipeline(terrainParent)
     -- local terrainParent = script.parent:FindChildByName('Geom')
-    local terrainInstance = ChunkedTerrainInstance(pipeline, 16, 1, terrainParent)
+    local terrainInstance = ChunkedTerrainInstance(pipeline, 12, 1, terrainParent)
     local self = {
         currentChunk = nil,
         player = player,
@@ -22,12 +22,7 @@ function PlayerChunkDataClass(player, terrainParent)
     local chunkCheckerForPlayer =
         Task.Spawn(
         function()
-            local chunkSize = terrainInstance.chunkSize
-            local blockSize = terrainInstance.blockSize
-            local chunkSide = blockSize * 100 * chunkSize
-            local ppos = player:GetWorldPosition() - self.terrainParent:GetWorldPosition()
-            local chunkCoordX = math.floor(ppos.x // chunkSide + 1)
-            local chunkCoordY = math.floor(ppos.y // chunkSide + 1)
+            local chunkCoordX, chunkCoordY = self.terrainInstance.WorldPositionToChunkCoords(player:GetWorldPosition())
             if not (chunkCoordX == self.chunkCoordX and chunkCoordY == self.chunkCoordY) then
                 print(tostring(chunkCoordX) .. '|' .. tostring(chunkCoordY))
                 self.chunkCoordX = chunkCoordX

@@ -85,7 +85,16 @@ function TerrainBuilderPipelineClass2D(parent)
                 async(
                 function()
                     -- return self.devices[i](options,startX,startY,width,height)
-                    return self.devices[i].ExecuteForArea(options,startX,startY,width,height)
+                    print(".."..self.devices[i].type)
+                    local opts = self.devices[i].ExecuteForArea(options,startX,startY,width,height)
+                    if self.devices[i].type == "BlockyTerrainBuilderDevice" then
+                        -- assert(opts.spawnParams)
+                        for k in pairs(opts) do
+                            print(k)
+                            print(#k)
+                        end
+                    end
+                    return opts
                 end
             )
             options = await(self._associatedTasks[i])
@@ -102,8 +111,9 @@ function TerrainBuilderPipelineClass2D(parent)
             self.perfReport.Entry(perfReport)
             Task.Wait()
         end
-        print(type(options))
-        warn('not yet implemented')
+        assert(options.spawnParams)
+        -- print(type(options))
+        -- warn('not yet implemented')
         return options
         -- TODO: caching
     end

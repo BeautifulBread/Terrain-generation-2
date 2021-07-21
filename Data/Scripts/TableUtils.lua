@@ -37,7 +37,7 @@ function TableUtils.PrintTable(table)
     print('contents of a table:')
     print('-----------')
     for k, v in pairs(table) do
-        print(tostring(k) .. string.rep(' ', math.max(50 - #k, 0)) .. ':\t' .. tostring(v))
+        print(tostring(k) .. string.rep(' ', math.max(50 - #v, 0)) .. ':\t' .. tostring(v))
     end
     print('-----------')
 end

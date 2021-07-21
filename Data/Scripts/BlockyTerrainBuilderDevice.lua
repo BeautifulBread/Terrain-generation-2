@@ -1,5 +1,6 @@
--- local Imports = _G.Imports
--- local TableUtils = Imports.Utils.TableUtils.require()
+local Imports = _G.Imports
+local TableUtils = Imports.Utils.TableUtils.require()
+
 function BlockyTerrainBuilderDevice(parent, blockSize)
     local self = {
         type = 'BlockyTerrainBuilderDevice',
@@ -9,6 +10,7 @@ function BlockyTerrainBuilderDevice(parent, blockSize)
         outputKeys = {'spawnParams', 'width', 'height', 'blockSize'}
     }
     function self.__call(_, options)
+        error("This shouldn't be used anymore")
         -- input validation
         assert(
             options,
@@ -146,7 +148,10 @@ function BlockyTerrainBuilderDevice(parent, blockSize)
                 }
             end
         end
+        assert(spawnParams)
+        -- TableUtils.PrintTable(spawnParams)
         options.spawnParams = spawnParams
+        assert(options.spawnParams)
         return options
     end
     return setmetatable(self, self)

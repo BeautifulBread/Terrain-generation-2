@@ -16,7 +16,6 @@ Assets {
           }
         }
         ParentId: 4781671109827199097
-        ChildIds: 6141923214026955945
         ChildIds: 14727346271638909587
         ChildIds: 10673794878616746981
         ChildIds: 5688057693001962846
@@ -44,47 +43,6 @@ Assets {
         Script {
           ScriptAsset {
             Id: 2394074719941360336
-          }
-        }
-      }
-      Objects {
-        Id: 6141923214026955945
-        Name: "Settings"
-        Transform {
-          Location {
-          }
-          Rotation {
-          }
-          Scale {
-            X: 1
-            Y: 1
-            Z: 1
-          }
-        }
-        ParentId: 6127463511379346490
-        UnregisteredParameters {
-          Overrides {
-            Name: "cs:self"
-            AssetReference {
-              Id: 13616194193844660593
-            }
-          }
-        }
-        Collidable_v2 {
-          Value: "mc:ecollisionsetting:inheritfromparent"
-        }
-        Visible_v2 {
-          Value: "mc:evisibilitysetting:inheritfromparent"
-        }
-        CameraCollidable {
-          Value: "mc:ecollisionsetting:inheritfromparent"
-        }
-        EditorIndicatorVisibility {
-          Value: "mc:eindicatorvisibility:visiblewhenselected"
-        }
-        Script {
-          ScriptAsset {
-            Id: 13616194193844660593
           }
         }
       }

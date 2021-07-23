@@ -22,8 +22,8 @@ function PlayerChunkDataClass(player, terrainParent)
             if not (chunkCoordX == self.chunkCoordX and chunkCoordY == self.chunkCoordY) then
                 self.chunkCoordX = chunkCoordX
                 self.chunkCoordY = chunkCoordY
-                for i = -1, 1 do
-                    for ii = -1, 1 do
+                for i = -self.viewDistance, self.viewDistance do
+                    for ii = -self.viewDistance, self.viewDistance do
                         terrainInstance.LoadChunk(chunkCoordX + i, chunkCoordY + ii)
                     end
                 end

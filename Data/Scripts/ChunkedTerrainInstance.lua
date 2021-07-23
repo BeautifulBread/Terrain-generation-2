@@ -12,7 +12,7 @@ function ChunkedTerrainInstance(pipeline, chunkSize, blockSize, terrainParent)
         builder = nil,
         loadedChunks = {}
     }
-    self.builder = DraftChunkedBuilder(self.terrainParent, CUBE, self.chunkSize, self.blockSize)
+    self.builder = DraftChunkedBuilder(self.terrainParent, CUBE, self.chunkSize,self.blockSize, self.blockSize)
 
     function self.LoadChunk(x, y)
         if self.loadedChunks[y] and self.loadedChunks[y][x] then
@@ -20,6 +20,8 @@ function ChunkedTerrainInstance(pipeline, chunkSize, blockSize, terrainParent)
         end
         local options = self.pipeline.ExecuteForArea(x * chunkSize, y * self.chunkSize, self.chunkSize, self.chunkSize)
         self.builder.BuildArea(options, x * self.chunkSize, y * self.chunkSize, self.chunkSize, self.chunkSize)
+        self.loadedChunks[y] = self.loadedChunks[y] or {}
+        self.loadedChunks[y][x] = true
     end
     function self.UnloadChunk(x, y)
         if not self.loadedChunks[y] or not self.loadedChunks[y][x] then

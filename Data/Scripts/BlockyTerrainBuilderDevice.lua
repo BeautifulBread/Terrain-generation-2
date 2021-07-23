@@ -103,8 +103,6 @@ function BlockyTerrainBuilderDevice(parent, blockSize)
         options.spawnParams = spawnParams
         return options
     end
-    -- FIXME:DEBUG
-    local correctionsCounter = 0
     function self.ExecuteForArea(options, startX, startY, width, height)
         assert(
             options,
@@ -112,11 +110,6 @@ function BlockyTerrainBuilderDevice(parent, blockSize)
             heighMap: table]]
         )
         assert(options.heightMap, 'There was no heightMap supplied to ' .. self.type)
-        -- TODO: safety checks
-        -- if #options.heightMap == 0 then
-        --     error("not supposed to happen")
-        --     return {heightMap = {}}
-        -- end
         assert(type(options.heightMap) == 'table', "You've passed invalid heightMap to " .. self.type)
         options.position = options.position or Vector3.ZERO
         assert(
@@ -192,8 +185,6 @@ function BlockyTerrainBuilderDevice(parent, blockSize)
                         scale = Vector3.New(spawnParams[i][ii].scale),
                         parent = spawnParams[i][ii].parent
                     }
-                    correctionsCounter = correctionsCounter + 1
-                    print(correctionsCounter)
                 end
             end
         end

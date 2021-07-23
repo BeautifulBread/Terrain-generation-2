@@ -65,7 +65,6 @@ function TerrainBuilderPipelineClass2D(parent)
                     options[k] = nil
                 end
             end
-
             perfReport.finishTime = time()
             self.perfReport.Entry(perfReport)
             Task.Wait()

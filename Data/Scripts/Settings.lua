@@ -1,3 +1,3 @@
 return {
-    viewDistance = 4
+    viewDistance = 2
 }

@@ -75,7 +75,6 @@ local function SpawnTiles()
                     parent = parent
                 }
             )
-            -- print(assets[#assets])
         end
     end
 end

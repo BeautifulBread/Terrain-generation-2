@@ -5,9 +5,9 @@ This project is dedicated to development of features for procedural terrain gene
 __Currently working on:__
 
 - [x] Builder module that manages chunks of terrain
-- [ ] Make a new Pipeline2D module that can compute areas
-- [ ] Generate terrain around the player
-- [ ] Generate terrain around the player on movement
+- [x] Make a new Pipeline2D module that can compute areas
+- [x] Generate terrain around the player
+- [x] Generate terrain around the player on movement
   - [ ] Make chunks invisible
   - [ ] Unload chunks
   - [ ] Cache of terrain tiles to reuse instead of spawning

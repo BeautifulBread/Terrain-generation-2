@@ -31,7 +31,6 @@ repeat
         prevI = i
     else
         print(tostring(success).."|"..tostring(time() - timer).."|"..tostring(i))
-        -- print(counter)
         cr = coroutine.create(DoFunStuff)
         Task.Wait()
     end

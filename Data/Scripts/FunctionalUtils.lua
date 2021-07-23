@@ -31,7 +31,6 @@ function FunctionalUtils.Map(table, func)
     assert(type(func) == 'function')
     local res = {}
     for k, v in pairs(table) do
-        -- print(tostring(k).."\t:\t"..tostring(v))
         res[k] = func(table, k, v)
     end
     return res

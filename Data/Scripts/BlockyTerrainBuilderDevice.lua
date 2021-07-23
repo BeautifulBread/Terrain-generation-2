@@ -7,7 +7,7 @@ function BlockyTerrainBuilderDevice(parent, blockSize)
         parent = parent,
         blockSize = blockSize or 1,
         inputKeys = {'heightMap'},
-        outputKeys = {'spawnParams', 'width', 'height', 'blockSize'}
+        outputKeys = {'spawnParams', 'blockSize'}
     }
     function self.__call(_, options)
         error("This shouldn't be used anymore")
@@ -100,18 +100,17 @@ function BlockyTerrainBuilderDevice(parent, blockSize)
                 end
             end
         end
-        options.width = width
-        options.height = height
         options.spawnParams = spawnParams
         return options
     end
-    function self.ExecuteForArea(options,startX,startY,width,height)
+    function self.ExecuteForArea(options, startX, startY, width, height)
         assert(
             options,
             [[You've failed to pass options to ]] .. self.type .. [[! Mandatory options:
             heighMap: table]]
         )
         assert(options.heightMap, 'There was no heightMap supplied to ' .. self.type)
+        -- TODO: safety checks
         -- if #options.heightMap == 0 then
         --     error("not supposed to happen")
         --     return {heightMap = {}}
@@ -122,17 +121,17 @@ function BlockyTerrainBuilderDevice(parent, blockSize)
             type(options.position) == 'userdata' and options.position.type == 'Vector3',
             "You've passed invalid position argument to " .. self.type
         )
-        -- TODO:
         -- actual building
+        -- TODO:
         local SPACING = self.blockSize * 100
         -- -- compute terrain assets positions
         local heightMap = options.heightMap -- is an optimization
         local iters = 0 -- to avoid instruction limit errors
         local MAX_ITERS_PER_TICK = 10000
         local spawnParams = {}
-        for y = startY, startY+height do
+        for y = startY, startY + height do
             spawnParams[y] = {}
-            for x=startX,startX+width do
+            for x = startX, startX + width do
                 iters = iters + 1
                 if iters % MAX_ITERS_PER_TICK == 0 then
                     Task.Wait()
@@ -149,10 +148,7 @@ function BlockyTerrainBuilderDevice(parent, blockSize)
                 }
             end
         end
-        assert(spawnParams)
-        -- TableUtils.PrintTable(spawnParams)
         options.spawnParams = spawnParams
-        assert(options.spawnParams)
         return options
     end
     return setmetatable(self, self)

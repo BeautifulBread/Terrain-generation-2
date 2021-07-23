@@ -15,7 +15,6 @@ function PlayerChunkDataClass(player, terrainParent)
         pipeline = pipeline,
         terrainInstance = terrainInstance
     }
-    self.terrainInstance.LoadTerrain()
     local chunkCheckerForPlayer =
         Task.Spawn(
         function()
@@ -23,7 +22,6 @@ function PlayerChunkDataClass(player, terrainParent)
             if not (chunkCoordX == self.chunkCoordX and chunkCoordY == self.chunkCoordY) then
                 self.chunkCoordX = chunkCoordX
                 self.chunkCoordY = chunkCoordY
-                -- print(tostring(chunkCoordX) .. '|' .. tostring(chunkCoordY))
                 for i = -1, 1 do
                     for ii = -1, 1 do
                         terrainInstance.LoadChunk(chunkCoordX + i, chunkCoordY + ii)
@@ -37,16 +35,11 @@ function PlayerChunkDataClass(player, terrainParent)
     return setmetatable(self, self)
 end
 function OnPlayerJoined(player)
-    -- TODO:
-    -- what chunk is the player on?
-
-    -- check for when Player leaves the chunk
     PlayerChunkDataClass(player, script.parent)
-    -- onLeaveChunk event handle
+    -- TODO: onLeaveChunk event handle
 end
 if Environment.IsServer() then
     Game.playerJoinedEvent:Connect(OnPlayerJoined)
 else
     Events.Connect('LocalPlayerJoined', OnPlayerJoined)
 end
--- print(Vector3.ONE == Vector3.ONE)

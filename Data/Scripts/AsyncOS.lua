@@ -14,7 +14,6 @@ function AsyncOSScheduler(threadCount)
     -- functions:
     function self._ThreadLoop()
         for id, task in pairs(self.tasks) do
-            -- assert(task)
             self.tasks[id] = nil
             if not task.yielded and not task.executingThread then
                 task.executingThread = Task.GetCurrent().id
@@ -38,19 +37,11 @@ function AsyncOSScheduler(threadCount)
         thread.repeatInterval = 0
         return thread
     end
-
-    -- setup:
-    -- Task.Spawn(
-    --     function()
     for i = 1, self.threadCount do
-        -- if not self.threads[i] then
         -- TODO: deal with crashes
         local thread = self._SpawnThread()
         self.threads[i] = thread
-        -- end
     end
-    --     end
-    -- )
     return setmetatable(self, self)
 end
 
@@ -59,7 +50,6 @@ local AsyncOS = {
     scheduler = AsyncOSScheduler(12),
     IdGenerator = IdGenClass()
 }
--- i=0
 function AsyncOS.async(func)
     local task = {
         id = AsyncOS.IdGenerator(),
@@ -69,8 +59,6 @@ function AsyncOS.async(func)
         func = func
     }
     AsyncOS.scheduler.tasks[task.id] = task
-    -- i = i+1
-    -- print(type(task.id))
     return task.id
 end
 function AsyncOS.await(taskId)

@@ -86,15 +86,17 @@ function DraftChunkedBuilder(parent, asset, chunkSize, viewDistance)
             end
         end
     end
+
     function self.BuildArea(options, startX, startY, width, height)
         assert(options)
         assert(type(options) == 'table', type(options))
         assert(options.spawnParams)
         local iters = 0
         local MAX_ITERS_PER_TICK = 100
+        local spawnParams = options.spawnParams
+        local correctionParams = options.correctionParams
         for i = startY, startY + height do
             for ii = startX, startX + width do
-                -- print(iters)
                 iters = iters + 1
                 if iters % MAX_ITERS_PER_TICK == 0 then
                     if iters > 10000 then
@@ -102,8 +104,8 @@ function DraftChunkedBuilder(parent, asset, chunkSize, viewDistance)
                     end
                     Task.Wait()
                 end
-                if options.spawnParams[i] and options.spawnParams[i][ii] then
-                    local thisParams = options.spawnParams[i][ii]
+                if spawnParams[i] and spawnParams[i][ii] then
+                    local thisParams = spawnParams[i][ii]
                     -- local SPACING = self.chunkSize * 100
                     -- thisParams.position = thisParams.position-(currentlyChunk:GetPosition()-self.parent:GetWorldPosition())
                     -- thisParams.parent = currentlyChunk
@@ -115,6 +117,13 @@ function DraftChunkedBuilder(parent, asset, chunkSize, viewDistance)
                     --     Vector3.New(1, 1, 6.5) * SPACING / 2 * self.chunkSize,
                     --     {duration = 500, thickness = 3}
                     -- )
+                    if correctionParams and correctionParams[i] and correctionParams[i][ii] then
+                        assert(#correctionParams[i][ii] ~= 0)
+                        for k = 1, #correctionParams[i][ii] do
+                            print('hello')
+                            World.SpawnAsset(self.asset, correctionParams[i][ii][k])
+                        end
+                    end
                 end
             end
         end

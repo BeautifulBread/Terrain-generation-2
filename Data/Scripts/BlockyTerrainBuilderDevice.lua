@@ -7,7 +7,7 @@ function BlockyTerrainBuilderDevice(parent, blockSize)
         parent = parent,
         blockSize = blockSize or 1,
         inputKeys = {'heightMap'},
-        outputKeys = {'spawnParams', 'blockSize'}
+        outputKeys = {'spawnParams', 'blockSize', 'correctionParams'}
     }
     function self.__call(_, options)
         error("This shouldn't be used anymore")
@@ -103,6 +103,8 @@ function BlockyTerrainBuilderDevice(parent, blockSize)
         options.spawnParams = spawnParams
         return options
     end
+    -- FIXME:DEBUG
+    local correctionsCounter = 0
     function self.ExecuteForArea(options, startX, startY, width, height)
         assert(
             options,
@@ -148,7 +150,55 @@ function BlockyTerrainBuilderDevice(parent, blockSize)
                 }
             end
         end
+        -- -- correct holes when neighbouring zOffset is too much
+        iters = iters % MAX_ITERS_PER_TICK
+        MAX_ITERS_PER_TICK = 5000
+        local correctionParams = {}
+        for i = startY, startY + height do
+            for ii = startX, startX + width do
+                iters = iters + 1
+                if iters % MAX_ITERS_PER_TICK == 0 then
+                    Task.Wait()
+                end
+                local neighbours = {}
+                neighbours.u = spawnParams[i][ii + 1]
+                neighbours.d = spawnParams[i][ii - 1]
+                if spawnParams[i + 1] then
+                    neighbours.r = spawnParams[i + 1][ii]
+                end
+                if spawnParams[i - 1] then
+                    neighbours.l = spawnParams[i - 1][ii]
+                end
+                local offsets = {}
+                for k, v in pairs(neighbours) do
+                    assert(spawnParams[i][ii])
+                    offsets[k] = spawnParams[i][ii].position.z - v.position.z
+                end
+                local maxOffset = 0
+                for _, v in pairs(offsets) do
+                    assert(v)
+                    if v > maxOffset then
+                        maxOffset = v
+                    end
+                end
+                assert(maxOffset and type(maxOffset) == 'number', type(maxOffset))
+                for l = 1, maxOffset // SPACING - 1 do
+                    local position = Vector3.New(spawnParams[i][ii].position - Vector3.UP * l * SPACING)
+                    -- CoreDebug.DrawBox(position + self.parent:GetWorldPosition(), Vector3.New(1,1,1) * SPACING/2, {duration = 500})
+                    correctionParams[i] = correctionParams[i] or {}
+                    correctionParams[i][ii] = correctionParams[i][ii] or {}
+                    correctionParams[i][ii][#correctionParams[i][ii] + 1] = {
+                        position = position,
+                        scale = Vector3.New(spawnParams[i][ii].scale),
+                        parent = spawnParams[i][ii].parent
+                    }
+                    correctionsCounter = correctionsCounter + 1
+                    print(correctionsCounter)
+                end
+            end
+        end
         options.spawnParams = spawnParams
+        options.correctionParams = correctionParams
         return options
     end
     return setmetatable(self, self)

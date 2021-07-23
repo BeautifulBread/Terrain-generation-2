@@ -112,9 +112,10 @@ function BlockyTerrainBuilderDevice(parent, blockSize)
             heighMap: table]]
         )
         assert(options.heightMap, 'There was no heightMap supplied to ' .. self.type)
-        if #options.heightMap == 0 then
-            return {heightMap = {}}
-        end
+        -- if #options.heightMap == 0 then
+        --     error("not supposed to happen")
+        --     return {heightMap = {}}
+        -- end
         assert(type(options.heightMap) == 'table', "You've passed invalid heightMap to " .. self.type)
         options.position = options.position or Vector3.ZERO
         assert(

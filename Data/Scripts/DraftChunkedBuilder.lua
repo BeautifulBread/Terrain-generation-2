@@ -87,10 +87,14 @@ function DraftChunkedBuilder(parent, asset, chunkSize, viewDistance)
         end
     end
     function self.BuildArea(options, startX, startY, width, height)
+        assert(options)
+        assert(type(options) == 'table', type(options))
+        assert(options.spawnParams)
         local iters = 0
         local MAX_ITERS_PER_TICK = 100
         for i = startY, startY + height do
             for ii = startX, startX + width do
+                -- print(iters)
                 iters = iters + 1
                 if iters % MAX_ITERS_PER_TICK == 0 then
                     if iters > 10000 then
@@ -99,11 +103,11 @@ function DraftChunkedBuilder(parent, asset, chunkSize, viewDistance)
                     Task.Wait()
                 end
                 if options.spawnParams[i] and options.spawnParams[i][ii] then
-                    -- local thisParams = options.spawnParams[i][ii]
+                    local thisParams = options.spawnParams[i][ii]
                     -- local SPACING = self.chunkSize * 100
                     -- thisParams.position = thisParams.position-(currentlyChunk:GetPosition()-self.parent:GetWorldPosition())
                     -- thisParams.parent = currentlyChunk
-                    -- World.SpawnAsset(self.asset, thisParams)
+                    World.SpawnAsset(self.asset, thisParams)
                     -- local posOffset = (Vector3.New(1, 0, 0) * i + Vector3.New(0, 1, 0) * ii) * SPACING * self.chunkSize
                     -- CoreDebug.DrawBox(
                     --     self.parent:GetWorldPosition() + posOffset +

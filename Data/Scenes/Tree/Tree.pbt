@@ -19,6 +19,7 @@ Objects {
   ChildIds: 1417443500982511754
   ChildIds: 2278023636702191289
   ChildIds: 333938486872359851
+  ChildIds: 10191267911243481761
   ChildIds: 8271506111190957228
   UnregisteredParameters {
   }
@@ -73,6 +74,39 @@ Objects {
     }
     TemplateAsset {
       Id: 5027466373211250011
+    }
+  }
+}
+Objects {
+  Id: 10191267911243481761
+  Name: "TestScript"
+  Transform {
+    Location {
+    }
+    Rotation {
+    }
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 4781671109827199097
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  Script {
+    ScriptAsset {
+      Id: 52479874852565073
     }
   }
 }

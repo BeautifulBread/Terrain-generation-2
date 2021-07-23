@@ -2,6 +2,8 @@ local Imports = _G.Imports
 local AsyncOS = Imports.Coroutines.AsyncOS.require()
 local async = AsyncOS.async
 local await = AsyncOS.await
+runSample = false
+if runSample == false then return end
 Task.Wait(3.5)
 function CountTo200K()
     local count = 0

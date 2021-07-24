@@ -15,7 +15,7 @@ Objects {
     }
   }
   ChildIds: 14809377134483817550
-  ChildIds: 10145188579493919662
+  ChildIds: 16571332942917944541
   ChildIds: 1417443500982511754
   ChildIds: 2278023636702191289
   ChildIds: 333938486872359851
@@ -307,13 +307,9 @@ Objects {
   }
 }
 Objects {
-  Id: 10145188579493919662
+  Id: 16571332942917944541
   Name: "Library"
   Transform {
-    Location {
-    }
-    Rotation {
-    }
     Scale {
       X: 1
       Y: 1
@@ -327,22 +323,29 @@ Objects {
   Visible_v2 {
     Value: "mc:evisibilitysetting:inheritfromparent"
   }
-  CameraCollidable {
-    Value: "mc:ecollisionsetting:inheritfromparent"
-  }
-  EditorIndicatorVisibility {
-    Value: "mc:eindicatorvisibility:visiblewhenselected"
-  }
-  Folder {
-    IsFilePartition: true
-    FilePartitionName: "Library"
-  }
-  InstanceHistory {
-    SelfId: 10145188579493919662
-    SubobjectId: 13947849939794823213
-    InstanceId: 16571332942917944541
-    TemplateId: 3084018047747701294
-    WasRoot: true
+  TemplateInstance {
+    ParameterOverrideMap {
+      key: 13947849939794823213
+      value {
+        Overrides {
+          Name: "Name"
+          String: "Library"
+        }
+        Overrides {
+          Name: "Position"
+          Vector {
+          }
+        }
+        Overrides {
+          Name: "Rotation"
+          Rotator {
+          }
+        }
+      }
+    }
+    TemplateAsset {
+      Id: 3084018047747701294
+    }
   }
 }
 Objects {

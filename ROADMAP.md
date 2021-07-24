@@ -8,7 +8,6 @@ __Currently working on:__
 - [x] Make a new Pipeline2D module that can compute areas
 - [x] Generate terrain around the player
 - [x] Generate terrain around the player on movement
-  - [ ] Make chunks invisible
   - [ ] Unload chunks
   - [ ] Cache of terrain tiles to reuse instead of spawning
 - [ ] Create world borders

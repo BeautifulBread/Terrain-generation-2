@@ -1,3 +1,4 @@
 return {
-    viewDistance = 2
+    serverViewDistance = 1,
+    clientViewDistance = 6
 }

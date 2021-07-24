@@ -7,7 +7,7 @@ function DraftChunkedBuilder(parent, asset, chunkSize, blockSize, viewDistance)
         asset = asset,
         viewDistance = viewDistance or error('', 2),
         chunkSize = chunkSize or error('', 2),
-        blockSize = blockSize or error('',2),
+        blockSize = blockSize or error('', 2),
         chunkModels = {}
     }
     function self.ConvertSpawnParamsToChunkData(options)
@@ -40,6 +40,7 @@ function DraftChunkedBuilder(parent, asset, chunkSize, blockSize, viewDistance)
         local MAX_ITERS_PER_TICK = 28
         local spawnParams = options.spawnParams
         local correctionParams = options.correctionParams
+        local list = {}
         for i = startY, startY + height do
             for ii = startX, startX + width do
                 iters = iters + 1
@@ -48,20 +49,20 @@ function DraftChunkedBuilder(parent, asset, chunkSize, blockSize, viewDistance)
                 end
                 if spawnParams[i] and spawnParams[i][ii] then
                     local thisParams = spawnParams[i][ii]
-                    World.SpawnAsset(self.asset, thisParams)
+                    list[#list + 1] = World.SpawnAsset(self.asset, thisParams)
                     if correctionParams and correctionParams[i] and correctionParams[i][ii] then
                         assert(#correctionParams[i][ii] ~= 0)
                         for k = 1, #correctionParams[i][ii] do
                             if iters % MAX_ITERS_PER_TICK == 0 then
                                 Task.Wait()
                             end
-                            World.SpawnAsset(self.asset, correctionParams[i][ii][k])
+                            list[#list + 1] = World.SpawnAsset(self.asset, correctionParams[i][ii][k])
                         end
                     end
                 end
             end
         end
-        return
+        return list
     end
     return setmetatable(self, self)
 end

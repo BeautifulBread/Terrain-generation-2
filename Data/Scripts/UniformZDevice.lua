@@ -37,6 +37,28 @@ function UniformZDevice(mapSize, zOffset)
         ret.heightMap = flatSurface
         return ret
     end
+    function self.ExecuteForArea(options, startX, startY, width, height)
+        options = options or {}
+        options.heightMap = options.heightMap or {}
+        -- if options.heightMap then
+        --     local msg = 'Dimension mismatch '
+        --     assert(self.width == #options.heightMap[1], msg)
+        --     assert(self.height == #options.heightMap, msg)
+        -- end
+        local MAX_ITERS_PER_TICK = 20000
+        local iters = 0
+        for y = startY, startY + height do
+            options.heightMap[y] = options.heightMap[y] or {}
+            for x = startX, startX + width do
+                iters = iters + 1
+                if iters % MAX_ITERS_PER_TICK == 0 then
+                    Task.Wait()
+                end
+                options.heightMap[y][x] = self.zOffset
+            end
+        end
+        return options
+    end
     function self.__tostring()
         return self.type
     end

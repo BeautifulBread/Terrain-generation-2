@@ -107,7 +107,7 @@ function BlockyTerrainBuilderDevice(parent, blockSize)
         assert(
             options,
             [[You've failed to pass options to ]] .. self.type .. [[! Mandatory options:
-            heighMap: table]]
+            heightMap: table]]
         )
         assert(options.heightMap, 'There was no heightMap supplied to ' .. self.type)
         assert(type(options.heightMap) == 'table', "You've passed invalid heightMap to " .. self.type)

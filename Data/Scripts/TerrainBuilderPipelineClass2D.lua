@@ -49,15 +49,15 @@ function TerrainBuilderPipelineClass2D(parent)
             local perfReport = {}
             perfReport.type = self.devices[i].type
             perfReport.startTime = time()
-            self._associatedTasks[i] =
-                async(
-                function()
-                    local opts = self.devices[i].ExecuteForArea(options, startX, startY, width, height)
-                    return opts
-                end
-            )
-            options = await(self._associatedTasks[i])
-            -- options = self.devices[i].ExecuteForArea(options,startX,startY,width,height)
+            -- self._associatedTasks[i] =
+            --     async(
+            --     function()
+            --         local opts = self.devices[i].ExecuteForArea(options, startX, startY, width, height)
+            --         return opts
+            --     end
+            -- )
+            -- options = await(self._associatedTasks[i])
+            options = self.devices[i].ExecuteForArea(options,startX,startY,width,height)
             if self.remaps[i] then
                 for k, v in pairs(self.remaps[i]) do
                     assert(options[v] == options[k] or not options[v], "You can't remap to an occupied key")

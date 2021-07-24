@@ -76,7 +76,12 @@ function PerlinNoiseDevice(mapSize, seed, amplitude, stretch)
                 if iters % MAX_ITERATIONS_PER_TICK == 0 then
                     Task.Wait()
                 end
-                options.heightMap[y][x] = (Noise.make(y * self.stretch.x, x * self.stretch.y) * amplitude + 1) / 2
+                local noise = (Noise.make(y * self.stretch.x, x * self.stretch.y) * amplitude + 1) / 2
+                if options.heightMap[y][x] then
+                    options.heightMap[y][x] = options.heightMap[y][x] + noise
+                else
+                    options.heightMap[y][x] = noise
+                end
             end
         end
         return options

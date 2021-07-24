@@ -8,15 +8,14 @@ __Currently working on:__
 - [x] Make a new Pipeline2D module that can compute areas
 - [x] Generate terrain around the player
 - [x] Generate terrain around the player on movement
-  - [ ] Unload chunks
-  - [ ] Cache of terrain tiles to reuse instead of spawning
+  - [x] Unload chunks
 - [ ] Create world borders
-- [ ] minecraft style terrain
-- [ ] voxel-based terrain destruction
-  - [ ] spawn blocks to cover up holes
+- [x] minecraft style terrain
+- [ ] block-based terrain destruction
+  - [x] spawn blocks to cover up holes
   - [ ]  "inject" changes into chunk data
 - [ ] picking and placing blocks
-  - [ ] persistance
+  - [ ] persistence
 - [ ] minecraft demo
   - [ ] Inv
   - [ ] UI

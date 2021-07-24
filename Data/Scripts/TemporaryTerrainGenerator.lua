@@ -13,8 +13,8 @@ function TemporaryTerrainGenerator.GeneratePipeline(terrainParent)
     local pipeline = TerrainHeightmapBuilderPipelineClass2D(terrainParent)
 
     local mapSize = Vector2.New(50, 50)
-    pipeline.AddDevice(PerlinNoiseDevice(mapSize, 5034, 1000, Vector2.New(0.05, 0.05)))
-    -- pipeline.AddDevice(UniformZDevice(mapSize, 150))
+    pipeline.AddDevice(UniformZDevice(mapSize, 150))
+    -- pipeline.AddDevice(PerlinNoiseDevice(mapSize, 5034, 1000, Vector2.New(0.05, 0.05)))
     -- pipeline.Remap({heightMap = 'input1'})
 
     -- -- pipeline.AddDevice(FlatSurface2DDevice(100, 100, 0))
